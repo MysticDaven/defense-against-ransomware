@@ -50,12 +50,15 @@
   max-width: 320px;
 }
 
+
 /*----------card----------*/
 
 .card {
   position: relative;
+  align-items: center;
   width: 300px;
   height: 350px;
+  margin: 20px;
 }
 
 .card .face{
@@ -134,7 +137,7 @@
 /*----------footer----------*/
 
 #footer {
-  background-image: linear-gradient(to right,#0b1d3e ,#08571e );
+  background: #202020;
   color: #ffffff;
 }
 

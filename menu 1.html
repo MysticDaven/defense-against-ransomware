@@ -12,6 +12,7 @@
   </head>
   <body>
   	
+    <!-- nav -->
 <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(to top right, #1D8E6E, #263E6C);">
     <div class="container-fluid">
 		
@@ -30,20 +31,20 @@
         </li>	
 			
 			
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <li class="nav-item ">
+            <a class="nav-link active" aria-current="page" href="#">
               Bp de prevencion
             </a>
           </li>
 			
-		<li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		<li class="nav-item ">
+                <a class="nav-link active" aria-current="page" href="#">
                   Bp de contencion
                 </a>
     </li>
 			
-			<li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<li class="nav-item ">
+                <a class="nav-link active" aria-current="page" href="#">
                   Recursos multimedia
                 </a>
       </li>
@@ -99,14 +100,13 @@
   <div class="container">
     <div class="row">
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-
-    <div class="card">
-      <div class="face front">
-        <img src="imagenes/pasos.jpg" alt="">
-        <h3>Primeros pasos</h3>
-      </div>
-      <div class="face back">
+     <div class="col-4">
+       <div class="card">
+         <div class="face front">
+         <img src="imagenes/pasos.jpg" alt="">
+         <h3>Primeros pasos</h3>
+         </div>
+        <div class="face back">
         <h3>Primeros pasos</h3>
         <p>
         Es un hecho establecido hace demasiado tiempo que un lector 
@@ -118,7 +118,9 @@
         </div>
       </div>
     </div>
+  </div>
 
+  <div class="col-4">
     <div class="card">
       <div class="face front">
         <img src="imagenes/cyber1.png" alt="">
@@ -136,7 +138,9 @@
         </div>
       </div>
     </div>
+  </div>
 
+  <div class="col-4">
     <div class="card">
       <div class="face front">
         <img src="imagenes/scam.png" alt="">
@@ -154,9 +158,9 @@
         </div>
       </div>
     </div>
-</div>
+   </div>
   </div>
-	</div>  
+</div>  
 	  <!---------footer-------------->
     <section id="footer">
 	  <footer class="text dark pt-5 pb-4">

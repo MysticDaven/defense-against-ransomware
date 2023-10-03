@@ -37,6 +37,7 @@
   background: linear-gradient(to top right, #1D8E6E, #263E6C);
   padding-bottom: 50px;
   padding-top: 50px;
+  
 }
 
 .about-title  {
@@ -50,12 +51,15 @@
   max-width: 320px;
 }
 
+
 /*----------card----------*/
 
 .card {
   position: relative;
+  align-items: center;
   width: 300px;
   height: 350px;
+  margin: 20px;
 }
 
 .card .face{
@@ -134,8 +138,8 @@
 /*----------footer----------*/
 
 #footer {
-  background-image: linear-gradient(to right, #08571e, #263E6C);
-  color: #252525;
+  background: #202020;
+  color: #ffffff;
 }
 
 .footer-box {
