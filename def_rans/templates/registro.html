@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="{% static '/styles/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/registro.css' %}">
     <title>Registro</title>
 </head>
 <body>
 
-    <link rel="icon" href="imagenes/logo 4min.png">
+    <link rel="icon" href="{% static '/img/logo 4min.png' %}">
 
      <div class="container d-flex justify-content-center align-items-center min-vh-100">
 
@@ -18,7 +18,7 @@
 
        <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
            <div class="featured-image mb-3">
-           <img src="imagenes/logo 4.png" class="justify-content-center align-items-center img-fluid" alt="Placeholder image"> </div>
+           <img src="{% satatic '/img/logo 4.png' %}" class="justify-content-center align-items-center img-fluid" alt="Placeholder image"> </div>
        </div> 
 
     
@@ -73,7 +73,7 @@
                     <button class="btn btn-outline-danger w-100 my-1">
 						  <div class="row align-items-center">
 						    <div class="col-2 d-none d-md-block">
-							   <img src="imagenes/gmail.png" width="32" alt="">
+							   <img src="{% static '/img/gmail.png' %}" width="32" alt="">
 						    </div>
 							  <div class="col-12 col-md-10 text-center">
 							    Gmail
@@ -86,7 +86,7 @@
                     <button class="btn btn-primary w-100 my-1">
 						  <div class="row align-items-center">
 						    <div class="col-2 d-none d-md-block">
-							   <img src="imagenes/face.png" width="32" alt="">
+							   <img src="{% static '/img/face.png' %}" width="32" alt="">
 						    </div>
 							  <div class="col-12 col-md-10 text-center">
 							    Facebook

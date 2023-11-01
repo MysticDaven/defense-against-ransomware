@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,16 +8,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DPAR</title>
     <!-- Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="{% static '/styles/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-	<link rel="stylesheet" href="css/menu 2.css">
+	<link rel="stylesheet" href="{% static '/styles/menu 2.css' %}">
   </head>
   <body>
   	
 <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(to top right, #1D8E6E, #263E6C);">
     <div class="container-fluid">
 		
-	  <img src="imagenes/logo 4.png" alt="Bootstrap" width="50" height="54">
+	  <img src="{% static '/img/logo 4.png' %}" alt="Bootstrap" width="50" height="54">
 		
       <a class="navbar-brand fw-bold" href="#"></a>
 		
@@ -101,7 +103,7 @@
 
 	<container>
 	  
-	  <img src="imagenes/banner.png" class="img-fluid" alt="...">
+	  <img src="{% static '/img/banner.png' %}" class="img-fluid" alt="...">
 
   </container>   
 
@@ -126,7 +128,7 @@
           </div>
           
           <div class="col-md-6">
-          <img src="imagenes/cyber1.png" class="img-fluid">
+          <img src="{% static '/img/cyber1.png' %}" class="img-fluid">
           </div>
         </div>
       </div>
@@ -140,7 +142,7 @@
       <div class="col-4">
         <div class="card">
           <div class="face front">
-          <img src="imagenes/pasos.jpg" alt="">
+          <img src="{% static '/img/pasos.jpg' %}" alt="">
           <h3>Primeros pasos</h3>
           </div>
          <div class="face back">
@@ -160,7 +162,7 @@
    <div class="col-4">
      <div class="card">
        <div class="face front">
-         <img src="imagenes/cyber1.png" alt="">
+         <img src="{% sttic '/img/cyber1.png' %}" alt="">
          <h3>Identificar brecha</h3>
        </div>
        <div class="face back">
@@ -180,7 +182,7 @@
    <div class="col-4">
      <div class="card">
        <div class="face front">
-         <img src="imagenes/scam.png" alt="">
+         <img src="{% static '/img/scam.png' %}" alt="">
          <h3>Cerrar brecha</h3>
        </div>
        <div class="face back">
@@ -207,11 +209,11 @@
               <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Contacto</h5>
               <hr class="mb-4">
               
-              <p><img src="imagenes/logo 4.png" class="img-fluid" width="60" height="60"></p>
+              <p><img src="/img/logo 4.png" class="img-fluid" width="60" height="60"></p>
   
-              <p><img src="imagenes/ITMORELIA.png" class="img-fluid" width="60" height="60"></p>
+              <p><img src="/img/ITMORELIA.png" class="img-fluid" width="60" height="60"></p>
   
-              <p><img src="imagenes/IIES.png" class="img-fluid" width="60" height="60"></p>
+              <p><img src="/img/IIES.png" class="img-fluid" width="60" height="60"></p>
             </div>
   
   

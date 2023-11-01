@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="{% static '/styles/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/formulario.css' %}">
 
 
 </head>
@@ -60,7 +62,7 @@
 
 
         <div class="mb-4">
-            <label for="password" class="form-label">Contraceña</label>
+            <label for="password" class="form-label">Contraseña</label>
             <input type="password" class="form-control" name="password" id="validationCustom03" required>
             <div class="invalid-feedback">
                 Debe agregar su contraseña
@@ -68,7 +70,7 @@
         </div>
 
         <div class="mb-4">
-            <label for="password" class="form-label">Confirmar contraceña</label>
+            <label for="password" class="form-label">Confirmar contraseña</label>
             <input type="password" class="form-control" name="password" id="validationCustom03" required>
             <div class="invalid-feedback">
                 Debe agregar su contraseña
@@ -101,7 +103,7 @@
 </div>
 
 
-<script src="js/bootstrap.bundle.min.js"></script>
+<script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
 
 
 <script>

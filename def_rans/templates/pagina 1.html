@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +8,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
     <title>DPAR</title>
     <!-- Bootstrap -->
-	<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="{% static '/styles/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-	<link rel="stylesheet" href="../css/pagina 1.css">
+	<link rel="stylesheet" href="{% static '/static/styles/pagina 1.css' %}">
 </head>
 <body>
 
@@ -16,7 +18,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(to top right, #1D8E6E, #263E6C);">
     <div class="container-fluid">
 		
-	  <img src="../imagenes/logo 4.png" alt="Bootstrap" width="50" height="54">
+	  <img src="{% static 'logo 4.png' %}" alt="Bootstrap" width="50" height="54">
 		
       <a class="navbar-brand fw-bold" href="#"></a>
 		
@@ -128,7 +130,7 @@
           </div>
           
           <div class="col-md-6">
-          <img src="../imagenes/cyber1.png" class="img-fluid">
+          <img src="{% static 'cyber1.png' %}" class="img-fluid">
           </div>
         </div>
       </div>
@@ -156,7 +158,7 @@
           </div>
           
           <div class="col-md-6">
-          <img src="../imagenes/cyber1.png" class="img-fluid">
+          <img src="{% static 'cyber1.png' %}" class="img-fluid">
           </div>
         </div>
       </div>

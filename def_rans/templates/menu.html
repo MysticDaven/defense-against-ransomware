@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,15 +8,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DPAR</title>
     <!-- Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="css/menu.css">
+	<link href="{% static '/syles/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{% static '/styles/menu.css' %}">
   </head>
   <body>
   	
 <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(to top right, #1D8E6E, #263E6C);">
     <div class="container-fluid">
 		
-	  <img src="imagenes/logo 4.png" alt="Bootstrap" width="50" height="54">
+	  <img src="{% static '/img/logo 4.png' %}" alt="Bootstrap" width="50" height="54">
 		
       <a class="navbar-brand fw-bold" href="#"></a>
 		
@@ -100,7 +102,7 @@
 
 	<container>
 	  
-	  <img src="imagenes/banner.png" class="img-fluid" alt="...">
+	  <img src="{% static '/img/banner.png' %}" class="img-fluid" alt="...">
 	  
 	  </container>  
 	  
@@ -109,6 +111,6 @@
 	  
 
 
-	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
   </body>
 </html>
