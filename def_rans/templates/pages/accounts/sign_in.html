@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +19,7 @@
 
        <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
            <div class="featured-image mb-3">
-           <img src="{% satatic '/img/logo 4.png' %}" class="justify-content-center align-items-center img-fluid" alt="Placeholder image"> </div>
+           <img src="{% static '/img/logo 4.png' %}" class="justify-content-center align-items-center img-fluid" alt="Placeholder image"> </div>
        </div> 
 
     
@@ -30,7 +31,7 @@
             </div>
 
         <div class="mb-4">
-            <label for="correo"><i class="bi bi-envelope-fill"></i> Correo electronico</label>
+            <label for="correo"><i class="bi bi-envelope-fill"></i> Correo electrónico</label>
             <input type="email" class="form-control" name="correo" id="correo" placeholder= "ej: cacahuate@mail.com" required>
             <div class="correo text-danger">
 
@@ -39,7 +40,7 @@
                 Todo bien
             </div>
             <div class="invalid-feedback">
-               Es necesario poner el correo electronico
+               Es necesario poner el correo electrónico
             </div>   
         </div>
 
@@ -56,16 +57,16 @@
                 <div class="input-group mb-5 d-flex justify-content-between">
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="formCheck">
-                        <label for="formCheck" class="form-check-label text-secondary"><small>Recuerdame</small></label>
+                        <label for="formCheck" class="form-check-label text-secondary"><small>Recuérdame</small></label>
                     </div>
                     <div class="forgot">
-                        <small><a href="#">Has olvidado tu contraseña?</a></small>
+                        <small><a href="#">¿Has olvidado tu contraseña?</a></small>
                     </div>
                 </div>
 
 
                 <div class="input-group mb-3">
-                   <button class="btn btn-lg btn-primary w-100 fs-6" type="submit">iniciar sesión</button>
+                   <button class="btn btn-lg btn-primary w-100 fs-6" type="submit">Iniciar Sesión</button>
                 </div> 
 
 
@@ -99,7 +100,7 @@
 			  
 			  
             <div class="row">
-                    <small>¿No tienes cuenta? <a href="formulari.html">Registrar</a></small>
+                    <small>¿No tienes cuenta? <a href="{% url 'sign_up' %}">Registrar</a></small>
             </div>
 
              

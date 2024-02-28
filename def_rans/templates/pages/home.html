@@ -1,4 +1,7 @@
+{% extends 'layouts/base.html' %}
 {% load static %}
+
+{% block content %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,62 +16,6 @@
 	<link rel="stylesheet" href="{% static '/styles/menu 1.css' %}">
   </head>
   <body>
-  	
-    <!-- nav -->
-<nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(to top right, #1D8E6E, #263E6C);">
-    <div class="container-fluid">
-		
-	  <img src="{% static '/img/logo 4.png' %}" alt="Bootstrap" width="50" height="54">
-		
-      <a class="navbar-brand fw-bold" href="#"></a>
-		
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-			
-		<li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-        </li>	
-			
-			
-          <li class="nav-item ">
-            <a class="nav-link active" aria-current="page" href="#">
-              Bp de prevencion
-            </a>
-          </li>
-			
-		<li class="nav-item ">
-                <a class="nav-link active" aria-current="page" href="#">
-                  Bp de contencion
-                </a>
-    </li>
-			
-			<li class="nav-item ">
-                <a class="nav-link active" aria-current="page" href="#">
-                  Recursos multimedia
-                </a>
-      </li>
-			
-          
-        </ul>
-        
-		<div class="d-flex justify-content-center align-items-center gap-3">
-          <a href="registro.html" class="text-white text-decoration-none px-3 py-1 rounded-4" style="background-color: rgb(32, 90, 29);">Iniciar sesion</a>
-          <a href="formulari.html" class="text-white text-decoration-none px-3 py-1 rounded-4" style="background-color: rgb(17, 21, 82);">Registrarse</a>
-      </div>  
-		    
-      </div>
-    </div>
-</nav>
-
-	<container>
-	  
-	  <img src="{% static '/img/banner.png' %}" class="img-fluid" alt="...">
-
-  </container>   
-
     <section id="about-us">
       <div class="container">
         <h1 class="title text-center">Detener el Ransomware</h1>
@@ -157,69 +104,8 @@
    </div>
   </div>
 </div>  
-	  <!---------footer-------------->
-    <section id="footer">
-	  <footer class="text dark pt-5 pb-4">
-      <div class="container text-center text-md-start">
-        <div class="row text-center text-md-start">
-          <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">
-            <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Contacto</h5>
-            <hr class="mb-4">
-            
-            <p><img src="{% static '/img/logo 4.png' %}" class="img-fluid" width="60" height="60"></p>
-
-            <p><img src="{% static '/img/ITMORELIA.png' %}" class="img-fluid" width="60" height="60"></p>
-
-            <p><img src="{% static '/img/IIES.png' %}" class="img-fluid" width="60" height="60"></p>
-          </div>
-
-
-
-          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Nosotros</h5>
-            <hr class="mb-4">
-            <p>Somos una empresa que provee una guía de buenas prácticas especializada en ciberseguridad, 
-              enfocada en la prevención y detección del ransomware, diseñada para brindar soluciones adaptadas a las
-               necesidades de la empresa, PyMe u organización por medio de una página web. Además de la guía, se 
-               ofrecerán servicios personalizados como capacitaciones en concienciación sobre la ciberseguridad, 
-               implementación de medidas de protección, evaluación de vulnerabilidades o algún servicio en 
-               específico. </p>
-          </div>
-
-          
-
-          <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">
-            <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Contacto</h5>
-            <hr class="mb-4">
-            <p>
-              <i class="bi bi-house"></i> Morelia
-            </p>
-            <p>
-              <i class="bi bi-envelope"></i>ejemplo@gmail.com
-            </p>
-            <p>
-              <i class="bi bi-telephone"></i>4432556090
-            </p>
-          </div>
-          
-          <hr class="mb-4">
-          <div class="text-center mb-2">
-            <p>
-              Copyright, Todos los derechos reservados
-              <a href="#">
-                <strong class="text-primary">###</strong>
-              </a>
-            </p>
-          </div>
-
-
-          </div>
-        </div>
-      </div>
-    </footer>
-	  </section>
-
-
 	<script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
   </body>
 </html>
+
+{% endblock %}

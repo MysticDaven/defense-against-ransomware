@@ -10,7 +10,7 @@ urlpatterns = [
 
     #Cuenta
     path('cuenta/', views.account, name='account'),
-    path('cuenta/registro', views.sign_up, name='sign_un'),
+    path('cuenta/registro', views.sign_up, name='sign_up'),
     path('cuenta/consultar', views.consult, name='consult'),
     path('cuenta/formulario', views.form, name='form'),
     path('cuenta/ingresar', views.sign_in, name='sign_in'),
@@ -31,7 +31,7 @@ urlpatterns = [
     path('cuenta/firewall_small', views.s_bus_f, name='small_f'),
 
     #Media
-    path('media/brochure/', views.brochur, name='brochur'),
+    path('media/brochure/', views.brochur, name='brochure'),
     path('media/data/', views.data, name='data'),
     path('media/video/', views.video, name='video'),
 

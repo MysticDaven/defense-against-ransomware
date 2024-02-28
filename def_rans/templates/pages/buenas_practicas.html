@@ -1,4 +1,7 @@
+{% extends 'layouts/base.html' %}
 {% load static %}
+
+{% block content %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,102 +16,8 @@
 	<link rel="stylesheet" href="{% static '/static/styles/pagina 1.css' %}">
 </head>
 <body>
-
-  <!-- nav -->
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(to top right, #1D8E6E, #263E6C);">
-    <div class="container-fluid">
-		
-	  <img src="{% static 'logo 4.png' %}" alt="Bootstrap" width="50" height="54">
-		
-      <a class="navbar-brand fw-bold" href="#"></a>
-		
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-			
-		<li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-        </li>	
-			
-        <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Quiz
-                </a>
-                <ul class="dropdown-menu submenu multi-menu dropdown-menu-dark">
-                  <li><a class="dropdown-item" href="#">Consultar</a></li>
-                  <li><a class="dropdown-item" href="#">Editar</a></li>
-                </ul>
-              </li>
-			
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Bp de prevencion
-            </a>
-            <ul class="dropdown-menu submenu multi-menu dropdown-menu-dark">
-                  <li><a class="dropdown-item" href="#">Antivirus</a></li>
-                  <li><a class="dropdown-item" href="#">Fireware</a></li>
-                  <li><a class="dropdown-item" href="#">Software especializado (DLP Y ZTNA)</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li class="nav-item dropend">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Estandares de ciberseguridad
-                </a>
-                <ul class="dropdown-menu submenu multi-menu dropdown-menu-dark">
-                  <li><a class="dropdown-item" href="#">zerotrust</a></li>
-                  <li><a class="dropdown-item" href="#">iso 27001</a></li>
-                  <li><a class="dropdown-item" href="#">GDPR</a></li>
-				  <li><a class="dropdown-item" href="#">SIEM</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-			
-		<li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Bp de contencion
-                </a>
-                <ul class="dropdown-menu submenu multi-menu dropdown-menu-dark">
-                  <li><a class="dropdown-item" href="#">Primeros pasos</a></li>
-                  <li><a class="dropdown-item" href="#">Identificar la brecha</a></li>
-                  <li><a class="dropdown-item" href="#">Cerrar brecha</a></li>
-                </ul>
-              </li>
-			
-			<li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Recursos multimedia
-                </a>
-                <ul class="dropdown-menu submenu multi-menu dropdown-menu-dark">
-                  <li><a class="dropdown-item" href="#">Hojas tenicas</a></li>
-                  <li><a class="dropdown-item" href="#">Abrochures</a></li>
-
-                  <li><a class="dropdown-item" href="#">Video</a></li>
-                </ul>
-              </li>
-			
-          
-        </ul>
-        
-		<div class="d-flex justify-content-center align-items-center gap-3">
-          <a href="#logihn" class="text-white text-decoration-none px-3 py-1 rounded-4" style="background-color: rgb(32, 90, 29);">Iniciar sesion</a>
-          <a href="formulari.html" class="text-white text-decoration-none px-3 py-1 rounded-4" style="background-color: rgb(17, 21, 82);">Registrarse</a>
-      </div>  
-		    
-      </div>
-    </div>
-</nav>
-
-
-
 <!-- body -->
     <section id="about-us">
-
-
-
       <div class="container">
         <h1 class="title text-center">Detener el Ransomware</h1>
         <div class="row">
@@ -162,75 +71,9 @@
           </div>
         </div>
       </div>
-      
-
-
-
-
  </section> 
-
-	<!---------footer-------------->
-  
-  <section id="footer">
-	  <footer class="text dark pt-5 pb-4">
-      <div class="container text-center text-md-start">
-        <div class="row text-center text-md-start">
-          <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">
-            <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Contacto</h5>
-            <hr class="mb-4">
-            
-            <p><img src="../imagenes/logo 4.png" class="img-fluid" width="60" height="60"></p>
-
-            <p><img src="../imagenes/ITMORELIA.png" class="img-fluid" width="60" height="60"></p>
-
-            <p><img src="../imagenes/IIES.png" class="img-fluid" width="60" height="60"></p>
-          </div>
-
-
-
-          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Nosotros</h5>
-            <hr class="mb-4">
-            <p>Hay muchas variaciones de los pasajes de Lorem Ipsum disponibles, 
-              pero la mayoría sufrió alteraciones en alguna manera, ya sea porque
-              se le agregó humor, o palabras aleatorias que no parecen ni un poco 
-              creíbles. Si vas a utilizar un pasaje de Lorem Ipsum, necesitás estar 
-              seguro de que no hay nada avergonzante escondido en el medio del texto.</p>
-          </div>
-
-          
-
-          <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">
-            <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Contacto</h5>
-            <hr class="mb-4">
-            <p>
-              <i class="bi bi-house"></i> Morelia
-            </p>
-            <p>
-              <i class="bi bi-envelope"></i>ejemplo@gmail.com
-            </p>
-            <p>
-              <i class="bi bi-telephone"></i>4432556090
-            </p>
-          </div>
-          
-          <hr class="mb-4">
-          <div class="text-center mb-2">
-            <p>
-              Copyright, Todos los derechos reservados
-              <a href="#">
-                <strong class="text-primary">###</strong>
-              </a>
-            </p>
-          </div>
-
-
-          </div>
-        </div>
-      </div>
-    </footer>
-	  </section>
-
     <script src="../js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
+
+{% endblock %}

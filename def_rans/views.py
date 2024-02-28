@@ -30,7 +30,7 @@ def sign_up(request):
     return render(request, 'pages/accounts/sign_up.html')
 
 def l_comp_av(request):
-    return render(request, 'pages/antivirus/large_copanies_av.html')
+    return render(request, 'pages/antivirus/large_companies_av.html')
 
 def m_comp_av(request):
     return render(request, 'pages/antivirus/medium_companies_av.html')
