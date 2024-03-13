@@ -1,9 +1,69 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import *
+from django.forms import *
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.views import *
+from .forms import *
 
 #Create your views here
+#def sign_in2(request):
+#    return render(request, 'pages/accounts/sign_in.html')
+
+def sign_in(request):
+    form = UserLoginForm()
+    context = {
+        'form': form,
+    }
+    if request.method == 'POST':
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            # Redirect to a success page.
+            return redirect('pages/accounts/index.html')
+            ...
+        else:
+            context={
+                'form': form,
+                'msg' : '2'
+            }
+            ...
+    return render(request, 'pages/accounts/sign_in.html', context)
+    
+def sign_up(request):
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            formN = RegistrationForm()
+            context={
+                'form': formN,
+                'msg' : '1'
+            }
+        else:
+            context={
+                'form': form,
+                'msg' : '2'
+            }
+        return render(request, 'pages/accounts/sign_up.html', context)
+    else:
+        form = RegistrationForm()
+
+    context = { 'form': form }
+    return render(request, 'pages/accounts/sign_up.html', context)
+
+def sign_up2(request):
+   return render(request, 'pages/accounts/sign_up.html')
+
+def logout(request):
+    logout(request)
+    return redirect('home')
 
 def home(request):
     return render(request, 'pages/home.html')
+
+def index(request):
+    return render(request, 'pages/accounts/index.html')
 
 def buenas_practicas(request):
     return render(request, 'pages/buenas_practicas.html')
@@ -22,12 +82,6 @@ def consult(request):
 
 def form(request):
     return render(request, 'pages/accounts/form.html')
-
-def sign_in(request):
-    return render(request, 'pages/accounts/sign_in.html')
-
-def sign_up(request):
-    return render(request, 'pages/accounts/sign_up.html')
 
 def l_comp_av(request):
     return render(request, 'pages/antivirus/large_companies_av.html')

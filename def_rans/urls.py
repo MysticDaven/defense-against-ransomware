@@ -10,10 +10,12 @@ urlpatterns = [
 
     #Cuenta
     path('cuenta/', views.account, name='account'),
+    path('cuenta/index/', views.index, name='index'),
     path('cuenta/registro', views.sign_up, name='sign_up'),
     path('cuenta/consultar', views.consult, name='consult'),
     path('cuenta/formulario', views.form, name='form'),
     path('cuenta/ingresar', views.sign_in, name='sign_in'),
+    path('logout/', views.logout, name='logout'),
 
     #Antivirus
     path('cuenta/antivirus_large/', views.l_comp_av, name="large_av"),
