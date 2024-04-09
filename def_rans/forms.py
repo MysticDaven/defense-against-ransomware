@@ -40,7 +40,7 @@ class RegistrationForm(UserCreationForm):
     }
 
 class UserLoginForm(AuthenticationForm):
-  username = UsernameField(widget=forms.TextInput(attrs={"type": "email","class": "form-control form-control-lg", "placeholder": "Usuario", "name": "correo", "id": "correo"}))
+  username = UsernameField(widget=forms.TextInput(attrs={"class": "form-control form-control-lg", "placeholder": "Usuario", "name": "correo", "id": "correo"}))
   password = forms.CharField(
       label=_("Contraseña"),
       strip=False,

@@ -17,10 +17,12 @@ def sign_in(request):
         username = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
+        print(username + " " + password)
         if user is not None:
             login(request, user)
             # Redirect to a success page.
-            return redirect('pages/accounts/index.html')
+            print("Exitoso")
+            return redirect('index')
             ...
         else:
             context={
@@ -28,6 +30,7 @@ def sign_in(request):
                 'msg' : '2'
             }
             ...
+    print("no exitoso")
     return render(request, 'pages/accounts/sign_in.html', context)
     
 def sign_up(request):
