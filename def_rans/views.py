@@ -58,7 +58,7 @@ def sign_up(request):
 def sign_up2(request):
    return render(request, 'pages/accounts/sign_up.html')
 
-def logout(request):
+def sign_out(request):
     logout(request)
     return redirect('home')
 

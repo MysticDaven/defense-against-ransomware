@@ -15,7 +15,7 @@ urlpatterns = [
     path('cuenta/consultar', views.consult, name='consult'),
     path('cuenta/formulario', views.form, name='form'),
     path('cuenta/ingresar', views.sign_in, name='sign_in'),
-    path('logout/', views.logout, name='logout'),
+    path('logout/', views.sign_out, name='sign_out'),
 
     #Antivirus
     path('cuenta/antivirus_large/', views.l_comp_av, name="large_av"),

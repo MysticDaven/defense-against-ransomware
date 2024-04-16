@@ -8,9 +8,15 @@
     <title>Document</title>
 </head>
 <body>
-    {% block header %}
-        {% include 'layouts/navigation_bar_in.html' %}
-    {% endblock %}
+    {% if user.is_authenticated %}
+        {% block header %}
+            {% include 'layouts/navigation_bar_in.html' %}
+        {% endblock %}    
+    {% else %}
+        {% block header2 %}
+            {% include 'layouts/navigation_bar_out.html' %}
+        {% endblock %}
+    {% endif %}
 
     {% block content %} {% endblock %}
 
