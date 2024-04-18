@@ -1,8 +1,10 @@
-from django.shortcuts import *
+from django.shortcuts import render, get_object_or_404, redirect
 from django.forms import *
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.views import *
 from .forms import *
+from .models import edit_user
 
 #Create your views here
 #def sign_in2(request):
@@ -61,6 +63,37 @@ def sign_up2(request):
 def sign_out(request):
     logout(request)
     return redirect('home')
+
+def edit_profile(request):
+    user = request.user
+    if request.method == 'POST':
+        form = edit_user(request.POST, instance=user)
+        password_form = PasswordChangeForm(user, request.POST)
+        if form.is_valid() and password_form.is_valid():
+            form.save()
+            password_form.save()
+            # Para mantener la sesión del usuario activa después de cambiar la contraseña
+            update_session_auth_hash(request, user)
+            context = {
+                'form': form,
+                'password_form': password_form,
+                'msg': 'Perfil y contraseña actualizados exitosamente'
+            }
+        else:
+            context = {
+                'form': form,
+                'password_form': password_form,
+                'msg': 'Hubo un problema al actualizar el perfil o la contraseña'
+            }
+        return render(request, 'pages/accounts/edit_profile.html', context)
+    else:
+        form = edit_user(instance=user)
+        password_form = PasswordChangeForm(user)
+        context = {
+            'form': form,
+            'password_form': password_form
+        }
+        return render(request, 'pages/accounts/edit_profile.html', context)
 
 def home(request):
     return render(request, 'pages/home.html')

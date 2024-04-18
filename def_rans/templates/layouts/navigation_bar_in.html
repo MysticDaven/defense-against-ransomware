@@ -96,10 +96,18 @@
                 </ul>
 
                 <div class="d-flex justify-content-center align-items-center gap-3">
-                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">
-                        <img src="{% static '/img/profile.png' %}" alt="Bootstrap" width="50" height="54" role="button" >
-                        <h5>Usuario</h5>
-                    </a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">
+                            <img src="{% static '/img/profile.png' %}" alt="Bootstrap" width="50" height="54" role="button" >
+                            <h5>Usuario</h5>
+                        </a>
+                        <ul class="dropdown-menu submenu multi-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="{% url 'edit_profile' %}">
+                                Configuración de cuenta</a></li>
+                            <li><a class="dropdown-item" href="{% url 'sign_out' %}">
+                                Cerrar sesión</a></li>                                
+                        </ul>                       
+                    </li>
                 </div>
 
             </div>
