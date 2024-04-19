@@ -1,0 +1,42 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" href="{% static '/styles/columnas.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="column">Columna 1</div>
+        <div class="column">
+            <div class="text-center">
+                <h3>Editar Perfil</h3>
+                <form method="POST" action="{% url 'edit_profile' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-lg bg-gradient-rpimary btn-lg w-100 mt-4 mb-0">Editar Perfil</button>
+                    </div>
+                </form>
+                <h3>Editar contraseña</h3>
+                <form method="POST" action="{% url 'edit_password' %}">
+                    {% csrf_token %}
+                    {{password_form.as_p}}
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-lg bg-gradient-rpimary btn-lg w-100 mt-4 mb-0">Editar Contraseña</button>
+                    </div>                    
+                </form>
+            </div>        
+        </div>
+        <div class="column">Columna 3</div>
+    </div>
+</body>
+</html>
+
+{% endblock %}

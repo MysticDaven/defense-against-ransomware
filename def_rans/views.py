@@ -68,32 +68,59 @@ def edit_profile(request):
     user = request.user
     if request.method == 'POST':
         form = edit_user(request.POST, instance=user)
-        password_form = PasswordChangeForm(user, request.POST)
-        if form.is_valid() and password_form.is_valid():
+        if form.is_valid():
             form.save()
-            password_form.save()
-            # Para mantener la sesión del usuario activa después de cambiar la contraseña
             update_session_auth_hash(request, user)
             context = {
                 'form': form,
-                'password_form': password_form,
-                'msg': 'Perfil y contraseña actualizados exitosamente'
+                'msg': 'Perfil actualizado existosamente'
             }
         else:
             context = {
                 'form': form,
-                'password_form': password_form,
-                'msg': 'Hubo un problema al actualizar el perfil o la contraseña'
+                'msg': 'Hubo un problema al actualizar el perfil'
             }
-        return render(request, 'pages/accounts/edit_profile.html', context)
     else:
         form = edit_user(instance=user)
+        context = {
+            'form': form
+        }
+    return render(request, 'pages/accounts/settings_user.html', context)                 
+
+def edit_password(request):
+    user = request.user
+    if request.method == 'POST':
+        password_form = PasswordChangeForm(user, request.POST)        
+        if password_form.is_valid():
+            password_form.save()
+            update_session_auth_hash(request, user)
+            context = {
+                'password_form': password_form,
+                'msg': 'Contraseña actualizado correctamente'
+            }
+        else:
+            context = {
+                'password_form': password_form,
+                'msg': 'Hubo un problema al actualizar la contraseña'                
+            }
+        return render(request, 'pages/accounts/settings_user.html', context)
+    else:
         password_form = PasswordChangeForm(user)
         context = {
-            'form': form,
             'password_form': password_form
         }
-        return render(request, 'pages/accounts/edit_profile.html', context)
+        return render(request, 'pages/accounts/edit_profile.html', context)        
+
+
+def settings_user(request):
+    user = request.user
+    form = edit_user(instance=user)
+    password_form = PasswordChangeForm(user)
+    context = {
+        'form': form,
+        'password_form': password_form
+    }
+    return render(request, 'pages/accounts/settings_user.html', context)
 
 def home(request):
     return render(request, 'pages/home.html')

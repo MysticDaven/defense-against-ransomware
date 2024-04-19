@@ -16,7 +16,12 @@ urlpatterns = [
     path('cuenta/formulario', views.form, name='form'),
     path('cuenta/ingresar', views.sign_in, name='sign_in'),
     path('logout/', views.sign_out, name='sign_out'),
-    path('cuenta/editar_perfil/', views.edit_profile, name='edit_profile'),
+    path('cuenta/configuracion/', views.settings_user, name='settings_user'),
+
+    #Metodos
+    path('cuenta/configuracion/usuario/', views.edit_profile, name='edit_profile'),
+    path('cuenta/configuracion/contraseña/', views.edit_password, name='edit_password'),
+
 
     #Antivirus
     path('cuenta/antivirus_large/', views.l_comp_av, name="large_av"),

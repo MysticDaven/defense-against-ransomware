@@ -102,7 +102,7 @@
                             <h5>Usuario</h5>
                         </a>
                         <ul class="dropdown-menu submenu multi-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="{% url 'edit_profile' %}">
+                            <li><a class="dropdown-item" href="{% url 'settings_user' %}">
                                 Configuración de cuenta</a></li>
                             <li><a class="dropdown-item" href="{% url 'sign_out' %}">
                                 Cerrar sesión</a></li>                                
@@ -113,12 +113,6 @@
             </div>
         </div>
     </nav>
-
-    <container>
-
-        <img src="{% static '/img/banner.png' %}" class="img-fluid" alt="...">
-
-    </container>
     <script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
 </body>
 
