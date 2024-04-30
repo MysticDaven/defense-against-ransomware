@@ -39,17 +39,35 @@
 
 /*----------button----------*/
 
-.btn {
-  color: #ffffff;
-  background: #0c2c85;
+.btn-1 {
+  padding: 5px 5px;
+  font-size: 1.5rem;
+  position: relative;
+  margin: 32px;
+  background: linear-gradient(45deg,#12ca46, #1558ca);
+  border-radius: 50px;
+  transition: transform 0.3s ease;
 }
 
-.modal-body {
-   width: 800px;
-   text-align: center;
-   
+.btn-2 {
+  padding: 5px 19px;
+  font-size: 1.5rem;
+  position: relative;
+  margin: 32px;
+  background: linear-gradient(45deg,#12ca46, #1558ca);
+  border-radius: 50px;
+  transition: transform 0.3s ease;
 }
 
+.btn-3 {
+  padding: 5px 5px;
+  font-size: 1.5rem;
+  position: relative;
+  margin: 32px;
+  background: linear-gradient(45deg,#12ca46, #1558ca);
+  border-radius: 50px;
+  transition: transform 0.3s ease;
+}
 
 /*----------footer----------*/
 

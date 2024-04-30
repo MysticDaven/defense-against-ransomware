@@ -16,94 +16,41 @@
 	<link rel="stylesheet" href="{% static '/styles/menu 1.css' %}">
   </head>
   <body>
+
+
     <section id="about-us">
-      <div class="container">
-        <h1 class="title text-center">Detener el Ransomware</h1>
-        <div class="row">
-          <div class="col-md-6 about-us">
-            <p class="about-title"></p>
-            <p class="text-justifi">Existe gran variedad de malware en la actualidad, pero hay un tipo en particular que resulta 
-              ser sumamente peligroso para las PyMEs, el cual es el “ransomware” 
-              ya que el impacto que genera en las empresas es muy dañino, 
-              no solo a nivel organizacional impidiendo el correcto trabajo dentro de la PyME, 
-              sino que también menoscaba la reputación de la empresa ante el público. 
-            </p>
-            <button type="button" class="btn btn-primary">Información</button>
-          </div>
-          
-          <div class="col-md-6">
+    <div class="container">
+      <h1 class="title text-center" style="color: white;">Ransomware</h1>
+      <div class="row">
+        <div class="col-md-6 about-us">
+          <p class="text-justifi" style="color: white;">La falta de conocimiento y comprensión de lo que es y con lleva un ataque de
+            Ransomware es el principal reto de ciberseguridad al que se enfrentan las instituciones pequeñas y medianas
+            (PyMEs) en nuestro país, esto debido a que por el tamaño de dichas organizaciones carecen de un departamento
+            de ciberseguridad con personal especializado que les pueda apoyar ante una situación de riesgo. El problema
+            radica en que, al contar con un personal poco entrenado en temas de ciberseguridad, se vuelve un reto para
+            los departamentos de TI el proteger el activo más valioso de toda institución el cual es la información,
+            debido a que desconocen cómo es que el Ransomware y sus variantes se comportan les imposible aplicar
+            políticas de prevención adecuadas que los puedan ayudar a protegerse de este tipo de amenazas, y a esto se
+            le suma el hecho de que al no ser capaces de identificar un incidente de Ransomware en el momento que se
+            suscita se vuelve una tarea muy complicada el poder contener los ataques que se presenten.</p>
+
+          <p class="text-justifi" style="color: white;">Esta situación se vuelve más compleja ya que el Ransomware como medio de ataque a
+            sufrido diferentes cambios, lo que ha provocado que con el paso del tiempo este haya sufrido eventualmente
+            una evolución en su estructura y al ir refinando sus procesos lo vuelve una amenaza aún más grave para las
+            instituciones como lo son las PyMEs, que en la mayoría de los casos se ven obligadas a sucumbir a las
+            extorsiones llegando a realizar el pago de un rescate por su información, lo que podría ser una situación
+            que ponga en peligro crítico de bancarrota a las organizaciones.</p>
+
+        </div>
+
+        <div class="col-md-6">
           <img src="{% static '/img/cyber1.png' %}" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </section> 
-
-  <!---------card-------------->
-  
-  <div class="container">
-    <div class="row">
-
-     <div class="col-4">
-       <div class="card">
-         <div class="face front">
-         <img src="{% static '/img/pasos.jpg' %}" alt="">
-         <h3>Primeros pasos</h3>
-         </div>
-        <div class="face back">
-        <h3>Primeros pasos</h3>
-        <p>
-        Es un hecho establecido hace demasiado tiempo que un lector 
-        se distraerá con el contenido del texto de un sitio mientras
-        que mira su diseño. 
-        </p>
-        <div class="link">
-        <a href="#">Detalles</a>
         </div>
       </div>
     </div>
-  </div>
+  </section> 
 
-  <div class="col-4">
-    <div class="card">
-      <div class="face front">
-        <img src="{% static '/img/cyber1.png' %}" alt="">
-        <h3>Identificar brecha</h3>
-      </div>
-      <div class="face back">
-        <h3>Identificar brecha</h3>
-        <p>
-        Es un hecho establecido hace demasiado tiempo que un lector 
-        se distraerá con el contenido del texto de un sitio mientras
-        que mira su diseño. 
-        </p>
-        <div class="link">
-        <a href="#">Detalles</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="col-4">
-    <div class="card">
-      <div class="face front">
-        <img src="{% static '/img/scam.png' %}" alt="">
-        <h3>Cerrar brecha</h3>
-      </div>
-      <div class="face back">
-        <h3>Cerrar brecha</h3>
-        <p>
-        Es un hecho establecido hace demasiado tiempo que un lector 
-        se distraerá con el contenido del texto de un sitio mientras
-        que mira su diseño. 
-        </p>
-        <div class="link">
-        <a href="#">Detalles</a>
-        </div>
-      </div>
-    </div>
-   </div>
-  </div>
-</div>  
 	<script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
   </body>
 </html>

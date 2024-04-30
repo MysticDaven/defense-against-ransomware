@@ -2,5 +2,73 @@
 {% load static %}
 
 {% block content %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zero Trust</title>
+    <!-- Bootstrap -->
+    <link href="{$ static '/styles/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static '/styles/antivirus.css' %}">
+  </head>
+
+
+<div class="container">
+    <h1 class="title text-center">Zero Trust:</h1>
+    <div class="row">
+      <div class="col-md-6 about-us">
+        <p class="about-title"> </p>
+        <p class="text-justifi">Uno de los estándares en cuanto a políticas de ciberseguridad más seguros es el de Zero
+          Trust el que se traduce como confianza cero, esto debido a que su principal característica es reducir la
+          confianza en los usuarios y los dispositivos que tengan interacción con los recursos de la organización
+          (Data).</p>
+        <p class="text-justifi">Pero algo muy importante a tomar en cuenta es que al limitar la confianza estamos
+          limitando los procesos en la organización lo que en ocasiones puede ser un poco tedioso adaptarse, pero un
+          hecho es que a mayor comodidad menor seguridad.</p>
+
+      </div>
+      <div class="col-md-6">
+        <img src="../imagenes/firewall/cyber-security-3194286_640.jpg" class="img-fluid">
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <section id="about-us">
+    <div class="container">
+      <h1 class="title text-center">Para una correcta implementación se requiere se definan 3 niveles:</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="../imagenes/firewall/map-4636843_640.jpg" class="img-fluid">
+        </div>
+        <div class="col-md-6 about-us">
+          <p class="about-title"> </p>
+          <p class="text-justifi" style="color: white;">• Roles: Se deben definir roles por departamentos, por tipos de usuarios, un usuario
+            común no podría ni debería tener el mismo nivel que un usuario administrador. Se debe implementar una
+            jerarquía en la organización para segmentar los grupos de usuarios teniendo diferentes encargados por
+            departamento se sugiere tener más de uno por departamento para no centralizar la confianza.</p>
+          <p class="text-justifi" style="color: white;">• Accesos: En base a cada nivel se le dará acceso a la información o a los recursos
+            solo a los usuarios que lo requieran, ejemplos muy puntuales podrían ser:</p>
+            <ul>
+              <li>o	Solo los usuarios de más alto nivel tendrán acceso a los servidores, todo deberá de ser supervisado y llevando una bitácora de los cambios.</li>
+              <li>o	Separar los departamentos, el personal de ventas no debería de tener acceso a los recursos del departamento de contabilidad.</li>
+              <li>o	No centralizar la confianza en un super usuario, tener varios en cargados y cada uno con diferentes accesos a los recursos informáticos.</li>
+            </ul>
+          <p class="text-justifi" style="color: white;">•	Medidas de seguridad: Se sugieren las siguientes medidas de seguridad como buenas prácticas para prevenir situaciones de riesgo que puedan provocar un ataque de Ransomware:</p>
+            <ul> 
+              <li>o	No compartir recursos sin tomar las medidas de protección correspondientes, evitar el uso de dispositivos ajenos a la compañía en los equipos o la red de la organización (No traer dispositivos de almacenamiento de casa).</li>
+              <li>o	Tener una red particular para los smartphones o en caso de que no usar la de invitados.</li>
+              <li>o	Tener medidas físicas de acceso a recursos como servidores.</li>
+              <li>o	Implementar software especializado como Appgate o Cigent, para aplicar los controles del Zero Trust a nivel digital (Revisar la sección de software especializado).</li>
+              <li>o	Tener políticas para controlar el acceso al correo electrónico corporativo en dispositivos ajenos a la empresa.</li>
+            </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 
 {% endblock %}
