@@ -1,4 +1,5 @@
 /*----------navbar----------*/
+
 .navbar-nav .nav-link {
   color: #fff;
 }
@@ -36,3 +37,39 @@
   }
 }
 
+/*----------body----------*/
+#about-us {
+  background: linear-gradient(45deg, #0d6526, #062252);
+  padding-bottom: 50px;
+  padding-top: 50px;
+  color: #ffffff;
+}
+
+
+/*----------footer----------*/
+
+#footer {
+  background: #202020;
+  color: #ffffff;
+}
+
+.footer-box {
+  padding: 20px;
+}
+
+.footer-box img {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.footer-box .fa {
+  margin-right: 8px;
+  font-size: 25px;
+  height: 480px;
+  width: 40px;
+  text-align: center;
+  padding-top: 7px;
+  border-radius: 2px;
+  background-image: linear-gradient(to right, #65ceb0, #051c45);
+
+}

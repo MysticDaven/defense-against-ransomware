@@ -13,7 +13,6 @@
     <link rel="icon" href="{% static '/img/logo 4min.png' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{% static '/styles/antivirus.css' %}">
-    <link rel="stylesheet" href="{% static '/styles/Popup.css' %}">
   </head>
 
  <!-- body -->
@@ -30,7 +29,7 @@
             Ransomware.</p>
 
           <!-- Button trigger modal -->
-          <button type="button1" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          <button type="button1" class="btn-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             ClamAVNet
           </button>
 
@@ -43,7 +42,7 @@
                   <h1 class="modal-title fs-5" id="staticBackdropLabel" style="color: black;">Instalar software
                     Antivirus gratuito, factores a
                     tomar en cuenta:</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  
                 </div>
                 <img src="{% static '/img/antivirus/ClamAV.png' %}" alt="">
                 <div class="modal-body">
@@ -108,7 +107,7 @@
           que brinda una herramienta EDR.</p>
 
         <!-- Button trigger modal -->
-        <button type="button2" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+        <button type="button2" class="btn-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
           EDR
         </button>
 
@@ -119,9 +118,9 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h1 class="modal-title fs-5" id="staticBackdropLabel2" style="color: black;">Ventajas de la implementación de un EDR:</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                
               </div>
-              <img src="../imagenes/antivirus/EDR-1.webp" alt="">
+              <img src="{% static '/img/antivirus/EDR-1.webp' %}" alt="">
               <div class="modal-body">
                 <p class="text-justifi" style="color: black; text-align: center;">Ventajas de la implementación de un EDR:</p>
                 <p class="text-justifi" style="color: black;">•	Gestión unificada para la detección de amenazas en Smartphones, Endpoints y Servidores.
@@ -164,8 +163,8 @@
 
         
 <!-- Button trigger modal -->
-        <button type="button2" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
-          EDR
+        <button type="button2" class="btn-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+          Blueshift
         </button>
 
         <!-- Modal -->
@@ -175,11 +174,11 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h1 class="modal-title fs-5" id="staticBackdropLabel3" style="color: black;">Recomendaciones para Blueshift Protect:</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                
               </div>
-              <img src="../imagenes/antivirus/Blueshif.jpg" alt="">
+              <img src="{% static '/img/antivirus/Blueshif.jpg' %}" alt="">
               <div class="modal-body">
-                <p class="text-justifi" style="color: black; text-align: center;">Ventajas de la implementación de un EDR:</p>
+                <p class="text-justifi" style="color: black; text-align: center;">Blueshift</p>
                 <p class="text-justifi" style="color: black;">•	Segmentar las instalaciones implementando grupos para tener una buena gestión de amenazas por sector de la organización.</p>
                 <p class="text-justifi" style="color: black;">•	Otorgar permisos según lo necesario a los roles de los usuarios teniendo muy en cuenta de que el factor clave de la solución es no confiar tanto en los usuarios.</p>
                 <p class="text-justifi" style="color: black;">•	Desactivar las alertas para los usuarios finales, para que solo los Administradores sepan que incidentes se suscitan y no se dé ninguna alerta que ponga sobre aviso a un hacker interno para poder dar con los infiltrados.</p>
@@ -194,7 +193,7 @@
         </div>
       </div>
         <div class="col-md-6">
-          <img src="../imagenes/antivirus/meeting-room-828547_640.jpg" class="img-fluid">
+          <img src="{% static '/img/antivirus/meeting-room-828547_640.jpg' %}" class="img-fluid">
         </div>
       </div>
     </div>
@@ -206,7 +205,7 @@
     <h1 class="title text-center">Buenas prácticas de antivirus en general para empresas de cualquier tamaño:</h1>
     <div class="row">
       <div class="col-md-6">
-        <img src="../imagenes/antivirus/office-2360063_640.jpg" class="img-fluid">
+        <img src="{% static '/img/antivirus/office-2360063_640.jpg' %}" class="img-fluid">
       </div>
       <div class="col-md-6 about-us">
         <p class="text-justifi">•	Ejecutar un análisis en busca de Ransomware al recibir un correo de algún correo no registrado o desconocido y sobre todo cuando incluyen archivos adjuntos prestando especial atención a los archivos comprimidos.</p>

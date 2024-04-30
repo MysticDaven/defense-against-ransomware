@@ -1,0 +1,326 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DPAR</title>
+    <!-- Bootstrap -->
+	<link href="{% static '/styles/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="{% static '/styles/menu 1.css' %}">
+  </head>
+  <body>
+    
+
+    <section id="about-us">
+      <div class="container">
+        <h1 class="title text-center" style="color: white;">Estado actual del ransomware </h1>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imagenes/cyber1.png" class="img-fluid">
+          </div>
+          <div class="col-md-6 about-us">
+            <p class="text-justifi" style="color: white;">En la actualidad este tipo de ataques a tenido una tendencia a
+              la baja a nivel global
+              llegando a estar 40% comparado con su punto más alto durante la pandemia, pero a que se debe la reducción en
+              el uso del Ransomware como vertiente principal de ataque como lo llego a ser solo hace un par de años.</p>
+  
+            <p class="text-justifi" style="color: white;">Cuando surgió la pandemia en el a finales del año 2019
+              presenciamos un cambio en la
+              forma en la cual muchas organizaciones operaban de manera habitual siendo forzados a migrar sus operaciones
+              a procesos digitales para poder adaptar de alguna manera una especie de teletrabajo improvisado para poder
+              continuar con sus operaciones, este hecho implico que se adoptaran nuevas metodologías sin estrategia y
+              provocando un incremento en la gestión digital de la información. Otra acción consecuente a este cambio fue
+              que soluciones convencionales como Firewalls y sistemas EDR (Endpoint Detection and Response / Antivirus)
+              locales quedaron sobre pasados ya que al no poder extender sus protecciones fuera del perímetro de la
+              organización dejaron desprotegidos los equipos en casa y las soluciones as a service en la nube.</p>
+  
+            <p class="text-justifi" style="color: white;">Un factor clave muy importante que jugo en contra fue la
+              necesidad imperante de volver
+              a la operación lo antes posible lo cual obligo a muchas organizaciones a tomar decisiones apresuradas lo
+              cual es una de las peores medidas que podemos hacer cuando hablamos de ciberseguridad.</p>
+  
+            <p class="text-justifi" style="color: white;">Todo esto por consiguiente llevo a un incremento sin precedentes
+              en cuanto a ataques
+              del robo y secuestro de la información (RANSOMWARE), provocando grandes perdidas en empresas alrededor de
+              todo el mundo, por lo que la gran mayoría de estas aprendió de su errores y empezaron a preocuparse de la
+              información que gestionan de manera digital lo cual provoco mejoras en las soluciones de protección al igual
+              que la implementación de políticas y estándares internacionales de ciberseguridad, de igual manera provoco
+              que muchos gobiernos se tomaran más en serio el manejo de la información por parte de las compañías
+              obligándolos a tomar medidas preventivas para la perdida de información e incrementando las
+              responsabilidades por el mal manejo de la misma, lo cual provoco una gran reducción a la tasa de ataques de
+              ransomware.</p>
+  
+  
+            <p class="text-justifi" style="color: white;">Pero esto a nivel Global, México por su parte seria la excepción
+              al caso, ya que no
+              solo
+              han incrementado los ataques de ransomware en el país si no que los atacantes son cada vez mas ambiciosos
+              pidiendo rescates no solo para recuperar la información, sino que también para “asegurar” que no filtraran
+              información de carácter sensible al público o compañías rivales, pero porque es que esta situación se
+              presenta
+              en nuestro país, esto se lo podría atribuir a razones como lo son:</p>
+  
+            <ul>
+              <li style="color: white;"> Cambios a la baja en el costo de criptomonedas, lo cual afecta los ingresos de
+                los cibercriminales
+                provocando que tengan que recuperar sus recursos llevando nuevos ataques.</li>
+              <li style="color: white;"> El uso de tecnología obsoleta en el país, México es un país que tiende a tener
+                una brecha en cuanto a
+                la tecnología que utiliza estando 2 o 3 años detrás de países como lo es estados unidos, por lo que los
+                colectivos de hackers se aprovechan de esta situación utilizando herramientas que incluso ya no funcionan
+                en otros países.</li>
+              <li style="color: white;"> Mal manejo de las vulnerabilidades, una falta de cultura y conciencia de las
+                organizaciones sobre todo
+                en las PYMEs debido al pensamiento de que nunca serán ciber atacados provocan una despreocupación total
+                ante las ciberamenazas lo cual con lleva a que no solo no apliquen protecciones en muchos de los casos,
+                sino que aparte de esta preocupante situación tampoco tengan el cuidado de validar que sus sistemas estén
+                siempre actualizados, porque no comprenden el peligro que conlleva el no hacerlo.</li>
+              <li style="color: white;"> Mala gestión de riesgos, el echo de que muchas de las organizaciones están
+                dispuestos a pagar un
+                rescate y tener un fondo de prevención para ataques, a tomar medidas preventivas hace que se vuelvan en
+                victimas recurrentes de los atacantes.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <br>
+  
+  
+    <div class="container">
+      <h1 class="title text-center">Que es el Ransomware</h1>
+      <div class="row">
+        <div class="col-md-6 about-us">
+          <p class="about-title"> Para entender que es el Ransomware debemos comprender ¿Qué es el malware?</p>
+          <p class="text-justifi">Conocemos como “Malware” todo aquel código malicioso que busca comprometer la integridad
+            de los equipos informáticos y la información que estos contienen para su gestión.</p>
+          <p class="text-justifi">El Ransomware es una variante muy particular de malware enfocada en el secuestro de
+            información, esta no es una amenaza reciente para las organizaciones, ya que las primeras variantes de este
+            tipo de malware datan de finales de la década de los 80’s pero con el tiempo estos han ido evolucionando y
+            adaptándose para llevar a cabo su cometido el cual busca obtener una remuneración económica como persuasión
+            para la devolución de la información, básicamente podríamos definir un ataque de ransomware como una extorsión
+            moderna a las organizaciones al restringirles el acceso a la información y al amenazarlos de volverlos
+            públicos.</p>
+          <p class="text-justifi">Como lo mencionamos existen diferentes variantes de Ransomware con un enfoque particular
+            de cada variante cómo lo son:</p>
+          <ul>
+            <li> De bloqueo, con lo que buscan impedir el acceso al sistema y la información que contiene.</li>
+            <li> De cifrado, con el que buscan impedir el acceso a la información llevando un cifrado de la misma.</li>
+            <li> As a Service, muchos colectivos de Hackers se dieron cuenta de que pueden incrementar de gran manera sus
+              ganancias al solo revender sus “soluciones” (el ransomware que crean) y que sean los usuarios de las
+              compañías los que lleven a cabo los ataques.</li>
+            <li> Mala gestión de riesgos, el echo de que muchas de las organizaciones están dispuestos a pagar un
+          </ul>
+          <p class="text-justifi">Por lo que podríamos considerar el Ransomware como la ciber amenaza numero 1 para la
+            PYME, porque estas organizaciones gestionan información más valiosos de sus clientes mientras que carecen de
+            protecciones y medidas para prevenir los ataques, lo cual los vuelve la victima predilecta para los ciber
+            atacantes.</p>
+        </div>
+        <div class="col-md-6">
+          <img src="imagenes/cyber1.png" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  
+  
+    <br>
+  
+    <section id="about-us">
+      <div class="container">
+        <h1 class="title text-center" style="color: white;">Como Funciona el Ransomware</h1>
+        <div class="row">
+          <div class="col-md-6 about-us">
+            <p class="about-title"> </p>
+            <p class="text-justifi" style="color: white;">Así como los hackers hacen una de las premisas del arte de la
+              guerra el cual es “~Si
+              el enemigo deja una puerta abierta, debes apresurarte a entrar~” – Sun Tzu, está en nosotros usar los mismos
+              conocimientos para prevenirnos y uno de los puntos vitales seria “~Conoce al enemigo y conócete a ti mismo,
+              y no serás vencido en cien batallas. Quien se conoce a sí mismo, pero no conoce al enemigo vencerá una vez,
+              perderá otra. Quien no conoce al enemigo y no se conoce a sí mismo perderá todas las batallas~” – Sun Tzu.
+            </p>
+            <p class="text-justifi" style="color: white;">Lo cual nos resalta el hecho de comprender como es que esta
+              amenaza funciona.
+            </p>
+            <p class="text-justifi" style="color: white;">Dependiendo el tipo de Ransomware se podría identificar el
+              enfoque, hoy en día los más
+              usados y más peligrosos son los que van enfocados al restringir el acceso a la información aplicando un
+              cifrado a la información.
+            </p>
+            <p class="text-justifi" style="color: white;">Teniendo en mente que el objetivo principal es la información
+              los objetivos
+              principales suelen ser: servidores, los departamentos financieros o de contabilidad de una organización al
+              igual que los directivos que gestionan información vital.
+            </p>
+            <p class="text-justifi" style="color: white;">Una vez están definidos los objetivos hay que comprender como es
+              que llega el enemigo,
+              la desventaja es que existen muchos medios diferentes y varios por los cuales puede llegar un enemigo ya sea
+              por:
+            </p>
+  
+            <ul>
+              <li style="color: white;"> Un ataque directo: cuando hablamos de un ataque directo nos referimos a que un
+                colectivo de hackers ya tiene en la diana a su organización y hará una búsqueda exhaustiva de información
+                para colocar su malware dentro de su red esto muy común mente se da por medio de ataques via correo
+                electrónico, hay otros casos donde se da través de terceros para estar espiando la organización y en el
+                momento justo desplegar su ataque.</li>
+              <li style="color: white;"> Una grieta en la protección: con esto nos referimos a que el ataque le fue
+                fortuito al enemigo ya que se aprovechó de un equipo vulnerable en la red como lo puede ser una cámara de
+                seguridad, un dispositivo IoT, o un equipo obsoleto, o el uso de software no oficial que literalmente abre
+                las puertas a nuestras redes.</li>
+              <li style="color: white;"> El enemigo ya está en casa: cuando los hackers se volvieron prestadores de
+                servicios le abrió la puerta a muchos ataques por espionaje corporativo o por molestia/resentimiento hacia
+                una organización, en estos casos un usuario dentro de la organización cuenta con las herramientas y por
+                parte de los hackers para desplegar un ataque, siendo estos los más peligrosos ya que no solo ya están
+                dentro y eludieran algunas de las defensas sino que también tienen pleno conocimiento de su organización y
+                como es que opera por lo que el daño que realizaría seria contundente y rápido.</li>
+            </ul>
+  
+            <p class="text-justifi" style="color: white;">Al comprender como es que pueden llegar los ataques de
+              Ransomware nos damos cuenta
+              como es que la premisa de Sun Tzu no ha perdido vigencia sin importar que tiene más de 2000 años desde que
+              fue estipulada, pero tomando en cuenta las amenazas de los hackers internos nos damos cuenta de otra parte
+              vital de la premisa la cual es el hecho de que también nos tenemos que conocer y a nuestra organización para
+              poder identificar las amenazas aun las más elusivas.
+            </p>
+            <p class="text-justifi" style="color: white;">Pero cual es la realidad, en México las PyMEs en la mayoría de
+              los casos desconocen lo
+              que está sucediendo en sus redes y los elementos que la componen en su día a día, por lo que una vez que el
+              hacker logra entrar a la red puede permanecer semanas si no es que meses aprendiendo de tu organización y
+              como es que te comportas. Quizás provocando eventualmente una falsa alarma para identificar cuáles son las
+              medidas de contención y como es que se actuara en estos casos.
+            </p>
+            <p class="text-justifi" style="color: white;">Por lo que cuando el atacante está listo desplegara un ataque
+              relámpago hacia todos
+              los puntos vitales de la organización para parar la operación de la organización y llegando incluso a
+              comprometer sistemas de respaldos orillando muchas veces a pagar los rescates.
+            </p>
+            <p class="text-justifi" style="color: white;">Esto ya que como las variantes de Ransomware del tipo de cifrado
+              hacen uso de
+              algoritmos de cifrado de grado Militar se vuelve una tarea prácticamente imposible poder descifrar la
+              información a menos que se use una herramienta (Ransomware) antiguo cuyas claves de cifrado hayan sido
+              recuperadas por algún ente federal y las haya compartido para el rescate de la información, pero estos casos
+              son muy limitados.
+            </p>
+          </div>
+  
+          <div class="col-md-6">
+            <img src="imagenes/cyber1.png" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </section>
+  
+  
+  
+  
+    <div class="container">
+      <h1 class="title text-center">Impacto Psicológico de un ataque</h1>
+      <div class="row">
+        <div class="col-md-6 about-us">
+          <p class="about-title"> </p>
+          <p class="text-justifi">Como en cualquier situación de ataque el componente Psicológico es una pieza clave ya
+            que el ciber atacante se aprovechará de cualquier artimaña con tal de obtener su cometido, por lo que una de
+            sus estrategias principales es sembrar la incertidumbre en las victimas para que estas a su vez tengan la
+            percepción de que se encuentran a su merced y no hay alternativas que tomar más que resignarse a ser una
+            víctima constante de los ciberataques.
+          </p>
+          <p class="text-justifi">El hecho de saberse bajo ataque implica una presión para volver a estar operativos y
+            perder la menor cantidad de tiempo posible que al final se traduce en dinero, y teniendo esto en mente lo que
+            provocan es que se lleguen a tomar decisiones improvisadas y rápidas lo cual en muchos de los casos lejos de
+            ayudarnos llegamos a empeorar las cosas.
+          </p>
+          <p class="text-justifi">Otro punto que debemos considerar es que por más presión que se llegue a tener nunca se
+            debe de considerar la opción de realizar el pago, ya que no podamos tener certeza que quien está amenazando es
+            quien secuestro la información a menos que se inicien conversaciones con ellos pero eso aumentara su
+            insistencia y pondrá la organización aún más en su mira, otro punto es que no se puede esperar que el
+            secuestrador tenga ética tomando en cuenta los medios que utiliza por lo que no podemos confiar en que no
+            tomara el dinero del rescate y se ira, o que aun si nos regresa la información en el mejor de los casos no
+            dejara una puerta abierta para seguir espiando para cuando la organización vuelva a flote para volverlos a
+            atacar, ya que ese es un hecho que han demostrado diferentes marcas de antivirus entre las cuales se destaca
+            Kaspersky que demuestra con un estudio que el 90% de las empresas que pagan un rescate vuelven a ser victimas
+            de los cibercriminales que no los sueltan.
+          </p>
+  
+        </div>
+  
+        <div class="col-md-6">
+          <img src="imagenes/cyber1.png" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  
+    <br>
+  
+    <section id="about-us">
+      <div class="container">
+        <h1 class="title text-center" style="color: white;">Terrorismo psicológico</h1>
+        <div class="row">
+          <div class="col-md-6 about-us">
+            <p class="about-title"> </p>
+            <p class="text-justifi" style="color: white;">Actualmente las empresas que han sido víctimas de un ataque de
+              Ransomware ya no solo se deben de preocupar de las consecuencias de perder el acceso a la información, sino
+              que ahora se deben de preocupar de que la información que fue comprometida no se vuelva de “acceso público”.
+            </p>
+            <p class="text-justifi" style="color: white;">Esto debido a que debido a que los colectivos de hackers con la
+              finalidad de obtener una remuneración asegurada ahora realizan ataques de terrorismo psicológico al amenazar
+              a compañías con filtrar su información sensible lo cual podría implicar diferentes riesgos, por ejemplo,
+              pensemos en alguno de los siguientes escenarios y el riesgo que conllevan:
+            </p>
+            <p class="text-justifi" style="color: white;">Escenario 1: Una compañía internacional que se dedica a la
+              comercialización de varios productos entre ellos una bebida gaseosa muy reconocida, esta compañía sufre un
+              ataque por medio de un correo electrónico el cual abre una brecha en su seguridad dando paso a un ataque de
+              Ransomware que llega a comprometer su sistema impidiendo la correcta operación de la organización lo cual
+              implica una enorme perdida monetaria por no poder producir sus productos ni gestionar ordenes de pedidos, y
+              adicionalmente a esto la información más secreta es comprometida por lo que ahora sus productos estrella son
+              clonados perdiendo la identidad de la marca, viéndose expuesto a posibles demandas por mala calidad y mala
+              percepción del publico ante su marca.
+            </p>
+            <p class="text-justifi" style="color: white;">Escenario 2: Una PyME de contratistas que vive de los proyectos
+              de construcción, gerencia de redes y TI, esta organización se ve afectada por un ataque de ransomware que
+              llego a uno de los equipos IoT desprotegidos de la red (NVR-Network Video Recorder) de una cámara china, una
+              vez dentro de la pequeña Red los hackers se disponen a atacar un servidor NAS (Network Attached Storage –
+              Almacenamiento Conectado en Red) el cual se encuentra extremadamente vulnerable al no estar en un segmento
+              de red restringido ni al tener un firewall que filtre las conexiones hacia el mismo, una vez el equipo es
+              comprometido el colectivo de hackers empieza a hacer una campaña de hostigamiento mediante correos, mensajes
+              y llamadas, amenazando con que si no se paga el rescate y el soborno se harán públicos para su competencia
+              todos los proyectos vigentes lo cual sumado al hecho de una operación totalmente parada podría ser la
+              sentencia de muerte para una PyME.
+            </p>
+            <p class="text-justifi" style="color: white;">Escenario 3: Una de las cadenas de colegios privados más grandes
+              se ve vulnerado con un ataque de Ransomware interno donde alguien del personal con una herramienta de RaaS
+              (Ransomware as a Service) compromete los equipos de control escolar y financieros de los colegios, donde no
+              solo encriptan la información financiera para desviar pagos sino que también se ve comprometida toda la
+              información de los alumnos y sus familias, que de llegar a manos inapropiadas como una banda de crimen
+              organizado pondría en riesgo la integridad de los alumnos y su familia .
+            </p>
+            <p class="text-justifi" style="color: white;">Como observamos en los escenarios anteriores la información
+              puede ser muy valiosa dependiendo el uso que se le dé, por lo que es de vital importancia estar muy
+              conscientes de las medidas que debemos de tomar para proteger la información ya que no solo no basta el
+              hecho de resguardar la información sino que se tiene que hacer de una manera segura aplicando medios
+              criptográficos para que el acceso y manipulación de la información quede restringido con acceso exclusivo
+              para el personal mínimo necesario.
+            </p>
+            
+          </div>
+  
+          <div class="col-md-6">
+            <img src="{$ static '/img/cyber1.png' %}" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+	<script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>
+
+{% endblock %}

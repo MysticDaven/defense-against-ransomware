@@ -10,7 +10,7 @@
   <title>DPAR</title>
   <!-- Bootstrap -->
   <link href="{% static '/syles/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="{% static '/styles/menu.css' %}">
+
 </head>
 
 <body>
@@ -29,53 +29,22 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Bp de prevención
+          <li class="nav-item ">
+            <a class="nav-link active" aria-current="page" href="#">
+              Bp de prevencion
             </a>
-            <ul class="dropdown-menu submenu multi-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" href="{% url 'large_av' %}">Antivirus</a></li>
-              <li><a class="dropdown-item" href="{% url 'large_f' %}">Firewall</a></li>
-              <li><a class="dropdown-item" href="{% url 'specialized' %}">Software especializado (DLP Y ZTNA)</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li class="nav-item dropend">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Estándares de ciberseguridad
-                </a>
-                <ul class="dropdown-menu submenu multi-menu dropdown-menu-dark">
-                  <li><a class="dropdown-item" href="{% url 'zerotrust' %}">Zerotrust</a></li>
-                  <li><a class="dropdown-item" href="{% url 'iso' %}">ISO 27001</a></li>
-                  <li><a class="dropdown-item" href="{% url 'gdpr' %}">GDPR</a></li>
-                  <li><a class="dropdown-item" href="{% url 'siem' %}">SIEM</a></li>
-                </ul>
-              </li>
-            </ul>
           </li>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <li class="nav-item ">
+            <a class="nav-link active" aria-current="page" href="#">
               Bp de contencion
             </a>
-            <ul class="dropdown-menu submenu multi-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" href="{% url 'first_step' %}">Primeros pasos</a></li>
-              <li><a class="dropdown-item" href="{% url 'identify' %}">Identificar la brecha</a></li>
-              <li><a class="dropdown-item" href="{% url 'close' %}">Cerrar brecha</a></li>
-            </ul>
           </li>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <li class="nav-item ">
+            <a class="nav-link active" aria-current="page" href="#">
               Recursos multimedia
             </a>
-            <ul class="dropdown-menu submenu multi-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" href="{% url 'data' %}">Hojas técnicas</a></li>
-              <li><a class="dropdown-item" href="{% url 'brochure' %}">Brochures</a></li>
-
-              <li><a class="dropdown-item" href="{% url 'video' %}">Video</a></li>
-            </ul>
           </li>
         </ul>
 
