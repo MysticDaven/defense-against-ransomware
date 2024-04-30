@@ -66,7 +66,6 @@ class project(models.Model):
 class edit_user(forms.ModelForm):
     class Meta:
         model = User
-<<<<<<< Updated upstream
         fields = ['username', 'first_name', 'last_name', 'email']   
 
 class form_identificar(forms.Form):
@@ -109,25 +108,16 @@ class form_herramientas(forms.Form):
     sdsdp = forms.ChoiceField(choices=importancia)
     buenas_prac = forms.ChoiceField(choices=buenas_practicas)
     preparada = forms.ChoiceField(choices=decision_3)
+
     
-
-
-
-
-=======
-        fields = ['username', 'first_name', 'last_name', 'email']
-
-
 class Preguntas(models.Model):
     id = models.AutoField(primary_key=True)
     pregunta = models.CharField(verbose_name="Pregunta", max_length=300)
-
     def __str__(self):
-        return str(self.id) + ' - ' + self.pregunta
-    
+        return str(self.id) + ' - ' + self.pregunta  
+
 class Respuestas(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Usuario")
     respuesta = models.PositiveIntegerField(verbose_name="Respuestas", null=True, blank=True)
-    pregunta = models.ForeignKey(Preguntas, on_delete=models.CASCADE, verbose_name="Pregunta")
->>>>>>> Stashed changes
+    pregunta = models.ForeignKey(Preguntas, on_delete=models.CASCADE, verbose_name="Pregunta")  
