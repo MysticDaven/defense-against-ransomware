@@ -3,6 +3,7 @@ from django.forms import *
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.views import *
+from django.contrib.auth.decorators import login_required
 from .forms import *
 from .models import edit_user
 
@@ -122,6 +123,10 @@ def settings_user(request):
     }
     return render(request, 'pages/accounts/settings_user.html', context)
 
+@login_required(login_url='sign_in')
+def form(request):
+    return render(request, 'pages/accounts/form.html')
+
 def home(request):
     return render(request, 'pages/home.html')
 
@@ -142,9 +147,6 @@ def account(request):
 
 def consult(request):
     return render(request, 'pages/accounts/consult_form.html')
-
-def form(request):
-    return render(request, 'pages/accounts/form.html')
 
 def l_comp_av(request):
     return render(request, 'pages/antivirus/large_companies_av.html')
