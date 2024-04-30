@@ -59,6 +59,7 @@ buenas_practicas = [
     [2, 'Buenas prácticas de contención con el uso de sistemas de seguridad (soc, siem, etc.)'],
     [3, 'No las he aplicado']
 ]
+
 # Create your models here.
 class project(models.Model):
     name = models.CharField(max_length=200)
@@ -68,10 +69,10 @@ class edit_user(forms.ModelForm):
         model = User
         fields = ['username', 'first_name', 'last_name', 'email']   
 
-class form_identificar(forms.Form):
-    tipo_empresa = forms.ChoiceField(choices=tipos)
-    rol = forms.ChoiceField(choices=roles)
-    indicente = forms.ChoiceField(choices=incidentes)
+class form_identificar(models.Model):
+    tipo_empresa = models.IntegerField(choices=tipos, verbose_name='¿Cuál es el tipo de tu empresa?')
+    rol = models.IntegerField(choices=tipos)
+    incidente = models.IntegerField(choices=tipos)
 
 class form_conciencia(forms.Form):
     ataque_propio = forms.ChoiceField(choices=decision)
@@ -113,6 +114,7 @@ class form_herramientas(forms.Form):
 class Preguntas(models.Model):
     id = models.AutoField(primary_key=True)
     pregunta = models.CharField(verbose_name="Pregunta", max_length=300)
+    
     def __str__(self):
         return str(self.id) + ' - ' + self.pregunta  
 

@@ -125,7 +125,8 @@ def settings_user(request):
 
 @login_required(login_url='sign_in')
 def form(request):
-    return render(request, 'pages/accounts/form.html')
+    identify_form = IdentifyForm()
+    return render(request, 'pages/accounts/form.html', {'form': identify_form})
 
 def home(request):
     return render(request, 'pages/home.html')

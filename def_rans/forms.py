@@ -1,4 +1,5 @@
 from django import forms
+from .models import form_identificar, form_conciencia, form_herramientas, Preguntas, Respuestas
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordResetForm, SetPasswordForm, PasswordChangeForm, UsernameField
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
@@ -86,3 +87,9 @@ class Formulario(forms.Form):
             self.fields[field].widget.attrs.update({
                 'class': 'form-control'
             })
+
+class IdentifyForm(forms.ModelForm):
+   
+   class Meta:
+      model = form_identificar
+      fields = ['tipo_empresa', 'rol', 'incidente']            
