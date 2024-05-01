@@ -3,4 +3,54 @@
 
 {% block content %}
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zero Trust</title>
+    <!-- Bootstrap -->
+    <link href="{$ static '/styles/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static '/styles/antivirus.css' %}">
+</head>
+
+
+<div class="container">
+    <h1 class="title text-center">ISO 27001</h1>
+    <div class="row">
+        <div class="col-md-6 about-us">
+            <p class="about-title"> </p>
+            <p class="text-justifi">Uno de los estándares de ciberseguridad a nivel Nacional e internacional es el de la Norma ISO27001 en el que nos indica que para implementarlo necesitamos tener el ciclo infinito del PHVA.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="../imagenes/firewall/cyber-security-3194286_640.jpg" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+<br>
+
+<section id="about-us">
+    <div class="container">
+        <h1 class="title text-center">¿Qué es el ciclo PHVA?</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="../imagenes/firewall/map-4636843_640.jpg" class="img-fluid">
+            </div>
+            <div class="col-md-6 about-us">
+                <p class="about-title"> </p>
+                <p class="text-justifi" style="color: white;">PHVA es el acrónimo de Planear, Hacer, Verificar y Actuar, las cuatro etapas que se deben de repetir constantemente para siempre estar al día en los procesos de seguridad, esta misma metodología y etapas están alineadas al desarrollo de un SGSI (Sistema de Gestión de la Seguridad de la Información) que es uno de los esquemas más importantes para una organización para enfrentar las amenazas.</p>
+                <p class="text-justifi" style="color: white;">Uno de los factores clave de esta metodología es el enfoque que le da a la información en el que estipula 3 que un SGSI de be cumplir con los siguientes aspectos:</p>
+                <ul>
+                    <li>•	Confidencialidad: La información se debe de clasificar, para el uso exclusivo de usuarios autorizados, quedando fuera del alcance de cualquier usuario u organización no autorizados (Zero trust/cigent)</li>
+                    <li>•	Integridad: Se deben de tener métodos para garantizar el buen estado de la información (Cigent)</li>
+                    <li>o No centralizar la confianza en un super usuario, tener varios en cargados y cada uno con
+                        diferentes accesos a los recursos informáticos.</li>
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</section>
 {% endblock %}

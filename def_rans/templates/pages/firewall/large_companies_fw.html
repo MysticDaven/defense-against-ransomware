@@ -1,8 +1,8 @@
-
 {% extends 'layouts/base.html' %}
 {% load static %}
 
 {% block content %}
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,45 +20,19 @@
     <!-- body -->
 
     <div class="container">
-        <h1 class="title text-center">Buenas prácticas para la implementación y gestión de firewall:</h1>
+        <h1 class="title text-center">Firewall</h1>
         <div class="row">
             <div class="col-md-6 about-us">
                 <p class="about-title"> </p>
-                <p class="text-justifi">Medianas empresas Firewall Gratis (posibles pequeñas empresas):
-                    Se recomienda la implementación de un firewall Gratuito como Pfsense ya que cuenta con versiones de
-                    Firewall
-                    UTM (Unified Threat Management) para tener una gestión perimetral unificada para controlar la red y
-                    el
-                    contenido que se visualiza.
-                    Pfsense es un sistema basado en FreeBSD, que es una versión gratuita de Linux lo que le fue de
-                    utilidad para
-                    la adaptación a firewall con opción de Nateo de Red para la segmentación de subredes, cuenta con
-                    características que ayudan a una correcta gestión de la seguridad para brindar inicio de sesión y
-                    conexiones
-                    remotas.</p>
+                <p class="text-justifi">Los Firewalls son muy importantes para bloquear las conexiones maliciosas y
+                    ataques externos, son muy importantes cuando se suscita un ataque de Ransomware para bloquear las
+                    comunicaciones de los atacantes para evitar que manden cambios en los procesos del ataque o que
+                    sustraigan información. Otras de las ventajas que nos otorga un firewall y que son de gran utilidad
+                    a la hora de enfrentar un ciberataque son las capacidades de segmentar la red, aplicar controles de
+                    acceso a la red y filtrados de contenido.</p>
 
-                <p class="text-justifi">Un punto para tomar en cuenta con soluciones de firewall gratuitas es que no hay
-                    centros
-                    de soporte por lo
-                    que la implementación requerirá un mínimo de conocimientos para configurarlo y administrarlo, se
-                    puede
-                    consultar el manual de implementación de un Firewall UTM en la sección de Blog.
-                    Firewall de paga (Sonicwall cualquier tamaño):
-                    Se recomienda la implementación de cualquier Firewall de paga y de ellos recomienda el uso de un
-                    firewall
-                    Sonicwall, ya que cuentan con una fácil gestión de la solución y el perímetro, al contar con una
-                    plataforma
-                    unificada para la gestión de soluciones de la marca que van desde switchs, Access point, antivirus,
-                    protección del email y gestión del perímetro.
-                    Sumado a esto se le agrega la fácil gestión que brinda Sonicwall al ser una solución más
-                    desarrollada y
-                    probada por compañías de diferentes tamaños alrededor del mundo contando con una amplia base de
-                    datos de
-                    información sobre ataques, malware y ciber amenazas.
-                </p>
-                <a type="button" class="btn btn-primary" href="https://www.pfsense.org/download/" target="_blank">Link
-                    de
-                    descarga</a>
+                <p class="text-justifi"></p>
+
             </div>
             <div class="col-md-6">
                 <img src="{% static '/img/firewall/cyber-security-3194286_640.jpg' %}" class="img-fluid">
@@ -70,21 +44,30 @@
 
     <section id="about-us">
         <div class="container">
-            <h1 class="title text-center">¿VPN o ZTNA (Zero Trust Netwrok Access)?</h1>
+            <h1 class="title text-center">Segmentación de la red</h1>
             <div class="row">
                 <div class="col-md-6">
                     <img src="{% static '/img/firewall/map-4636843_640.jpg' %}" class="img-fluid">
                 </div>
                 <div class="col-md-6 about-us">
                     <p class="about-title"> </p>
-                    <p class="text-justifi">Desde hace un tiempo el estándar para las conexiones remotas son las VPN
-                        (Red Privada
-                        Virtual) las cuales
-                        forman un túnel privado en el internet para que toda la información que circula de extremo a
-                        extremo de ese
-                        túnel viaje encriptada y privada, para asegurar una vía de comunicación remota entre usuarios de
-                        una
-                        organización y los recursos informáticos que necesitan.
+                    <p class="text-justifi">La segmentación de la red es un punto muy importante para la gestión del
+                        perímetro de la organización, ya que con esto podemos aislar de una manera segura equipos como
+                        los servidores que son de los recursos más importantes de una organización, ya que es ahí donde
+                        se encuentran recursos web, bases de datos, gestores de correo electrónico, etc.
+                        Otro punto importante para considerar es que la mejor practica seria segmentar las rede de
+                        invitados dejándolos totalmente aislados de las redes internas para prevenir un ataque lateral a
+                        nivel de red.
+                        Dentro de la segmentación de la Red hay un término que se conoce como “zona desmilitarizada”
+                        (DMZ) se sugiere altamente la implementación de la misma, esta consiste en dividir la LAN y la
+                        DMZ que será un segmento de la red donde se colocaran los servidores, todo el tráfico de la DMZ
+                        saldrá por la LAN, y solo se podrá acceder a este segmento mediante conexiones remotas, para un
+                        ejemplo de configurar validar en la sección de blog el archivo de guía de ejemplo SGSI.
+                        La segmentación de la Red Local (LAN) es de suma importancia porque en caso de que se presentara
+                        algún incidente de Ransomware lo podemos aislar en un área específica para evitar su propagación
+                        a toda la red, por lo que es de vital importancia configurar VLANs que limiten la comunicación
+                        entre una y otra en la medida de lo posible.
+
                     </p>
                 </div>
 
@@ -95,53 +78,32 @@
     <br>
 
     <div class="container">
-        <h1 class="title text-center">¿Pero es aún segura la VPN? </h1>
+        <h1 class="title text-center">NAC</h1>
         <div class="row">
             <div class="col-md-12">
                 <p class="about-title"> </p>
-                <p class="text-justifi">Lo cierto es que la VPN cuenta con una falla de seguridad muy grande, la cual es
-                    la
-                    confianza que se le tiene al usuario a la hora de establecer la conexión remota, ya que este solo
-                    necesita el
-                    usuario y la contraseña. Pero si estos dos identificadores se ven comprometidos un hacker podría
-                    hacer uso de
-                    esa conexión para ingresar directamente a los servidores o a la red y esparcir con gran facilidad un
-                    ataque de
-                    Ransomware.</p>
-                <p class="text-justifi">Por lo que en la actualidad se está teniendo una nueva metodología para las
-                    conexiones
-                    remotas la cual corresponde al Zero Trust Netwrok Access (ZTNA) en la cual se implementa un proceso
-                    de
-                    validación más riguroso para establecer la conexión, hay soluciones firewall como las de la
-                    tecnología de
-                    Sonicwall que ya está integrando este tipo de metodología adicionando una autenticación en base a
-                    tiempo lo
-                    cual garantiza la conexión.</p>
-                <p class="text-justifi">También hay una nueva variedad de soluciones en este ramo dependiendo el nivel
-                    de
-                    seguridad que se desee tener, una de las más robustas en el mercado corresponde a Appgate, con
-                    Appgate se
-                    tiene un Multi factor de Autenticación con el que se puede validar información como lo es la MAC del
-                    dispositivo que se debe conectar, la geolocalización, se pueden establecer horarios para cada
-                    usuario o grupos
-                    de usuarios y se puede validar el sistema operativo para corroborar si es una PC(Windows, Linux o
-                    MacOS) o si
-                    es que se trata de un smartphone (Android o IOS).</p>
-                <p class="text-justifi">Otra de las ventajas de usar una solución como Appgate (ZTNA) , es volver
-                    independiente
-                    la conexión remota del Firewall, lo que permite reducir carga de trabajo para el Firewall ya que al
-                    no
-                    dedicarse a realizar las interconexiones remotas en la red ayuda a mejorar su performance, y por su
-                    parte el
-                    software de Appgate se puede virtualizar ya sea en un solo dispositivo el controlador y el Gateway o
-                    se puede
-                    separar en diferentes maquina virtuales, al utilizar Appgate se tiene la opción de ocultar
-                    infraestructura a
-                    los usuarios lo cual es muy benéfico así evitamos en el escenario imaginario de que algún usuario
-                    malicioso se
-                    llegara conectar remotamente a uno de los equipos no pueda visualizar toda la demás infraestructura
-                    de la red
-                    para focalizar la detección en caso de un ataque de Ransomware.</p>
+                <p class="text-justifi">A nivel perimetral es recomendable hacer uso de un Network Access Control (NAC)
+                    para poder evitar la conexión a la red de usuarios que no formen parte de la organización, ya que si
+                    un usuario logra ingresar a la red y no ponemos un filtro le seria extremadamente fácil el desplegar
+                    un ataque de Ransomware dentro de una organización.</p>
+                <p class="text-justifi">Es por eso necesario la implementación de un control de acceso a los usuarios el
+                    cual puede ser a través de un portal captativo el cual se puede configurar a través de cualquier
+                    firewall y dentro los controles que se pueden habilitar se recomienda ampliamente la habilitación de
+                    lo siguiente:</p>
+                <ul>
+                    <li>• Poner un límite de tiempo por sesión para que los usuarios validen s identidad constantemente.
+                    </li>
+                    <li>• Deshabilitar la opción de recordar o almacenar el inicio de sesión para evitar que algún
+                        usuario ajeno a la organización o algún usuario mal intencionado haga uso de los recursos de la
+                        organización con fácil impunidad</li>
+                    <li>• Limitar la creación de usuarios como filtro de seguridad, otorgándoselo solo a quien realmente
+                        lo requiera, o manejar inicios de sesión temporal</li>
+                </ul>
+                <p class="text-justifi">Una mejor solución sería la implementación de un NAC como el que se obtiene con
+                    la solución de Appgate que brinda la capacidad de realizar una segmentación en base al usuario, con
+                    un multi factor de autenticación ya que de esta manera se asegura que también la conexión sea a
+                    través de un recurso autorizado.</p>
+                <p class="text-justifi"></p>
             </div>
             <div class="col-md-6">
 
@@ -153,36 +115,54 @@
 
     <section id="about-us">
         <div class="container">
-            <h1 class="title text-center">Segmentación de la red:</h1>
+            <h1 class="title text-center">Filtrado de Contenido</h1>
             <div class="row">
                 <div class="col-md-6 about-us">
-                    <p class="about-title">La segmentación de la red es un punto muy importante para la gestión del
-                        perímetro de
-                        la organización, ya que con esto podemos aislar de una manera segura equipos como los servidores
-                        que son de
-                        los recursos más importantes de una organización, ya que es ahí donde se encuentran recursos
-                        web, bases de
-                        datos, gestores de correo electrónico, etc.</p>
-                    <p class="text-justifi">Otro punto importante para considerar es que la mejor practica seria
-                        segmentar las
-                        rede de invitados dejándolos totalmente aislados de las redes internas para prevenir un ataque
-                        lateral a
-                        nivel de red.</p>
-                    <p class="text-justifi">Dentro de la segmentación de la Red hay un término que se conoce como “zona
-                        desmilitarizada” (DMZ) se sugiere altamente la implementación de la misma, esta consiste en
-                        dividir la LAN y
-                        la DMZ que será un segmento de la red donde se colocaran los servidores, todo el tráfico de la
-                        DMZ saldrá
-                        por la LAN, y solo se podrá acceder a este segmento mediante conexiones remotas, para un ejemplo
-                        de
-                        configurar validar en la sección de blog el archivo de guía de ejemplo SGSI.</p>
-                    <p class="text-justifi">La segmentación de la Red Local (LAN) es de suma importancia porque en caso
-                        de que se
-                        presentara algún incidente de Ransomware lo podemos aislar en un área específica para evitar su
-                        propagación
-                        a toda la red, por lo que es de vital importancia configurar VLANs que limiten la comunicación
-                        entre una y
-                        otra en la medida de lo posible.</p>
+                    <p class="about-title">Muchas amenazas de Malware (Ransomware) se encuentran en sitios web de
+                        ciertos tipos de contenido como páginas de descarga de software no oficial, páginas de apuestas,
+                        contenido para adultos, etc. Por lo que es importante analizar a nivel organización que
+                        contenidos se deben de poder acceder y otorgar acceso a estos recursos limitados</p>
+
+                    <ul>
+                        <li>a. PFsense
+                            <ul>
+                                <li>Se recomienda la implementación de un firewall Gratuito como Pfsense para
+                                    organizaciones pequeñas, ya que cuenta con versiones de Firewall UTM (Unified Threat
+                                    Management) para tener una gestión perimetral unificada para controlar la red y el
+                                    contenido que se visualiza.
+                                    Pfsense es un sistema basado en FreeBSD, que es una versión gratuita de Linux lo que
+                                    le fue de utilidad para la adaptación a firewall con opción de Nateo de Red para la
+                                    segmentación de subredes, cuenta con características que ayudan a una correcta
+                                    gestión de la seguridad para brindar inicio de sesión y conexiones remotas.
+                                </li>
+                                <a type="button" class="btn btn-primary" href="https://www.pfsense.org/download/"
+                                    target="_blank">
+                                    Link de descarga
+                                </a>
+                                <li>Un punto para tomar en cuenta con soluciones de firewall gratuitas es que no hay
+                                    centros de soporte por lo que la implementación requerirá un mínimo de conocimientos
+                                    para configurarlo y administrarlo, se puede consultar el manual de implementación de
+                                    un Firewall UTM en la sección de Blog.</li>
+                            </ul>
+                        </li>
+
+                        <li>b. Sonicwall
+                            <lu>
+                        <li style="text-align: justify;">Se recomienda la implementación de cualquier Firewall de paga y de ellos se recomienda el
+                            uso de un firewall Sonicwall, ya que cuentan con una fácil gestión de la protección y el
+                            perímetro, al contar con una plataforma unificada para la gestión de soluciones de la marca
+                            que van desde switchs, Access point, antivirus, protección del email y gestión del
+                            perímetro.
+                            Sumado a esto se le agrega la fácil gestión que brinda Sonicwall al ser una solución más
+                            desarrollada y probada por compañías de diferentes tamaños alrededor del mundo contando con
+                            una amplia base de datos de información sobre ataques, malware y ciber amenazas.
+                        </li>
+                        </lu>
+                        </li>
+                    </ul>
+
+
+
                 </div>
                 <div class="col-md-6">
                     <img src="{% static '/img/firewall/ai-generated-8362805_640.jpg' %}" class="img-fluid">
