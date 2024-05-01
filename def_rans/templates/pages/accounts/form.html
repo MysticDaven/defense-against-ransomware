@@ -26,16 +26,42 @@
           <div class="header-text mb-4">
             <h2>Cuestionario</h2>
           </div>
-          <form action="" method="POST">
-            {% csrf_token %}
-
-            {% for question in form %}
-            <label>{{question.label_tag}}</label>
-            <label>{{question}}</label>
-            {% endfor %}
-            <div class="row">
-              <small><a href="">Enviar</a></small>
-            </div>
+          <div>
+            <form action="" method="POST">
+              {% csrf_token %}
+  
+              {% for question in identify_form %}
+              <label>{{question.label_tag}}</label>
+              <label>{{question}}</label>
+              {% endfor %}
+              <div class="row">
+                <small><a href="">Enviar</a></small>
+              </div>
+          </div>
+          <div>
+            <form action="" method="POST">
+              {% csrf_token %}
+  
+              {% for question in conciencia_form %}
+              <label>{{question.label_tag}}</label>
+              <label>{{question}}</label>
+              {% endfor %}
+              <div class="row">
+                <small><a href="">Enviar</a></small>
+              </div>
+          </div>
+          <div>
+            <form action="" method="POST">
+              {% csrf_token %}
+  
+              {% for question in herramientas_form %}
+              <label>{{question.label_tag}}</label>
+              <label>{{question}}</label>
+              {% endfor %}
+              <div class="row">
+                <small><a href="">Enviar</a></small>
+              </div>
+          </div>
         </div>
       </div>
     </div>

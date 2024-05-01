@@ -1,5 +1,5 @@
 from django import forms
-from .models import form_identificar, form_conciencia, form_herramientas, Preguntas, Respuestas
+from .models import model_identificar, model_conciencia, model_herramientas, Preguntas, Respuestas
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordResetForm, SetPasswordForm, PasswordChangeForm, UsernameField
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
@@ -89,7 +89,17 @@ class Formulario(forms.Form):
             })
 
 class IdentifyForm(forms.ModelForm):
-   
+    class Meta:
+        model = model_identificar
+        fields = '__all__'
+        
+
+class ConcienciaForm(forms.ModelForm):
+    class Meta:
+       model = model_conciencia  
+       fields = '__all__'      
+
+class HerramientasForm(forms.ModelForm):
    class Meta:
-      model = form_identificar
-      fields = ['tipo_empresa', 'rol', 'incidente']            
+      model = model_herramientas
+      fields = '__all__'            
