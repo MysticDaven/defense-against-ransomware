@@ -3,4 +3,110 @@
 
 {% block content %}
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Firewall</title>
+    <!-- Bootstrap -->
+    <link href="{% static '/styles/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="icon" href="{% static '/img/logo 4min.png' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static '/styles/firewalle.css' %}">
+</head>
+
+<!-- body -->
+<section id="about-us">
+    <div class="container">
+        <h1 class="title text-center">GDPR</h1>
+        <div class="row">
+            <div class="col-md-6 about-us">
+                <p class="about-title"> </p>
+                <p style="text-align: justify;">La Regulación de Protección a la Información en General (GDPR – General
+                    Data
+                    Protection Regulation) es una de las leyes más estricta a nivel mundial para la protección de la
+                    información, esta ley surgió como una iniciativa de la Unión Europea en el año 2018 con la finalidad
+                    de que las organizaciones sean capaces de almacenar y proteger la información sensible de sus
+                    usuarios de una manera acorde a la ley sin sobrepasar sus limitaciones y respetando el derecho
+                    humano de los usuarios a la protección de su información.</p>
+                <p style="text-align: justify;">Si bien esta metodología es un requisito forzoso para toda organización
+                    que
+                    llegue a almacenar información de usuarios de la Unión Europea, cosa que en las PyMEs es posible que
+                    no se llegue a presentar, si es una muy buena estrategia para proteger de igual manera la
+                    información de cualquier usuario, esta metodología consta de 7 principios los cuales son:
+                <ul>
+                    <li style="text-align: justify;">Transparencia, Justificación y Apegado a la ley: Todo proceso que
+                        con lleve el manejo de la información del usuario deberá de ser Justificado (Porque es que se
+                        hace), Transparente (haciendo del conocimiento de los usuarios como se manejara su información)
+                        y apegado a seguir las leyes en el caso de México apegados a la Ley Federal de Protección de
+                        Datos Personales.</li>
+                    <li style="text-align: justify;">Propósito: Toda la información que se llegue a colectar debe de
+                        tener un propósito especifico al cual se le pueda relacionar.</li>
+                    <li style="text-align: justify;">Moderación: Solo se recopilará información necesaria, por lo que se
+                        limitará el proceso de consulta de datos a todo lo que pueda ser esencial, dejando toda
+                        información no relevante de lado.</li>
+                    <li style="text-align: justify;">Fiabilidad: Toda la información que se almacene debe de estar
+                        actualizada y debe de ser fiable.</li>
+                    <li style="text-align: justify;">Limitación de almacenaje: La información personal del usuario solo
+                        será almacenada por el periodo de tiempo que sea necesario, posterior a este periodo la
+                        información debe de ser eliminada de una manera segura.</li>
+                    <li style="text-align: justify;">Integridad y Confidencialidad: Cualquier proceso que con lleve la
+                        utilización de la información deberá de contar con un grado de integridad y confiabilidad, al
+                        aplicar todas las medidas de seguridad, integridad y confidencialidad, para el apropiado manejo
+                        de los datos.</li>
+                    <li style="text-align: justify;">Cumplimiento: La organización es responsable de controlar la
+                        información, por lo que deben de ser capaces de demostrar el cumplimiento del marco GDPR.</li>
+                </ul>
+
+                </p>
+
+                <p style="text-align: justify;">Una de las grandes razones por la que las organizaciones en el país no
+                    hacen de
+                    conocimiento público las brechas de ciberseguridad que sufren es por el manejo inadecuado en la
+                    gestión de la información de sus usuarios o clientes, y para evitar la pérdida de clientes prefieren
+                    ocultar todas estas situaciones, pero ahora con los nuevos procesos de ataque de ransomware el
+                    ocultar el hackeo dejo de ser una alternativa. </p>
+
+                <p style="text-align: justify;">Por lo que es de suma importancia tomar las medidas necesarias para
+                    resguardar la información de los usuarios, para poderles dar la tranquilidad de que su información
+                    está segura y evitar la pérdida de estos.</p>
+
+            </div>
+            <div class="col-md-6">
+                <img src="{% static '/img/firewall/cyber-security-3194286_640.jpg' %}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<br>
+
+
+<div class="container">
+    <h1 class="title text-center">Buenas prácticas de la GDPR:</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{% static '/img/firewall/map-4636843_640.jpg' %}" class="img-fluid">
+        </div>
+        <div class="col-md-6 about-us">
+            <p class="about-title"> </p>
+            <p>
+                <ul>
+                    <li>Si se le solicitara información a un usuario tener una justificación legal de porque es necesaria esa información.</li>
+                    <li>Hacer del conocimiento de los usuarios que información se almacenara y con que propósitos.</li>
+                    <li>Ten en cuenta la protección de datos en todo momento, desde que comienzas a desarrollar un nuevo registro y en cada ocasión que se manipule el registro.</li>
+                    <li>Encripta la información personal cada que sea posible.</li>
+                    <li>Crear una política interna de seguridad.</li>
+                    <li>Desarrolla la conciencia de la importancia de la protección de la información con campañas de capacitación.</li>
+                    <li>Tomar conciencia de cuando llevar a cabo una evaluación (auditoria) del impacto de la protección de la información</li>
+                    <li>Tener un proceso establecido para hacer de conocimiento de los usuarios si es que la información se ve comprometida para que estos puedan tomar medidas de protección.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<br>
+
 {% endblock %}

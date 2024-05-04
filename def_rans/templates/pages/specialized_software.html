@@ -3,4 +3,134 @@
 
 {% block content %}
 
-{% endblock %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Firewall</title>
+    <!-- Bootstrap -->
+    <link href="{% static '/styles/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="icon" href="{% static '/img/logo 4min.png' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static '/styles/firewalle.css' %}">
+</head>
+
+<body>
+
+    <!-- body -->
+    <section id="about-us">
+        <div class="container">
+            <h1 class="title text-center">VPN/ZTNA</h1>
+            <div class="row">
+                <div class="col-md-6 about-us">
+                    <p class="about-title">¿VPN (Virtual Private Network) o ZTNA (Zero Trust Netwrok Access)? </p>
+                    <p class="text-justifi">Desde hace un tiempo el estándar para las conexiones remotas son las VPN
+                        (Red Privada Virtual) las cuales forman un túnel privado en el internet para que toda la
+                        información que circula de extremo a extremo de ese túnel viaje encriptada y privada, para
+                        asegurar una vía de comunicación remota entre usuarios de una organización y los recursos
+                        informáticos que necesitan.</p>
+
+                    <p class="text-justifi"></p>
+
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static '/img/firewall/cyber-security-3194286_640.jpg' %}" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+
+    <div class="container">
+        <h1 class="title text-center">¿Pero es aún segura la VPN? </h1>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% static '/img/firewall/map-4636843_640.jpg' %}" class="img-fluid">
+            </div>
+            <div class="col-md-6 about-us">
+                <p class="about-title">Lo cierto es que la VPN cuenta con una falla de seguridad muy grande, la cual es
+                    la confianza que se le tiene al usuario a la hora de establecer la conexión remota, ya que este solo
+                    necesita el usuario y la contraseña. Pero si estos dos identificadores se ven comprometidos un
+                    hacker podría hacer uso de esa conexión para ingresar directamente a los servidores o a la red y
+                    esparcir con gran facilidad un ataque de Ransomware. </p>
+                <p class="text-justifi">Con la gran cantidad de ataques que e tienen en la actualidad, es importante
+                    considerar la seguridad con todo lo que implique un acceso a los recursos y sobre todo a los que
+                    pueden llegar a ser más críticos como los son los servidores, por lo que en la actualidad se
+                    recomienda ampliamente migrar todos los esquemas de VPN hacia la seguridad del estándar ZTNA.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+
+    <section id="about-us">
+        <div class="container">
+            <h1 class="title text-center">a. Appgtae</h1>
+            <div class="row">
+                <div class="col-md-6 about-us">
+                    <p class="about-title">Con Appgate se tiene una solución ZTNA que hace uso de un Multi-factor de
+                        Autenticación con el que se puede validar información clave como lo es la MAC del dispositivo
+                        que se debe conectar, la geolocalización, se pueden establecer horarios para cada usuario o
+                        grupos de usuarios y se puede validar el sistema operativo para corroborar si es una PC
+                        (Windows, Linux o MacOS) o si es que se trata de un smartphone (Android o IOS).</p>
+                    <p class="about-title">Otra de las ventajas de usar una solución como Appgate (ZTNA) , es volver
+                        independiente la
+                        conexión remota del Firewall, lo que permite reducir carga de trabajo para el Firewall ya que al
+                        no dedicarse a realizar las interconexiones remotas en la red ayuda a mejorar su performance, y
+                        por su parte el software de Appgate se puede virtualizar ya sea en un solo dispositivo el
+                        controlador y el Gateway o se puede separar en diferentes maquina virtuales, al utilizar Appgate
+                        se tiene la opción de ocultar infraestructura a los usuarios lo cual es muy benéfico así
+                        evitamos en el escenario imaginario de que algún usuario malicioso se llegara conectar
+                        remotamente a uno de los equipos no pueda visualizar toda la demás infraestructura de la red
+                        para focalizar la detección en caso de un ataque de Ransomware.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static '/img/firewall/ai-generated-8362805_640.jpg' %}" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+
+    <div class="container">
+        <h1 class="title text-center">b. Sonicwal – Cloud Edge Securityl</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% static '/img/firewall/technology-8362810_640.jpg' %}" class="img-fluid">
+            </div>
+            <div class="col-md-6 about-us">
+                <p class="about-title">
+                    Si se cuenta con un firewall Sonicwall y no se requiere una solución tan robusta de validación para
+                    la conexión se recomienda el uso de la herramienta de Cloud Edge Security ya que nos permite una
+                    integración nativa con el Firewall Sonicwall y nos permite una conexión remota segura, pero de una
+                    manera simplificada al solo requerir un doble factor de autenticación mediante una app de la
+                    solución
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+
+    <section id="about-us">
+        <div class="container">
+            <h1 class="title text-center">Buenas prácticas de los ZTNA:</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="about-title">•	Identificar los puntos más críticos donde se requiere el acceso remoto y delimitarlos.</p>
+                    <p class="text-justifi">•	Definir las personas que deberán de tener acceso a los recursos y de igual manera limitar el acceso solo a los recursos exclusivamente necesarios para cada uno de los usuarios.</p>
+                    <p class="text-justifi">•	Si se hace uso de Appgate definirlo como control de acceso a la red brindaría la capacidad de evitar el ingreso de dispositivos ajenos a la organización, reduciendo las posibilidades de ataques.</p>
+                    <p class="text-justifi">•	Si se hace uso de Appgate definirlo como control de acceso a la red brindaría la capacidad de evitar el ingreso de dispositivos ajenos a la organización, reduciendo las posibilidades de ataques.</p>
+                    <p class="text-justifi">•	Generar un proceso para la solicitud y aprobación del uso de los recursos remotos.</p>
+                    <p class="text-justifi">•	Generar un manual de uso interno para los recursos de red.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
