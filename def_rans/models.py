@@ -71,8 +71,8 @@ class edit_user(forms.ModelForm):
 
 class model_identificar(models.Model):
     tipo_empresa = models.IntegerField(choices=tipos, verbose_name='¿Cuál es el tipo de tu empresa?')
-    rol = models.IntegerField(choices=tipos, verbose_name="¿Cuál es su puesto/rol en su organización?")
-    incidente = models.IntegerField(choices=tipos, verbose_name="En el caso de un incidente de segurdad informática (ataque por viruso informático u otras formas) usted: ")
+    rol = models.IntegerField(choices=roles, verbose_name="¿Cuál es su puesto/rol en su organización?")
+    incidente = models.IntegerField(choices=incidentes, verbose_name="En el caso de un incidente de segurdad informática (ataque por viruso informático u otras formas) usted: ")
 
 class model_conciencia(models.Model):
     ataque_propio = models.IntegerField(choices=decision, verbose_name="¿Alguna vez su organización ha recibido un ciberataque?")
@@ -123,3 +123,9 @@ class Respuestas(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Usuario")
     respuesta = models.PositiveIntegerField(verbose_name="Respuestas", null=True, blank=True)
     pregunta = models.ForeignKey(Preguntas, on_delete=models.CASCADE, verbose_name="Pregunta")  
+
+class RespuestasIdentificar(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Usuario")
+    respuesta = models.TextField(verbose_name="Respuesta", null=True, blank=True)
+    pregunta = models.TextField(verbose_name="Pregunta", blank=True, null=True)

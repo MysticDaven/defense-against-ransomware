@@ -21,6 +21,7 @@ urlpatterns = [
     #Metodos
     path('cuenta/configuracion/usuario/', views.edit_profile, name='edit_profile'),
     path('cuenta/configuracion/contraseña/', views.edit_password, name='edit_password'),
+    path('cuenta/formulario/identificar/', views.save_Identify, name='save_Identify'),
 
 
     #Antivirus

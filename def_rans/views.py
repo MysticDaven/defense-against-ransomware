@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.views import *
 from django.contrib.auth.decorators import login_required
 from .forms import *
-from .models import edit_user
+from .models import edit_user, RespuestasIdentificar
 
 #Create your views here
 #def sign_in2(request):
@@ -125,10 +125,52 @@ def settings_user(request):
 
 @login_required(login_url='sign_in')
 def form(request):
+    user = request.user
     identify_form = IdentifyForm()
     conciencia_form = ConcienciaForm()
     herramientas_form = HerramientasForm()
-    return render(request, 'pages/accounts/form.html', {'identify_form': identify_form, 'conciencia_form': conciencia_form, 'herramientas_form': herramientas_form})
+    context = {
+        'identify_form': identify_form, 
+        'conciencia_form': conciencia_form,
+        'herramientas_form': herramientas_form
+
+    }
+    return render(request, 'pages/accounts/form.html', context)
+
+@login_required(login_url='sign_in')
+def save_Identify(request):
+    
+    form = IdentifyForm()
+    #print('Usuario: ', user)
+
+    #if isinstance(user, tuple):
+    #    print("user es una tupla de IDs")
+    #elif isinstance(user, int):
+    #    print("user es un solo entero")
+    #else:
+    #    print("user no es ni una tupla ni un entero")
+
+    respuestas = RespuestasIdentificar.objects.filter(user = request.user.id)
+    context = {
+        'form': form
+    }
+    if respuestas.count == 6:
+        context.update({'hecho': 'True'})
+    else:
+        context.update({'hecho': 'False'})
+    if request.method == 'POST':
+        form = IdentifyForm(request.POST) 
+        if form.is_valid():
+            tipo_empresa = form.cleaned_data['tipo_empresa']
+            rol = form.cleaned_data['rol']
+            incidente = form.cleaned_data['incidente']
+
+            RespuestasIdentificar.objects.create(user = User.objects.get(id=request.user.id),
+            respuesta = tipo_empresa, 
+            pregunta = form.fields['tipo_empresa'].label)
+            context.update({'msg': '¡Guardado exitosamente!'})
+    return render(request, 'pages/accounts/form.html', context)
+
 
 def home(request):
     return render(request, 'pages/home.html')
