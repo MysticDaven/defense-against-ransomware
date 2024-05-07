@@ -106,7 +106,7 @@ class model_herramientas(models.Model):
     siem = models.IntegerField(choices=importancia, verbose_name="SIEM (Sistema de monitoreo de alertas informáticas)")
     soar = models.IntegerField(choices=importancia, verbose_name="SOAR (Centro de Orquestación y Automatización de Respuesta a Incidentes)")
     soc = models.IntegerField(choices=importancia, verbose_name="SOC (Centro de Operaciones para la Seguridad de la Información)")
-    sdsdp = models.IntegerField(choices=importancia, verbose_name="SGSDP (Sistema de Gestión de Datos Personales del INAI México)")
+    sgsdp = models.IntegerField(choices=importancia, verbose_name="SGSDP (Sistema de Gestión de Datos Personales del INAI México)")
     buenas_prac = models.IntegerField(choices=buenas_practicas, verbose_name="Tomando en cuenta las preguntas anteriores considera que ha aplicado el uso de las buenas prácticas de ciberseguridad dentro de sus organización, indique a continuación las buenas práctas que ha aplicado o si es que no las ha aplicado")
     preparada = models.IntegerField(choices=decision_3, verbose_name="Tomando en cuenta todas las soluciones y metodologías que anteriormente se mencionar, ¿Considera que su organización está prepatada para afronta un ataque de Ransomware?")
 
@@ -129,3 +129,15 @@ class RespuestasIdentificar(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Usuario")
     respuesta = models.TextField(verbose_name="Respuesta", null=True, blank=True)
     pregunta = models.TextField(verbose_name="Pregunta", blank=True, null=True)
+
+class RespuestasConciencia(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Usuario")
+    respuesta = models.TextField(verbose_name="Respuesta", null=True, blank=True)
+    pregunta = models.TextField(verbose_name="Pregunta", blank=True, null=True)
+
+class RespuestasHerramientas(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Usuario")
+    respuesta = models.TextField(verbose_name="Respuesta", null=True, blank=True)
+    pregunta = models.TextField(verbose_name="Pregunta", null=True, blank=True)    
