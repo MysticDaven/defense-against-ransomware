@@ -129,35 +129,29 @@ def form(request):
     identify_form = IdentifyForm()
     conciencia_form = ConcienciaForm()
     herramientas_form = HerramientasForm()
+    respuestas = RespuestasIdentificar.objects.filter(user = request.user.id)
     context = {
         'identify_form': identify_form, 
         'conciencia_form': conciencia_form,
         'herramientas_form': herramientas_form
-
     }
+    print('Respuestas ', respuestas.count())
+    if respuestas.count() == 3:
+        context.update({'hecho': 'True'})
+    else:
+        context.update({'hecho': 'False'})
     return render(request, 'pages/accounts/form.html', context)
 
 @login_required(login_url='sign_in')
 def save_Identify(request):
-    
-    form = IdentifyForm()
-    #print('Usuario: ', user)
-
-    #if isinstance(user, tuple):
-    #    print("user es una tupla de IDs")
-    #elif isinstance(user, int):
-    #    print("user es un solo entero")
-    #else:
-    #    print("user no es ni una tupla ni un entero")
-
-    respuestas = RespuestasIdentificar.objects.filter(user = request.user.id)
     context = {
         'form': form
     }
-    if respuestas.count == 6:
+    respuestas = RespuestasIdentificar.objects.filter(user = request.user.id)    
+    if respuestas.count() == 3:
         context.update({'hecho': 'True'})
     else:
-        context.update({'hecho': 'False'})
+        context.update({'hecho': 'False'})       
     if request.method == 'POST':
         form = IdentifyForm(request.POST) 
         if form.is_valid():
@@ -165,9 +159,21 @@ def save_Identify(request):
             rol = form.cleaned_data['rol']
             incidente = form.cleaned_data['incidente']
 
-            RespuestasIdentificar.objects.create(user = User.objects.get(id=request.user.id),
-            respuesta = tipo_empresa, 
-            pregunta = form.fields['tipo_empresa'].label)
+            RespuestasIdentificar.objects.create(
+                user = User.objects.get(id=request.user.id),
+                respuesta = form.fields['tipo_empresa'].choices[tipo_empresa + 1][1], 
+                pregunta = form.fields['tipo_empresa'].label
+            )
+            RespuestasIdentificar.objects.create(
+                user = User.objects.get(id=request.user.id),
+                respuesta = form.fields['rol'].choices[rol + 1][1],
+                pregunta = form.fields['rol'].label
+            )
+            RespuestasIdentificar.objects.create(
+                user = User.objects.get(id=request.user.id),
+                respuesta = form.fields['incidente'].choices[incidente + 1][1],
+                pregunta = form.fields['incidente'].label
+            )
             context.update({'msg': '¡Guardado exitosamente!'})
     return render(request, 'pages/accounts/form.html', context)
 

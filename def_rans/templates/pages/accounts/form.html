@@ -27,16 +27,29 @@
             <h2>Cuestionario</h2>
           </div>
           <div>
+            {% if hecho == 'False' %}
             <form action="{% url 'save_Identify' %}" method="POST">
               {% csrf_token %}
-  
+
               {% for question in identify_form %}
               <label>{{question.label_tag}}</label>
               <label>{{question}}</label>
               {% endfor %}
               <div class="row">
-                <small><button type="submit" class="btn btn-lg bg-gradient-rpimary btn-lg w-100 mt-4 mb-0">Enviar</button></small>
+                <small><button type="submit"
+                    class="btn btn-lg bg-gradient-rpimary btn-lg w-100 mt-4 mb-0">Enviar</button></small>
               </div>
+              {% else %}
+              <div>
+                <label>
+                  El formulario ya se ha realizado
+                </label>
+                <button>
+                  Respuestas
+                  <a href="{% url 'consult' %}"></a>
+                </button>
+              </div>
+              {% endif %}
           </div>
           <!--
           <div>
