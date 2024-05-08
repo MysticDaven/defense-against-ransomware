@@ -17,8 +17,6 @@
 </head>
 
 <body>
-
-
   <div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="row border rounded-5 p-3 bg-white shadow box-area">
       <div class="col-md-6 right-box">
@@ -26,9 +24,9 @@
           <div class="header-text mb-4">
             <h2>Cuestionario</h2>
           </div>
-          <div>
+          <div id="form-section-1" class="form-section">
             {% if hecho == 'False' %}
-            <form action="{% url 'save_Identify' %}" method="POST">
+            <form id='form-1' action="{% url 'save_Identify' %}" method="POST">
               {% csrf_token %}
 
               {% for question in identify_form %}
@@ -50,10 +48,12 @@
                 </button>
               </div>
               {% endif %}
+              <div>
+                <button type="button" onclick="nextSection(2)" class="btn btn-primary">Siguiente</button>
+              </div>
           </div>
-          <!--
-          <div>
-            <form action="" method="POST">
+          <div id="form-section-2" class="form-section" style="display: none;">
+            <form id="form-2" action="" method="POST">
               {% csrf_token %}
   
               {% for question in conciencia_form %}
@@ -63,9 +63,13 @@
               <div class="row">
                 <small><a href="">Enviar</a></small>
               </div>
+              <div>
+                <button type="button" onclick="prevSection(1)" class="btn btn-secondary">Anterior</button>
+                <button type="button" onclick="nextSection(3)" class="btn btn-primary">Siguiente</button>
+              </div>
           </div>
-          <div>
-            <form action="" method="POST">
+          <div id="form-section-3" class="form-section" style="display: none;">
+            <form id=form-3 action="" method="POST">
               {% csrf_token %}
   
               {% for question in herramientas_form %}
@@ -75,12 +79,27 @@
               <div class="row">
                 <small><a href="">Enviar</a></small>
               </div>
+              <div>
+                <button type="button" onclick="prevSection(2)" class="btn btn-secondary">Anterior</button>
+                <button type="submit" class="btn btn-success">Enviar</button>
+              </div>
           </div>
-        -->
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    function nextSection(sectionNumber) {
+      document.getElementById('form-section-' + sectionNumber).style.display = 'block';
+      document.getElementById('form-section-' + (sectionNumber - 1)).style.display = 'none';
+    }
+
+    function prevSection(sectionNumber) {
+      document.getElementById('form-section-' + sectionNumber).style.display = 'block';
+      document.getElementById('form-section-' + (sectionNumber + 1)).style.display = 'none';
+    }
+  </script>
 
 </body>
 
