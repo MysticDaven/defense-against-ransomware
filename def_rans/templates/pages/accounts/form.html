@@ -24,6 +24,9 @@
           <div class="header-text mb-4">
             <h2>Cuestionario</h2>
           </div>
+          {{hecho_identify}}
+          test 
+          {{hecho_conciencia}}
           <div id="form-section-1" class="form-section">
             {% if hecho_identify == 'False' %}
             <form id='form-1' action="{% url 'save_Identify' %}" method="POST">
@@ -57,7 +60,7 @@
           <div id="form-section-2" class="form-section" style="display: none;">
             {% if hecho_conciencia == 'False' %}
             <form id="form-2" action="{% url 'save_Conciencia' %}" method="POST">
-              {% csrf_token %}
+              {% csrf_token %}  
               {% for question in conciencia_form %}
                 <p><label>{{question.label_tag}}</label></p>
                 <p><label>{{question}}</label></p>

@@ -161,11 +161,14 @@ def form(request):
 
 @login_required(login_url='sign_in')
 def save_Identify(request):
+    print(request.user.id)
+    print("user")
     form = IdentifyForm()
     context = {
         'form': form
     }     
     if request.method == 'POST':
+        
         form = IdentifyForm(request.POST) 
         if form.is_valid():
             tipo_empresa = form.cleaned_data['tipo_empresa']
@@ -187,11 +190,13 @@ def save_Identify(request):
                     respuesta=form.fields['incidente'].choices[incidente + 1][1],
                     pregunta=form.fields['incidente'].label
                 )
-                context.update({'msg': '¡Guardado exitosamente!'})
+                conciencia_form = ConcienciaForm()
+                context.update({'msg': '¡Guardado exitosamente!','hecho_identify': 'True','hecho_conciencia':'False','conciencia_form':conciencia_form})
             except Exception as e:
                 context.update({'msg': 'Error al guardar los datos. Por favor, inténtalo de nuevo.'})
                 print(e)
     return render(request, 'pages/accounts/form.html', context)
+    #return redirect("form")
 
 @login_required(login_url='sign_in')
 def save_Conciencia(request):
@@ -293,7 +298,9 @@ def save_Conciencia(request):
                     respuesta = form.fields['div_db'].choices[div_db + 1 ][1],
                     pregunta = form.fields['div_db'].label
                 )                                             
-                context.update({'msg': '¡Guardado exitosamente!'})
+                # conciencia_form = ConcienciaForm()
+                herramientas_form = HerramientasForm()
+                context.update({'msg': '¡Guardado exitosamente!','hecho_identify': 'True','hecho_conciencia':'True', 'hecho_herramientas':'False', 'herramientas_form': herramientas_form})
             except Exception as e:
                 context.update({'msg': 'Error al guardar los datos. Por favor, inténtalo de nuevo.'})
                 print(e)
