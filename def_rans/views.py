@@ -129,21 +129,39 @@ def form(request):
     identify_form = IdentifyForm()
     conciencia_form = ConcienciaForm()
     herramientas_form = HerramientasForm()
-    respuestas = RespuestasIdentificar.objects.filter(user = request.user.id)
+    r_Identificar = RespuestasIdentificar.objects.filter(user = request.user.id)
+    r_Conciencia = RespuestasConciencia.objects.filter(user = request.user.id)
+    r_Herramientas = RespuestasHerramientas.objects.filter(user = request.user.id)
+
     context = {
         'identify_form': identify_form, 
         'conciencia_form': conciencia_form,
-        'herramientas_form': herramientas_form
+        'herramientas_form': herramientas_form,
+        'hecho_identify': 'False',
+        'hecho_conciencia': 'False',
+        'hecho_herramientas': 'False'
     }
-    print('Respuestas ', respuestas.count())
-    if respuestas.count() == 3:
-        context.update({'hecho': 'True'})
+    if r_Identificar.count() == 3:
+        context.update({'hecho_identify': 'True'})
+        print("Prueba I", context.get('hecho_identify'))
     else:
-        context.update({'hecho': 'False'})
+        context.update({'hecho_identify': 'False'})
+        print("PruebaN I", context.get('hecho_identify'))
+    if r_Conciencia.count() == 15:
+        context.update({'hecho_conciencia': 'True'})
+        print("Prueba C", context.get('hecho_conciencia'))
+    else:
+        context.update({'hecho_conciencia': 'False'})
+        print("PruebaN C", context.get('hecho_conciencia'))
+    if r_Herramientas.count() == 17:
+        context.update({'hecho_herramientas': 'True'})
+    else:
+        context.update({'hecho_herramientas': 'False'})
     return render(request, 'pages/accounts/form.html', context)
 
 @login_required(login_url='sign_in')
 def save_Identify(request):
+    form = IdentifyForm()
     context = {
         'form': form
     }     
