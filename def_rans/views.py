@@ -129,35 +129,41 @@ def form(request):
     identify_form = IdentifyForm()
     conciencia_form = ConcienciaForm()
     herramientas_form = HerramientasForm()
-    r_Identificar = RespuestasIdentificar.objects.filter(user = request.user.id)
-    r_Conciencia = RespuestasConciencia.objects.filter(user = request.user.id)
-    r_Herramientas = RespuestasHerramientas.objects.filter(user = request.user.id)
 
     context = {
         'identify_form': identify_form, 
         'conciencia_form': conciencia_form,
         'herramientas_form': herramientas_form,
-        'hecho_identify': 'False',
-        'hecho_conciencia': 'False',
-        'hecho_herramientas': 'False'
     }
-    if r_Identificar.count() == 3:
+    context.update(realizado(request, context))
+
+    return render(request, 'pages/accounts/form.html', context)
+
+def realizado(request, context):
+    r_Identificar = RespuestasIdentificar.objects.filter(user = request.user.id)
+    r_Conciencia = RespuestasConciencia.objects.filter(user = request.user.id)
+    r_Herramientas = RespuestasHerramientas.objects.filter(user = request.user.id)
+
+    if r_Identificar.count() >= 3:
         context.update({'hecho_identify': 'True'})
         print("Prueba I", context.get('hecho_identify'))
     else:
         context.update({'hecho_identify': 'False'})
-        print("PruebaN I", context.get('hecho_identify'))
-    if r_Conciencia.count() == 15:
+        print("Prueba I", context.get('hecho_identify'))
+    if r_Conciencia.count() >= 15:
         context.update({'hecho_conciencia': 'True'})
         print("Prueba C", context.get('hecho_conciencia'))
     else:
         context.update({'hecho_conciencia': 'False'})
-        print("PruebaN C", context.get('hecho_conciencia'))
-    if r_Herramientas.count() == 17:
+        print("Prueba C", context.get('hecho_conciencia'))
+    if r_Herramientas.count() >= 17:
         context.update({'hecho_herramientas': 'True'})
+        print("Prueba H", context.get('hecho_herramientas'))        
     else:
         context.update({'hecho_herramientas': 'False'})
-    return render(request, 'pages/accounts/form.html', context)
+        print("Prueba H", context.get('hecho_herramientas'))        
+    
+    return context
 
 @login_required(login_url='sign_in')
 def save_Identify(request):
@@ -191,7 +197,8 @@ def save_Identify(request):
                     pregunta=form.fields['incidente'].label
                 )
                 conciencia_form = ConcienciaForm()
-                context.update({'msg': '¡Guardado exitosamente!','hecho_identify': 'True','hecho_conciencia':'False','conciencia_form':conciencia_form})
+                context.update({'msg': '¡Guardado exitosamente!','conciencia_form':conciencia_form})
+                context.update(realizado(request, context))
             except Exception as e:
                 context.update({'msg': 'Error al guardar los datos. Por favor, inténtalo de nuevo.'})
                 print(e)
@@ -300,7 +307,10 @@ def save_Conciencia(request):
                 )                                             
                 # conciencia_form = ConcienciaForm()
                 herramientas_form = HerramientasForm()
-                context.update({'msg': '¡Guardado exitosamente!','hecho_identify': 'True','hecho_conciencia':'True', 'hecho_herramientas':'False', 'herramientas_form': herramientas_form})
+                context.update({'msg': '¡Guardado exitosamente!','herramientas_form':herramientas_form})
+                context.update(realizado(request, context))
+                print('Hecho herramientas ', context.get('hecho_herramientas'))
+                print('HECHO HERRAMIENTAS')
             except Exception as e:
                 context.update({'msg': 'Error al guardar los datos. Por favor, inténtalo de nuevo.'})
                 print(e)
@@ -347,7 +357,7 @@ def save_Herramientas(request):
                 RespuestasHerramientas.objects.create(
                     user = User.objects.get(id=request.user.id),
                     respuesta = form.fields['protec_correo'].choices[protec_correo + 1][1],
-                    pregunta = form.fields['protect_correo'].label 
+                    pregunta = form.fields['protec_correo'].label 
                 )       
                 RespuestasHerramientas.objects.create(
                     user = User.objects.get(id=request.user.id),
@@ -419,10 +429,11 @@ def save_Herramientas(request):
                     respuesta = form.fields['preparada'].choices[preparada + 1][1],
                     pregunta = form.fields['preparada'].label 
                 )
-                context.update({'msg': '¡Guaradado exitosamente!'})
+                context.update({'msg_H': '¡Guaradado exitosamente!'})
             except Exception as e:
-                context.update({'msg': 'Error al guardar los datos. Por favor, inténtalo de nuevo.'})
+                context.update({'msg_H': 'Error al guardar los datos. Por favor, inténtalo de nuevo.'})
                 print(e)
+            print('Error', context.get('msg_H'))
     return render(request, 'pages/accounts/form.html', context)
             
 
