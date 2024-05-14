@@ -61,6 +61,7 @@ def sign_up(request):
 def sign_up2(request):
    return render(request, 'pages/accounts/sign_up.html')
 
+@login_required(login_url='sign_in')
 def sign_out(request):
     logout(request)
     return redirect('home')
@@ -174,34 +175,44 @@ def save_Identify(request):
         'form': form
     }     
     if request.method == 'POST':
-        
-        form = IdentifyForm(request.POST) 
-        if form.is_valid():
-            tipo_empresa = form.cleaned_data['tipo_empresa']
-            rol = form.cleaned_data['rol']
-            incidente = form.cleaned_data['incidente']
-            try:
-                RespuestasIdentificar.objects.create(
-                    user=User.objects.get(id=request.user.id),
-                    respuesta=form.fields['tipo_empresa'].choices[tipo_empresa + 1][1], 
-                    pregunta=form.fields['tipo_empresa'].label
-                )
-                RespuestasIdentificar.objects.create(
-                    user=User.objects.get(id=request.user.id),
-                    respuesta=form.fields['rol'].choices[rol + 1][1],
-                    pregunta=form.fields['rol'].label
-                )
-                RespuestasIdentificar.objects.create(
-                    user=User.objects.get(id=request.user.id),
-                    respuesta=form.fields['incidente'].choices[incidente + 1][1],
-                    pregunta=form.fields['incidente'].label
-                )
-                conciencia_form = ConcienciaForm()
-                context.update({'msg': '¡Guardado exitosamente!','conciencia_form':conciencia_form})
-                context.update(realizado(request, context))
-            except Exception as e:
-                context.update({'msg': 'Error al guardar los datos. Por favor, inténtalo de nuevo.'})
-                print(e)
+        form = IdentifyForm(request.POST)
+        hecho_identify = RespuestasIdentificar.objects.filter(user = request.user.id) 
+        ready = {}
+        if hecho_identify.count() >= 3:
+            ready.update({'hecho_identify': 'True'})
+        else:
+            ready.update({'hecho_identify': 'False'})
+        if ready.get('hecho_identify') == 'False':        
+            if form.is_valid():
+                tipo_empresa = form.cleaned_data['tipo_empresa']
+                rol = form.cleaned_data['rol']
+                incidente = form.cleaned_data['incidente']
+                try:
+                    RespuestasIdentificar.objects.create(
+                        user=User.objects.get(id=request.user.id),
+                        respuesta=form.fields['tipo_empresa'].choices[tipo_empresa + 1][1], 
+                        pregunta=form.fields['tipo_empresa'].label
+                    )
+                    RespuestasIdentificar.objects.create(
+                        user=User.objects.get(id=request.user.id),
+                        respuesta=form.fields['rol'].choices[rol + 1][1],
+                        pregunta=form.fields['rol'].label
+                    )
+                    RespuestasIdentificar.objects.create(
+                        user=User.objects.get(id=request.user.id),
+                        respuesta=form.fields['incidente'].choices[incidente + 1][1],
+                        pregunta=form.fields['incidente'].label
+                    )
+                    context.update({'msg': '¡Guardado exitosamente!','conciencia_form':ConcienciaForm()})
+                    context.update(realizado(request, context))
+                except Exception as e:
+                    context.update({'msg': 'Error al guardar los datos. Por favor, inténtalo de nuevo.'})
+                    print(e)  
+        else:
+            print("Ya hay una respuesta guardada")
+            context.update({'conciencia_form': ConcienciaForm()})
+            context.update(realizado(request, context))
+
     return render(request, 'pages/accounts/form.html', context)
     #return redirect("form")
 
@@ -213,107 +224,117 @@ def save_Conciencia(request):
     }
     if request.method == 'POST':
         form = ConcienciaForm(request.POST)
-        if form.is_valid():
-            ataque_propio  = form.cleaned_data['ataque_propio']
-            ataque_tercero = form.cleaned_data['ataque_tercero']
-            correo = form.cleaned_data['correo']
-            datos = form.cleaned_data['datos']
-            financiero = form.cleaned_data['financiero']
-            ventas = form.cleaned_data['ventas']
-            proyectos = form.cleaned_data['proyectos']
-            respaldos = form.cleaned_data['respaldos']
-            servidores = form.cleaned_data['servidores']
-            servicios = form.cleaned_data['servicios']
-            div_proyecto = form.cleaned_data['div_proyecto']
-            div_info_sens = form.cleaned_data['div_info_sens']
-            div_info_cliente = form.cleaned_data['div_info_cliente']
-            div_info_fin = form.cleaned_data['div_info_fin']
-            div_db = form.cleaned_data['div_db']
-            try:
-                RespuestasConciencia.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['ataque_propio'].choices[ataque_propio + 1 ][1],
-                    pregunta = form.fields['ataque_propio'].label
-                )
-                RespuestasConciencia.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['ataque_tercero'].choices[ataque_tercero + 1 ][1],
-                    pregunta = form.fields['ataque_tercero'].label
-                )
-                RespuestasConciencia.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['correo'].choices[correo + 1 ][1],
-                    pregunta = form.fields['correo'].label
-                ) 
-                RespuestasConciencia.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['datos'].choices[datos + 1 ][1],
-                    pregunta = form.fields['datos'].label
-                )     
-                RespuestasConciencia.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['financiero'].choices[financiero + 1 ][1],
-                    pregunta = form.fields['financiero'].label
-                )                                  
-                RespuestasConciencia.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['ventas'].choices[ventas + 1 ][1],
-                    pregunta = form.fields['ventas'].label
-                )       
-                RespuestasConciencia.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['proyectos'].choices[proyectos + 1 ][1],
-                    pregunta = form.fields['proyectos'].label
-                )              
-                RespuestasConciencia.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['respaldos'].choices[respaldos + 1 ][1],
-                    pregunta = form.fields['respaldos'].label
-                )                       
-                RespuestasConciencia.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['servidores'].choices[servidores + 1 ][1],
-                    pregunta = form.fields['servidores'].label
-                )     
-                RespuestasConciencia.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['servicios'].choices[servicios + 1 ][1],
-                    pregunta = form.fields['servicios'].label
-                )     
-                RespuestasConciencia.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['div_proyecto'].choices[div_proyecto + 1 ][1],
-                    pregunta = form.fields['div_proyecto'].label
-                )  
-                RespuestasConciencia.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['div_info_sens'].choices[div_info_sens + 1 ][1],
-                    pregunta = form.fields['div_info_sens'].label
-                )    
-                RespuestasConciencia.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['div_info_cliente'].choices[div_info_cliente + 1 ][1],
-                    pregunta = form.fields['div_info_cliente'].label
-                )         
-                RespuestasConciencia.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['div_info_fin'].choices[div_info_fin + 1 ][1],
-                    pregunta = form.fields['div_info_fin'].label
-                )
-                RespuestasConciencia.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['div_db'].choices[div_db + 1 ][1],
-                    pregunta = form.fields['div_db'].label
-                )                                             
-                # conciencia_form = ConcienciaForm()
-                herramientas_form = HerramientasForm()
-                context.update({'msg': '¡Guardado exitosamente!','herramientas_form':herramientas_form})
-                context.update(realizado(request, context))
-                print('Hecho herramientas ', context.get('hecho_herramientas'))
-                print('HECHO HERRAMIENTAS')
-            except Exception as e:
-                context.update({'msg': 'Error al guardar los datos. Por favor, inténtalo de nuevo.'})
-                print(e)
+        hecho_conciencia = RespuestasConciencia.objects.filter(user = request.user.id) 
+        ready = {}
+        if hecho_conciencia.count() >= 15:
+            ready.update({'hecho_conciencia': 'True'})
+        else:
+            ready.update({'hecho_conciencia': 'False'})
+        if ready.get('hecho_conciencia') == 'False':                
+            if form.is_valid():
+                ataque_propio  = form.cleaned_data['ataque_propio']
+                ataque_tercero = form.cleaned_data['ataque_tercero']
+                correo = form.cleaned_data['correo']
+                datos = form.cleaned_data['datos']
+                financiero = form.cleaned_data['financiero']
+                ventas = form.cleaned_data['ventas']
+                proyectos = form.cleaned_data['proyectos']
+                respaldos = form.cleaned_data['respaldos']
+                servidores = form.cleaned_data['servidores']
+                servicios = form.cleaned_data['servicios']
+                div_proyecto = form.cleaned_data['div_proyecto']
+                div_info_sens = form.cleaned_data['div_info_sens']
+                div_info_cliente = form.cleaned_data['div_info_cliente']
+                div_info_fin = form.cleaned_data['div_info_fin']
+                div_db = form.cleaned_data['div_db']
+                try:
+                    RespuestasConciencia.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['ataque_propio'].choices[ataque_propio + 1 ][1],
+                        pregunta = form.fields['ataque_propio'].label
+                    )
+                    RespuestasConciencia.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['ataque_tercero'].choices[ataque_tercero + 1 ][1],
+                        pregunta = form.fields['ataque_tercero'].label
+                    )
+                    RespuestasConciencia.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['correo'].choices[correo + 1 ][1],
+                        pregunta = form.fields['correo'].label
+                    ) 
+                    RespuestasConciencia.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['datos'].choices[datos + 1 ][1],
+                        pregunta = form.fields['datos'].label
+                    )     
+                    RespuestasConciencia.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['financiero'].choices[financiero + 1 ][1],
+                        pregunta = form.fields['financiero'].label
+                    )                                  
+                    RespuestasConciencia.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['ventas'].choices[ventas + 1 ][1],
+                        pregunta = form.fields['ventas'].label
+                    )       
+                    RespuestasConciencia.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['proyectos'].choices[proyectos + 1 ][1],
+                        pregunta = form.fields['proyectos'].label
+                    )              
+                    RespuestasConciencia.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['respaldos'].choices[respaldos + 1 ][1],
+                        pregunta = form.fields['respaldos'].label
+                    )                       
+                    RespuestasConciencia.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['servidores'].choices[servidores + 1 ][1],
+                        pregunta = form.fields['servidores'].label
+                    )     
+                    RespuestasConciencia.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['servicios'].choices[servicios + 1 ][1],
+                        pregunta = form.fields['servicios'].label
+                    )     
+                    RespuestasConciencia.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['div_proyecto'].choices[div_proyecto + 1 ][1],
+                        pregunta = form.fields['div_proyecto'].label
+                    )  
+                    RespuestasConciencia.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['div_info_sens'].choices[div_info_sens + 1 ][1],
+                        pregunta = form.fields['div_info_sens'].label
+                    )    
+                    RespuestasConciencia.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['div_info_cliente'].choices[div_info_cliente + 1 ][1],
+                        pregunta = form.fields['div_info_cliente'].label
+                    )         
+                    RespuestasConciencia.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['div_info_fin'].choices[div_info_fin + 1 ][1],
+                        pregunta = form.fields['div_info_fin'].label
+                    )
+                    RespuestasConciencia.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['div_db'].choices[div_db + 1 ][1],
+                        pregunta = form.fields['div_db'].label
+                    )                                             
+                    context.update({'msg': '¡Guardado exitosamente!','herramientas_form':HerramientasForm()})
+                    context.update(realizado(request, context))
+                    print('Hecho herramientas ', context.get('hecho_herramientas'))
+                    print('HECHO HERRAMIENTAS')
+                except Exception as e:
+                    context.update({'msg': 'Error al guardar los datos. Por favor, inténtalo de nuevo.'})
+                    print(e)
+        else:
+            print("Ya hay una respuesta guardada")
+            context.update({'herramientas_form': HerramientasForm()})
+            context.update(realizado(request, context))
+                                    
     return render(request, 'pages/accounts/form.html', context)                
 
 @login_required(login_url='sign_in')
@@ -324,118 +345,142 @@ def save_Herramientas(request):
     }
     if request.method == 'POST':
         form = HerramientasForm(request.POST)
-        if form.is_valid():
-            antivirus = form.cleaned_data['antivirus']
-            dlp = form.cleaned_data['dlp']
-            protec_correo = form.cleaned_data['protec_correo']
-            vpn = form.cleaned_data['vpn']
-            xdr = form.cleaned_data['xdr']
-            firewall = form.cleaned_data['firewall']
-            waf = form.cleaned_data['waf']
-            iso = form.cleaned_data['iso']
-            zero_trust = form.cleaned_data['zero_trust']
-            gdpr = form.cleaned_data['gdpr']
-            nist = form.cleaned_data['nist']
-            siem = form.cleaned_data['siem']
-            soar = form.cleaned_data['soar']
-            soc = form.cleaned_data['soc']
-            sgsdp = form.cleaned_data['sgsdp']
-            buenas_prac = form.cleaned_data['buenas_prac']
-            preparada = form.cleaned_data['preparada']
+        hecho_herramientas = RespuestasHerramientas.objects.filter(user = request.user.id) 
+        ready = {}
+        if hecho_herramientas.count() >= 17:
+            ready.update({'hecho_herramientas': 'True'})
+        else:
+            ready.update({'hecho_herramientas': 'False'})
+        if ready.get('hecho_herramientas') == 'False':        
+            if form.is_valid():
+                antivirus = form.cleaned_data['antivirus']
+                dlp = form.cleaned_data['dlp']
+                protec_correo = form.cleaned_data['protec_correo']
+                vpn = form.cleaned_data['vpn']
+                xdr = form.cleaned_data['xdr']
+                firewall = form.cleaned_data['firewall']
+                waf = form.cleaned_data['waf']
+                iso = form.cleaned_data['iso']
+                zero_trust = form.cleaned_data['zero_trust']
+                gdpr = form.cleaned_data['gdpr']
+                nist = form.cleaned_data['nist']
+                siem = form.cleaned_data['siem']
+                soar = form.cleaned_data['soar']
+                soc = form.cleaned_data['soc']
+                sgsdp = form.cleaned_data['sgsdp']
+                buenas_prac = form.cleaned_data['buenas_prac']
+                preparada = form.cleaned_data['preparada']
+                
+                try:
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['antivirus'].choices[antivirus + 1][1],
+                        pregunta = form.fields['antivirus'].label 
+                    )
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['dlp'].choices[dlp + 1][1],
+                        pregunta = form.fields['dlp'].label 
+                    )
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['protec_correo'].choices[protec_correo + 1][1],
+                        pregunta = form.fields['protec_correo'].label 
+                    )       
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['vpn'].choices[vpn + 1][1],
+                        pregunta = form.fields['vpn'].label 
+                    )  
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['xdr'].choices[xdr + 1][1],
+                        pregunta = form.fields['xdr'].label 
+                    )        
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['firewall'].choices[firewall + 1][1],
+                        pregunta = form.fields['firewall'].label 
+                    )            
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['waf'].choices[waf + 1][1],
+                        pregunta = form.fields['waf'].label 
+                    )       
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['iso'].choices[iso + 1][1],
+                        pregunta = form.fields['iso'].label 
+                    )
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['zero_trust'].choices[zero_trust + 1][1],
+                        pregunta = form.fields['zero_trust'].label 
+                    )    
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['gdpr'].choices[gdpr + 1][1],
+                        pregunta = form.fields['gdpr'].label 
+                    )       
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['nist'].choices[nist + 1][1],
+                        pregunta = form.fields['nist'].label 
+                    )        
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['siem'].choices[siem + 1][1],
+                        pregunta = form.fields['siem'].label 
+                    )                   
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['soar'].choices[soar + 1][1],
+                        pregunta = form.fields['soar'].label 
+                    )   
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['soc'].choices[soc + 1][1],
+                        pregunta = form.fields['soc'].label 
+                    )                 
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['sgsdp'].choices[sgsdp + 1][1],
+                        pregunta = form.fields['sgsdp'].label 
+                    )           
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['buenas_prac'].choices[buenas_prac + 1][1],
+                        pregunta = form.fields['buenas_prac'].label 
+                    )         
+                    RespuestasHerramientas.objects.create(
+                        user = User.objects.get(id=request.user.id),
+                        respuesta = form.fields['preparada'].choices[preparada + 1][1],
+                        pregunta = form.fields['preparada'].label 
+                    )
+                    context.update({'msg_H': '¡Guaradado exitosamente!'})
+                except Exception as e:
+                    context.update({'msg_H': 'Error al guardar los datos. Por favor, inténtalo de nuevo.'})
+                    print(e)
+                print('Error', context.get('msg_H'))
+        else:
+            print("Ya hay una respuesta guardada")
+            context.update(realizado(request, context))
             
-            try:
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['antivirus'].choices[antivirus + 1][1],
-                    pregunta = form.fields['antivirus'].label 
-                )
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['dlp'].choices[dlp + 1][1],
-                    pregunta = form.fields['dlp'].label 
-                )
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['protec_correo'].choices[protec_correo + 1][1],
-                    pregunta = form.fields['protec_correo'].label 
-                )       
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['vpn'].choices[vpn + 1][1],
-                    pregunta = form.fields['vpn'].label 
-                )  
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['xdr'].choices[xdr + 1][1],
-                    pregunta = form.fields['xdr'].label 
-                )        
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['firewall'].choices[firewall + 1][1],
-                    pregunta = form.fields['firewall'].label 
-                )            
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['waf'].choices[waf + 1][1],
-                    pregunta = form.fields['waf'].label 
-                )       
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['iso'].choices[iso + 1][1],
-                    pregunta = form.fields['iso'].label 
-                )
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['zero_trust'].choices[zero_trust + 1][1],
-                    pregunta = form.fields['zero_trust'].label 
-                )    
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['gdpr'].choices[gdpr + 1][1],
-                    pregunta = form.fields['gdpr'].label 
-                )       
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['nist'].choices[nist + 1][1],
-                    pregunta = form.fields['nist'].label 
-                )        
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['siem'].choices[siem + 1][1],
-                    pregunta = form.fields['siem'].label 
-                )                   
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['soar'].choices[soar + 1][1],
-                    pregunta = form.fields['soar'].label 
-                )   
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['soc'].choices[soc + 1][1],
-                    pregunta = form.fields['soc'].label 
-                )                 
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['sgsdp'].choices[sgsdp + 1][1],
-                    pregunta = form.fields['sgsdp'].label 
-                )           
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['buenas_prac'].choices[buenas_prac + 1][1],
-                    pregunta = form.fields['buenas_prac'].label 
-                )         
-                RespuestasHerramientas.objects.create(
-                    user = User.objects.get(id=request.user.id),
-                    respuesta = form.fields['preparada'].choices[preparada + 1][1],
-                    pregunta = form.fields['preparada'].label 
-                )
-                context.update({'msg_H': '¡Guaradado exitosamente!'})
-            except Exception as e:
-                context.update({'msg_H': 'Error al guardar los datos. Por favor, inténtalo de nuevo.'})
-                print(e)
-            print('Error', context.get('msg_H'))
-    return render(request, 'pages/accounts/form.html', context)
-            
+    return render(request, 'pages/accounts/form.html', context)   
+
+@login_required(login_url='sign_in')
+def consult(request):
+    r_Identificar = RespuestasIdentificar.objects.filter(user = request.user.id)
+    r_Conciencia = RespuestasConciencia.objects.filter(user = request.user.id)
+    r_Herramientas = RespuestasHerramientas.objects.filter(user = request.user.id) 
+
+    context = {
+        'r_Identificar': r_Identificar,
+        'r_Conciencia': r_Conciencia,
+        'r_Herramientas': r_Herramientas
+    }
+    context.update(realizado(request, context))
+    return render(request, 'pages/accounts/consult_form.html', context)          
 
 def home(request):
     return render(request, 'pages/home.html')
@@ -454,9 +499,6 @@ def specialized(request):
 
 def account(request):
     return render(request, 'pages/accounts/account.html')
-
-def consult(request):
-    return render(request, 'pages/accounts/consult_form.html')
 
 def l_comp_av(request):
     return render(request, 'pages/antivirus/large_companies_av.html')
