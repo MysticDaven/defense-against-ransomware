@@ -66,6 +66,7 @@ def sign_out(request):
     logout(request)
     return redirect('home')
 
+@login_required(login_url='sign_in')
 def edit_profile(request):
     user = request.user
     if request.method == 'POST':
@@ -89,6 +90,7 @@ def edit_profile(request):
         }
     return render(request, 'pages/accounts/settings_user.html', context)                 
 
+@login_required(login_url='sign_in')
 def edit_password(request):
     user = request.user
     if request.method == 'POST':
@@ -114,6 +116,7 @@ def edit_password(request):
         return render(request, 'pages/accounts/edit_profile.html', context)        
 
 
+@login_required(login_url='sign_in')
 def settings_user(request):
     user = request.user
     form = edit_user(instance=user)
@@ -480,7 +483,24 @@ def consult(request):
         'r_Herramientas': r_Herramientas
     }
     context.update(realizado(request, context))
-    return render(request, 'pages/accounts/consult_form.html', context)          
+    return render(request, 'pages/accounts/consult_form.html', context)
+
+@login_required(login_url='sign_in')
+def checklist_av(request):
+    return render(request, 'pages/antivirus/checklist_av.html')
+
+@login_required(login_url='sign_in')
+def checklist_f(request):
+    return render(request, 'pages/firewall/checklist_f.html')
+
+def close(request):
+    return render(request, 'pages/contention/close.html')
+
+def first_step(request):
+    return render(request, 'pages/contention/first_step.html')
+
+def identify(request):
+    return render(request, 'pages/contention/identify.html')          
 
 def home(request):
     return render(request, 'pages/home.html')
@@ -500,32 +520,11 @@ def specialized(request):
 def account(request):
     return render(request, 'pages/accounts/account.html')
 
-def l_comp_av(request):
-    return render(request, 'pages/antivirus/large_companies_av.html')
+def antivirus(request):
+    return render(request, 'pages/antivirus/antivirus.html')
 
-def m_comp_av(request):
-    return render(request, 'pages/antivirus/medium_companies_av.html')
-
-def s_bus_av(request):
-    return render(request, 'pages/antivirus/small_business_av.html')
-
-def close(request):
-    return render(request, 'pages/contention/close.html')
-
-def first_step(request):
-    return render(request, 'pages/contention/first_step.html')
-
-def identify(request):
-    return render(request, 'pages/contention/identify.html')
-
-def l_comp_f(request):
-    return render(request, 'pages/firewall/large_companies_fw.html')
-
-def m_comp_f(request):
-    return render(request, 'pages/firewall/medium_companies_fw.html')
-
-def s_bus_f(request):
-    return render(request, 'pages/firewall/small_business_fw.html')
+def firewall(request):
+    return render(request, 'pages/firewall/firewall.htlm')
 
 def brochur(request):
     return render(request, 'pages/media/brochure.html')

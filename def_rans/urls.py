@@ -27,9 +27,8 @@ urlpatterns = [
 
 
     #Antivirus
-    path('cuenta/antivirus_large/', views.l_comp_av, name="large_av"),
-    path('cuenta/antivirus_med/', views.m_comp_av, name='medium_av'),
-    path('cuenta/antivirus_small/', views.s_bus_av, name='small_av'),
+    path('cuenta/antivirus/', views.antivirus, name='antivirus'),
+    path('cuenta/checklist_antivirus/', views.checklist_av, name='checklist_av'),
 
     #Contention
     path('cuenta/close/', views.close, name='close'),
@@ -37,9 +36,8 @@ urlpatterns = [
     path('cuenta/identify/', views.identify, name='identify'),
 
     #Firewall
-    path('cuenta/firewall_large/', views.l_comp_f, name='large_f'),
-    path('cuenta/firewall_med/', views.m_comp_f, name='medium_f'),
-    path('cuenta/firewall_small', views.s_bus_f, name='small_f'),
+    path('cuenta/firewall/', views.firewall, name='firewall'),
+    path('cuenta/checklist_firewall/', views.checklist_f, name='checklist_f'),
 
     #Media
     path('media/brochure/', views.brochur, name='brochure'),
