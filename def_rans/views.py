@@ -524,7 +524,7 @@ def antivirus(request):
     return render(request, 'pages/antivirus/antivirus.html')
 
 def firewall(request):
-    return render(request, 'pages/firewall/firewall.htlm')
+    return render(request, 'pages/firewall/firewall.html')
 
 def brochur(request):
     return render(request, 'pages/media/brochure.html')
