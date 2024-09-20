@@ -29,6 +29,8 @@ urlpatterns = [
     #Antivirus
     path('cuenta/antivirus/', views.antivirus, name='antivirus'),
     path('cuenta/checklist_antivirus/', views.checklist_av, name='checklist_av'),
+    path('cuenta/firewall/', views.firewall, name='firewall'),
+    path('cuenta/checklist_firewall/', views.checklist_f, name='checklist_f'),
 
     #Contention
     path('cuenta/close/', views.close, name='close'),
