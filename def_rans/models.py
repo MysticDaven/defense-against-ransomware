@@ -371,46 +371,46 @@ class ChecklistZero(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Usuario")
     roles = models.BooleanField(
         default=False,
-        name='Roles',
+        #name='Roles',
         verbose_name='Se deben definir roles por departamentos, por tipos de usuarios, un usuario común no podría ni debería tener el mismo nivel que un usuario administrador. Se debe implementar una jerarquía en la organización para segmentar los grupos de usuarios teniendo diferentes encargados por departamento se sugiere tener más de uno por departamento para no centralizar la confianza.' 
     )
     acceso_nivel = models.BooleanField(
         default=False,
-        name='Accesos',
+        #name='Accesos',
         verbose_name='Solo los usuarios de más alto nivel tendrán acceso a los servidores, todo deberá de ser supervisado y llevando una bitácora de los cambios.'
     )
     acceso_personal = models.BooleanField(
         default=False,
-        name='Accesos',
+        #name='Accesos',
         verbose_name='Separar los departamentos, el personal de ventas no debería de tener acceso a los recursos del departamento de contabilidad.'
     )
     acceso_confianza = models.BooleanField(
         default=False,
-        name='Accesos',
+        #name='Accesos',
         verbose_name='No centralizar la confianza en un super usuario, tener varios en cargados y cada uno con diferentes accesos a los recursos informáticos.'
     )
     medida_recursos = models.BooleanField(
         default=False,
-        name='Medidas de seguridad',
+        #name='Medidas de seguridad',
         verbose_name='No compartir recursos sin tomar las medidas de protección correspondientes, evitar el uso de dispositivos ajenos a la compañía en los equipos o la red de la organización (No traer dispositivos de almacenamiento de casa).'
     )
     medida_red = models.BooleanField(
         default=False,
-        name='Medidas de seguridad',
+        #name='Medidas de seguridad',
         verbose_name='Tener una red particular para los smartphones o en caso de que no usar la de invitados.'
     )
     medida_fisicas = models.BooleanField(
         default=False,
-        name='Medidas de seguridad',
+        #name='Medidas de seguridad',
         verbose_name='Tener medidas físicas de acceso a recursos como servidores.'
     )
     medida_software = models.BooleanField(
         default=False,
-        name='Medidas de seguridad',
+        #name='Medidas de seguridad',
         verbose_name='Implementar software especializado como Appgate o Cigent, para aplicar los controles del Zero Trust a nivel digital (Revisar la sección de software especializado).'
     )
     medida_politicas = models.BooleanField(
         default=False,
-        name='Medidas de seguridad',
+        #name='Medidas de seguridad',
         verbose_name='Tener políticas para controlar el acceso al correo electrónico corporativo en dispositivos ajenos a la empresa.'
     )
