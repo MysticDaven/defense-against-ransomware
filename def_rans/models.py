@@ -143,6 +143,7 @@ class RespuestasHerramientas(models.Model):
     pregunta = models.TextField(verbose_name="Pregunta", null=True, blank=True)
 
     #PRUEBA DESDE FGE
+    #PRUEBA DESDE DAVEN
 
 class ChecklistDLP(models.Model):
     id = models.AutoField(primary_key=True)
