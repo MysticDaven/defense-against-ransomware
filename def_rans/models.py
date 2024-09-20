@@ -140,7 +140,9 @@ class RespuestasHerramientas(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Usuario")
     respuesta = models.TextField(verbose_name="Respuesta", null=True, blank=True)
-    pregunta = models.TextField(verbose_name="Pregunta", null=True, blank=True)    
+    pregunta = models.TextField(verbose_name="Pregunta", null=True, blank=True)
+
+    #PRUEBA DESDE FGE
 
 class ChecklistDLP(models.Model):
     id = models.AutoField(primary_key=True)
