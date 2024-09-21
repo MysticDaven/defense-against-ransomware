@@ -145,6 +145,7 @@ class RespuestasHerramientas(models.Model):
     #PRUEBA DESDE FGE
     #PRUEBA DESDE DAVEN
 
+#--------------------------------CHECKLIST---------------------------------
 class ChecklistDLP(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Usuario") 

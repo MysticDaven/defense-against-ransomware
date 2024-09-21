@@ -29,8 +29,6 @@ urlpatterns = [
     #Antivirus
     path('cuenta/antivirus/', views.antivirus, name='antivirus'),
     path('cuenta/checklist_antivirus/', views.checklist_av, name='checklist_av'),
-    path('cuenta/firewall/', views.firewall, name='firewall'),
-    path('cuenta/checklist_firewall/', views.checklist_f, name='checklist_f'),
 
     #Contention
     path('cuenta/close/', views.close, name='close'),
@@ -50,5 +48,7 @@ urlpatterns = [
     path('standards/gdpr/', views.gdpr, name='gdpr'),
     path('standards/iso_27001/', views.iso, name='iso'),
     path('standards/siem/', views.siem, name='siem'),
-    path('standards/zerotrust/', views.zerotrust, name='zerotrust')
+    path('standards/zerotrust/', views.zerotrust, name='zerotrust'),
+    path('standards/xdr/', views.xdr, name='xdr'),
+    path('standards/checklist/', views.checklist_s, name='checklist_s')
 ]

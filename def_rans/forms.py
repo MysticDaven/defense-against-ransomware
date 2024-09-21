@@ -1,5 +1,6 @@
 from django import forms
-from .models import model_identificar, model_conciencia, model_herramientas, Preguntas, Respuestas
+from .models import model_identificar, model_conciencia, model_herramientas, Preguntas, Respuestas, ChecklistDLP, ChecklistAntivirus, ChecklistFirewall, ChecklistGDPR, ChecklistZTNA, ChecklistISO, ChecklistXDR, ChecklistZero
+
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordResetForm, SetPasswordForm, PasswordChangeForm, UsernameField
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
@@ -102,4 +103,44 @@ class ConcienciaForm(forms.ModelForm):
 class HerramientasForm(forms.ModelForm):
    class Meta:
       model = model_herramientas
-      fields = '__all__'            
+      fields = '__all__'
+
+class CheckDLP(forms.ModelForm):
+   class Meta:
+      model = ChecklistDLP
+      fields = '__all__'
+
+class CheckAntivirus(forms.ModelForm):
+   class Meta:
+      model = ChecklistAntivirus
+      fields = ['analisis', 'busqueda', 'sandbox', 'revision', 'permisos', 'gestor', 'usb', 'entrenamiento'] 
+
+class CheckFirewall(forms.ModelForm):
+   class Meta:
+      model = ChecklistFirewall
+      fields = '__all__'
+
+class CheckXDR(forms.ModelForm):
+   class Meta:
+      model = ChecklistXDR
+      fields = '__all__'
+
+class CheckZTNA(forms.ModelForm):
+   class Meta:
+      model = ChecklistZTNA
+      fields = '__all__'
+
+class CheckISO(forms.ModelForm):
+   class Meta:
+      model = ChecklistISO
+      fields = '__all__'
+
+class CheckGDPR(forms.ModelForm):
+   class Meta:
+      model = ChecklistGDPR
+      fields = '__all__'
+
+class CheckZero(forms.ModelForm):
+   class Meta:
+      model = ChecklistZero
+      fields = '__all__'

@@ -487,7 +487,31 @@ def consult(request):
 
 @login_required(login_url='sign_in')
 def checklist_av(request):
-    return render(request, 'pages/antivirus/checklist_av.html')
+    user = request.user
+    context = {
+        'form': CheckAntivirus(instance=user)
+    }
+    if request.method == 'POST':
+        form = CheckAntivirus(request.POST)
+        if form.is_valid():
+            commit = form.save(commit=False)
+            commit.user = request.user
+            commit.save()
+            context = {
+                'msg': 'Guardado Correctamente'
+            }
+        else:
+            context = {
+                'form': form,
+                'msg': 'Ocurrió un error al guardar la información'
+            }
+        return redirect('checklist_av')
+    else:
+        form = CheckAntivirus(instance=user)
+        context = {
+            'form': form
+        }
+    return render(request, 'pages/antivirus/checklist_av.html', context)
 
 @login_required(login_url='sign_in')
 def checklist_f(request):
@@ -544,13 +568,11 @@ def iso(request):
 def siem(request):
     return render(request, 'pages/standards/siem.html')
 
+def xdr(request):
+    return render(request, 'pages/standards/xdr.html')
+
 def zerotrust(request):
     return render(request, 'pages/standards/zerotrust.html')
 
-
-
-
-
-
-
-
+def checklist_s(request):
+    return render(request, 'pages/standards/checklist_standards.html')
