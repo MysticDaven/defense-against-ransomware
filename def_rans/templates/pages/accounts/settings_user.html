@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Perfil</title>
     <link rel="stylesheet" href="{% static 'styles/columnas.css' %}">
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -67,9 +66,21 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS (optional for some interactive components) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if ("{{ msg }}"){
+                Swal.fire({
+                    icon: "{% if success %}success{% else %}error{% endif %}",
+                    title: "{{ msg }}",
+                    showConfirmButton: true,
+                    timer: 2000
+                });                
+            }            
+        });
+    </script>     
 </body>
 </html>
+
 {% endblock %}

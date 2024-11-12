@@ -69,52 +69,67 @@ def sign_out(request):
 @login_required(login_url='sign_in')
 def edit_profile(request):
     user = request.user
+    form = edit_user(instance=user)
+    password_form = PasswordChangeForm(user)
+
     if request.method == 'POST':
         form = edit_user(request.POST, instance=user)
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, user)
-            context = {
-                'form': form,
-                'msg': 'Perfil actualizado existosamente'
-            }
+            msg = 'Perfil actualizado exitosamente'            
         else:
-            context = {
-                'form': form,
-                'msg': 'Hubo un problema al actualizar el perfil'
-            }
-    else:
-        form = edit_user(instance=user)
+            msg = 'Hubo un problema al actualizar el perfil'
+
         context = {
-            'form': form
+            'form': form,
+            'password_form': password_form,
+            'msg': msg, 
+            'success': True
         }
-    return render(request, 'pages/accounts/settings_user.html', context)                 
+        return render(request, 'pages/accounts/settings_user.html', context)
+
+    # Si el método no es POST
+    context = {
+        'form': form,
+        'password_form': password_form,
+        'success': False
+    }
+    return render(request, 'pages/accounts/settings_user.html', context)
+
 
 @login_required(login_url='sign_in')
 def edit_password(request):
     user = request.user
+    form = edit_user(instance=user)
+    password_form = PasswordChangeForm(user)
+
     if request.method == 'POST':
-        password_form = PasswordChangeForm(user, request.POST)        
+        password_form = PasswordChangeForm(user, request.POST)
         if password_form.is_valid():
             password_form.save()
             update_session_auth_hash(request, user)
-            context = {
-                'password_form': password_form,
-                'msg': 'Contraseña actualizado correctamente'
-            }
+            msg = 'Contraseña actualizada correctamente'
+            success = True
         else:
-            context = {
-                'password_form': password_form,
-                'msg': 'Hubo un problema al actualizar la contraseña'                
-            }
-        return render(request, 'pages/accounts/settings_user.html', context)
-    else:
-        password_form = PasswordChangeForm(user)
-        context = {
-            'password_form': password_form
-        }
-        return render(request, 'pages/accounts/edit_profile.html', context)        
+            msg = 'Hubo un problema al actualizar la contraseña'
+            success = False
 
+        context = {
+            'form': form,
+            'password_form': password_form,
+            'msg': msg,
+            'success': success
+        }
+
+        return render(request, 'pages/accounts/settings_user.html', context)
+
+    # Si el método no es POST
+    context = {
+        'form': form,
+        'password_form': password_form,
+    }
+    return render(request, 'pages/accounts/settings_user.html', context)
 
 @login_required(login_url='sign_in')
 def settings_user(request):
