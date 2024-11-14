@@ -63,16 +63,24 @@ class UserSetPasswordForm(SetPasswordForm):
         'class': 'form-control form-control-lg', 'placeholder': 'Confirm New Password'
     }), label="Confirm New Password")
 
-class UserPasswordChangeForm(PasswordChangeForm):
-    old_password = forms.CharField(max_length=50, widget=forms.PasswordInput(attrs={
-        'class': 'form-control form-control-lg', 'placeholder': 'Old Password'
-    }), label="New Password")
-    new_password1 = forms.CharField(max_length=50, widget=forms.PasswordInput(attrs={
-        'class': 'form-control form-control-lg', 'placeholder': 'New Password'
-    }), label="New Password")
-    new_password2 = forms.CharField(max_length=50, widget=forms.PasswordInput(attrs={
-        'class': 'form-control form-control-lg', 'placeholder': 'Confirm New Password'
-    }), label="Confirm New Password")
+class PasswordChangeForm(PasswordChangeForm):
+    old_password = forms.CharField(
+       max_length=50, 
+       widget=forms.PasswordInput(attrs={
+            'class': 'form-control form-control-lg',             
+        }), 
+        label="Contraseña Actual")
+    new_password1 = forms.CharField(
+       max_length=50, 
+       widget=forms.PasswordInput(attrs={
+            'class': 'form-control form-control-lg', 
+        }), 
+        label="Nueva Contraseña")
+    new_password2 = forms.CharField(
+        max_length=50, 
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control form-control-lg', 
+        }), label="Confirmar Nueva Contraseña")
 
 class Formulario(forms.Form):
     pregunta_1 = forms.ChoiceField(choices=DISPOSITIVOS)
@@ -144,3 +152,51 @@ class CheckZero(forms.ModelForm):
    class Meta:
       model = ChecklistZero
       fields = '__all__'
+
+class EditUserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email']
+        widgets = {
+            'username': forms.TextInput(attrs={
+                'class': 'form-control form-control-lg',
+                'placeholder': 'Nombre de usuario'
+            }),
+            'first_name': forms.TextInput(attrs={
+                'class': 'form-control form-control-lg',
+                'placeholder': 'Nombre'
+            }),
+            'last_name': forms.TextInput(attrs={
+                'class': 'form-control form-control-lg',
+                'placeholder': 'Apellido'
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control form-control-lg',
+                'placeholder': 'Correo electrónico'
+            }),
+        }
+        labels = {
+            'username': 'Nombre de usuario',
+            'first_name': 'Nombre',
+            'last_name': 'Apellido',
+            'email': 'Correo electrónico',
+        }
+
+class EditUserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({
+                'class': 'form-control form-control-lg', 
+                'placeholder': f'Ingrese {self.fields[field].label}'
+            })
+    def set_labels(self):
+        self.fields['username'].label = 'Nombre de usuario'
+        self.fields['first_name'].label = 'Nombre'
+        self.fields['last_name'].label = 'Apellido'
+        self.fields['email'].label = 'Correo electrónico'

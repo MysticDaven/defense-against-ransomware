@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.views import *
 from django.contrib.auth.decorators import login_required
 from .forms import *
-from .models import edit_user, RespuestasIdentificar, RespuestasConciencia, RespuestasHerramientas
+from .models import RespuestasIdentificar, RespuestasConciencia, RespuestasHerramientas
 
 #Create your views here
 #def sign_in2(request):
@@ -69,11 +69,11 @@ def sign_out(request):
 @login_required(login_url='sign_in')
 def edit_profile(request):
     user = request.user
-    form = edit_user(instance=user)
+    form = EditUserForm(instance=user)
     password_form = PasswordChangeForm(user)
 
     if request.method == 'POST':
-        form = edit_user(request.POST, instance=user)
+        form = EditUserForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, user)
@@ -101,7 +101,7 @@ def edit_profile(request):
 @login_required(login_url='sign_in')
 def edit_password(request):
     user = request.user
-    form = edit_user(instance=user)
+    form = EditUserForm(instance=user)
     password_form = PasswordChangeForm(user)
 
     if request.method == 'POST':
@@ -134,7 +134,7 @@ def edit_password(request):
 @login_required(login_url='sign_in')
 def settings_user(request):
     user = request.user
-    form = edit_user(instance=user)
+    form = EditUserForm(instance=user)
     password_form = PasswordChangeForm(user)
     context = {
         'form': form,

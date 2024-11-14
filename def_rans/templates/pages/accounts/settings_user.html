@@ -12,56 +12,92 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h2 class="mb-4">Configuración de Cuenta</h2>
+    <div>
+        <div class="page-header section-height-75 relative" style="background-image: url('../../../../static/img/antoine-barres.jpg'); height: 75vh; background-size: cover;">
+            <div class="container">
+                <div class="row">
+                    <div class=" text-center mx-auto">
+                        <h1 class="text-white pt-3 mt-5">
+                            Configuración de la Cuenta
+                        </h1>
+                        <p class="lead text-white mt-3">
+                            Usuario <br>
+                            Nombre
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+                <div class="card mt-4 mb-4 mr-5" style="height: 75%; width: 50%;">
+                    <div class="row py-3 align-items-center">
+                        <div class="col-sm-9">
+                          <h2 class="mb-0 ml-4">Editar Perfil</h2>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="{% url 'edit_profile' %}">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                <div class="form-group">                                    
+                                    {{ field.label_tag }}
+                                    <br>                                    
+                                    {{ field }}
+                                    {% if field.errors %}
+                                        <div class="text-danger">
+                                            {% for error in field.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                            <button type="submit" class="badge bg-gradient-dark w-100">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
         
-        <div class="card mb-4">
-            <div class="card-header">
-                Editar Perfil
-            </div>
-            <div class="card-body">
-                <form method="POST" action="{% url 'edit_profile' %}">
-                    {% csrf_token %}
-                    {% for field in form %}
-                        <div class="form-group">
-                            {{ field.label_tag }}
-                            {{ field }}
-                            {% if field.errors %}
-                                <div class="text-danger">
-                                    {% for error in field.errors %}
-                                        <p>{{ error }}</p>
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
+                <div class="card mt-4 mb-4 mr-5" style="height: 75%; width: 50%;">
+                    <div class="row py-3 align-items-center">
+                        <div class="col-sm-9">
+                          <h2 class="mb-0 ml-4">Cambiar Contraseña</h2>
                         </div>
-                    {% endfor %}
-                    <button type="submit" class="btn btn-primary w-100">Guardar Cambios</button>
-                </form>
-            </div>
-        </div>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="{% url 'edit_password' %}">
+                            {% csrf_token %}
+                            {% for field in password_form %}
+                                <div class="form-group">
+                                    {{ field.label_tag }}
+                                    <br>
+                                    {{ field }}
+                                    {% if field.errors %}
+                                        <div class="text-danger">
+                                            {% for error in field.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                            <button type="submit" class="badge bg-gradient-dark w-100">Actualizar Contraseña</button>
+                        </form>
+                    </div>
+                </div>
 
-        <div class="card mb-4">
-            <div class="card-header">
-                Cambiar Contraseña
-            </div>
-            <div class="card-body">
-                <form method="POST" action="{% url 'edit_password' %}">
-                    {% csrf_token %}
-                    {% for field in password_form %}
-                        <div class="form-group">
-                            {{ field.label_tag }}
-                            {{ field }}
-                            {% if field.errors %}
-                                <div class="text-danger">
-                                    {% for error in field.errors %}
-                                        <p>{{ error }}</p>
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
-                    <button type="submit" class="btn btn-primary w-100">Actualizar Contraseña</button>
-                </form>
+            <div class="position-absolute w-100 z-index-1 bottom-0">
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs>
+                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+                    </defs>
+                    <g class="moving-waves">
+                        <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40"></use>
+                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
+                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)"></use>
+                        <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
+                        <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)"></use>
+                        <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95"></use>
+                    </g>
+                </svg>
             </div>
         </div>
     </div>

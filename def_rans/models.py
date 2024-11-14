@@ -64,10 +64,10 @@ buenas_practicas = [
 class project(models.Model):
     name = models.CharField(max_length=200)
 
-class edit_user(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ['username', 'first_name', 'last_name', 'email']   
+# class edit_user(forms.ModelForm):
+#     class Meta:
+#         model = User
+#         fields = ['username', 'first_name', 'last_name', 'email']   
 
 class model_identificar(models.Model):
     tipo_empresa = models.IntegerField(choices=tipos, verbose_name='¿Cuál es el tipo de tu empresa?')

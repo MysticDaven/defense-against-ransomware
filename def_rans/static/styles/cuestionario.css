@@ -2,8 +2,8 @@
 
 body{
     font-family: 'Poppins', sans-serif;
-	background: #FFEA00;
-	background: linear-gradient(to right, #ffa751, #ffe259); 
+	/* background: #FFEA00; 
+	background: linear-gradient(to right, #ffa751, #ffe259); */
 }
 
 /*------------ Login container ------------*/
