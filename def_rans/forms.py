@@ -67,19 +67,22 @@ class PasswordChangeForm(PasswordChangeForm):
     old_password = forms.CharField(
        max_length=50, 
        widget=forms.PasswordInput(attrs={
-            'class': 'form-control fs-6',             
+            'class': 'form-control fs-6',    
+            'style': 'background-color: rgba(240, 240, 240, 0.8)'         
         }), 
         label="Contraseña Actual")
     new_password1 = forms.CharField(
        max_length=50, 
        widget=forms.PasswordInput(attrs={
             'class': 'form-control fs-6', 
+            'style': 'background-color: rgba(240, 240, 240, 0.8)'
         }), 
         label="Nueva Contraseña")
     new_password2 = forms.CharField(
         max_length=50, 
         widget=forms.PasswordInput(attrs={
             'class': 'form-control fs-6', 
+            'style': 'background-color: rgba(240, 240, 240, 0.8)'
         }), label="Confirmar Nueva Contraseña")
 
 class Formulario(forms.Form):
@@ -96,12 +99,6 @@ class Formulario(forms.Form):
             self.fields[field].widget.attrs.update({
                 'class': 'form-control'
             })
-
-class IdentifyForm(forms.ModelForm):
-    class Meta:
-        model = model_identificar
-        fields = '__all__'
-        
 
 class ConcienciaForm(forms.ModelForm):
     class Meta:
@@ -182,6 +179,11 @@ class EditUserForm(forms.ModelForm):
             'email': 'Correo electrónico',
         }
 
+class IdentifyForm(forms.ModelForm):
+    class Meta:
+        model = model_identificar
+        fields = '__all__'        
+
 class EditUserForm(forms.ModelForm):
     class Meta:
         model = User
@@ -193,7 +195,8 @@ class EditUserForm(forms.ModelForm):
         for field in self.fields:
             self.fields[field].widget.attrs.update({
                 'class': 'form-control fs-6 w-100', 
-                'placeholder': f'Ingrese {self.fields[field].label}'
+                'placeholder': f'Ingrese {self.fields[field].label}',
+                'style': 'background-color: rgba(240, 240, 240, 0.8)'
             })
     def set_labels(self):
         self.fields['username'].label = 'Nombre de usuario'

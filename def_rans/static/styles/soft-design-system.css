@@ -20429,10 +20429,10 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-primary:hover:not(.active) {
-  background-color: transparent;
+  background-color: #cb0c9f;
   opacity: .75;
   box-shadow: none;
-  color: #cb0c9f;
+  color: #fff;
 }
 
 .btn-secondary:hover,
@@ -20468,10 +20468,10 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-secondary:hover:not(.active) {
-  background-color: transparent;
+  background-color: #8392AB;
   opacity: .75;
   box-shadow: none;
-  color: #8392AB;
+  color: #fff;
 }
 
 .btn-success:hover,
@@ -20507,10 +20507,10 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-success:hover:not(.active) {
-  background-color: transparent;
-  opacity: .75;
+  background-color: #4BB543;
+  opacity: 0.75;
   box-shadow: none;
-  color: #82d616;
+  color: #fff;
 }
 
 .btn-info:hover,

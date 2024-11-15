@@ -16,14 +16,13 @@
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark"
-        style="background: linear-gradient(to top right, #1D8E6E, #263E6C);">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top"
+        style="background: linear-gradient(to top right, #1D8E6E, #263E6C); box-shadow: none; border-bottom: none;">
         <div class="container-fluid">
 
             <a class="nav-link active" aria-current="page" href="{% url 'home' %}">
                 <img src="{% static 'img/logo 4.png' %}" alt="Bootstrap" width="50" height="54">
-            </a>            
+            </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -44,7 +43,8 @@
                         <ul class="dropdown-menu submenu multi-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="{% url 'antivirus' %}">Antivirus</a></li>
                             <li><a class="dropdown-item" href="{% url 'firewall' %}">Firewall</a></li>
-                            <li><a class="dropdown-item" href="{% url 'specialized' %}">Software especializado (DLP Y
+                            <li><a class="dropdown-item" href="{% url 'specialized' %}">Software especializado (DLP
+                                    Y
                                     ZTNA)</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -95,7 +95,8 @@
                         <ul class="dropdown-menu submenu multi-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="{% url 'form' %}">Formulario</a></li>
                             <li>
-                                <a class="dropdown-item" href="{% url 'consult' %}">Respuestas</a></li>
+                                <a class="dropdown-item" href="{% url 'consult' %}">Respuestas</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

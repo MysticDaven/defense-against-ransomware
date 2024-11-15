@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,128 +18,165 @@
 </head>
 
 <body>
-  <div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <div class="row border rounded-5 p-3 bg-white shadow box-area">
-      <div class="col-md-6 right-box">
-        <div class="row align-items-center">
-          <div class="header-text mb-4">
-            <h2>Cuestionario</h2>
-          </div>
-          {{hecho_identify}}
-          test 
-          {{hecho_conciencia}}
-          test
-          {{hecho_herramientas}}
-          <div id="form-section-1" class="form-section">
-            {% if hecho_identify == 'False' %}
-            <form id='form-1' action="{% url 'save_Identify' %}" method="POST">
-              {% csrf_token %}
+  <div>
+    <div class="page-header section-height-75 relative d-flex flex-column"
+      style="background: linear-gradient(to top left, #263E6C, #1D8E6E );">
+      <div class=" text-center mx-auto">
+        <h1 class="text-white pt-1 mt-5">
+          Realizar Cuestionario
+        </h1>
+      </div>
 
-              {% for question in identify_form %}
-                <p><label>{{question.label_tag}}</label></p>
-                <p><label>{{question}}</label></p>
-              {% endfor %}
+      <section class="d-flex justify-content-center w-100 pt-3 px-5 pb-3 h-100 gap-4">
+        <div class="container d-flex justify-content-center align-items-center mb-8">
+          <div class="row border rounded-5 p-3 bg-white shadow box-area w-100">
+            <div class="col-md-auto">
               <div class="row">
-                <small><button type="submit"
-                    class="btn btn-lg bg-gradient-rpimary btn-lg w-100 mt-4 mb-0">Enviar</button></small>
-              </div>
-            </form>              
-              {% else %}
-              <div>
-                <label>
-                  El formulario ya se ha realizado
-                </label>
-                <button>
-                  Respuestas
-                  <a href="{% url 'consult' %}"></a>
-                </button>
-              </div>
-              <div>
-                <button type="button" onclick="nextSection(2)" class="btn btn-primary">Siguiente</button>
-              </div>              
-              {% endif %}
-          </div>
+                <div id="form-section-1" class="form-section">
+                  {% if hecho_identify == 'False' %}
+                  <form id='form-1' action="{% url 'save_Identify' %}" method="POST">
+                    {% csrf_token %}
 
-          <div id="form-section-2" class="form-section" style="display: none;">
-            {% if hecho_conciencia == 'False' %}
-            <form id="form-2" action="{% url 'save_Conciencia' %}" method="POST">
-              {% csrf_token %}  
-              {% for question in conciencia_form %}
-                <p><label>{{question.label_tag}}</label></p>
-                <p><label>{{question}}</label></p>
-              {% endfor %}
-              <div class="row">
-                <small>
-                  <button type="submit"
-                    class="btn btn-lg bg-gradient-rpimary btn-lg w-100 mt-4 mb-0">Enviar
-                  </button>
-                </small>
-                
-              </div>
-            </form>
-              {% else %}
-              <div>
-                <label>
-                  El formulario ya se ha realizado
-                </label>
-                <button>
-                  Respuestas
-                  <a href="{% url 'consult' %}"></a>
-                </button>
-              </div>
-              <div>
-                <button type="button" onclick="prevSection(1)" class="btn btn-secondary">Anterior</button>
-                <button type="button" onclick="nextSection(3)" class="btn btn-primary">Siguiente</button>
-              </div>              
-              {% endif %}
-          </div>
+                    {% for question in identify_form %}
+                    <h3>{{question.label_tag}}</h3>
+                    <p><label>{{question}}</label></p>
+                    {% endfor %}
+                    <div class="row">
+                      <small><button type="submit"
+                          class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Enviar</button></small>
+                    </div>
+                  </form>
+                  {% else %}
+                  <div>
+                    <h2>
+                      El formulario ya se ha realizado
+                    </h2>
+                    <button>
+                      Respuestas
+                      <a href="{% url 'consult' %}"></a>
+                    </button>
+                  </div>
+                  <div>
+                    <button type="button" onclick="nextSection(2)" class="btn btn-outline-success mb-0">Siguiente</button>
+                  </div>
+                  {% endif %}
+                </div>
 
-          <div id="form-section-3" class="form-section" style="display: none;">
-            {% if hecho_herramientas == 'False' %}
-            <form id=form-3 action="{% url 'save_Herramientas' %}" method="POST">
-              {% csrf_token %}
-              {% for question in herramientas_form %}
-                <p><label>{{question.label_tag}}</label></p>
-                <p><label>{{question}}</label></p>
-              {% endfor %}
-              <div class="row">
-                <small><button type="submit"
-                    class="btn btn-lg bg-gradient-rpimary btn-lg w-100 mt-4 mb-0">Enviar</button></small>
+                <div id="form-section-2" class="form-section" style="display: none;">
+                  {% if hecho_conciencia == 'False' %}
+                  <form id="form-2" action="{% url 'save_Conciencia' %}" method="POST">
+                    {% csrf_token %}
+                    {% for question in conciencia_form %}
+                    <p><label>{{question.label_tag}}</label></p>
+                    <p><label>{{question}}</label></p>
+                    {% endfor %}
+                    <div class="row">
+                      <small>
+                        <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Enviar
+                        </button>
+                      </small>
+
+                    </div>
+                  </form>
+                  {% else %}
+                  <div>
+                    <h2>
+                      El formulario ya se ha realizado
+                    </h2>
+                    <button>
+                      Respuestas
+                      <a href="{% url 'consult' %}"></a>
+                    </button>
+                  </div>
+                  <div>
+                    <button type="button" onclick="prevSection(1)" class="btn btn-outline-secondary mb-0">Anterior</button>
+                    <button type="button" onclick="nextSection(3)" class="btn btn-outline-success mb-0">Siguiente</button>
+                  </div>
+                  {% endif %}
+                </div>
+
+                <div id="form-section-3" class="form-section" style="display: none;">
+                  {% if hecho_herramientas == 'False' %}
+                  <form id=form-3 action="{% url 'save_Herramientas' %}" method="POST">
+                    {% csrf_token %}
+                    {% for question in herramientas_form %}
+                    <h3>{{question.label_tag}}</h3>
+                    <p><label>{{question}}</label></p>
+                    {% endfor %}
+                    <div class="row">
+                      <small><button type="submit"
+                          class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Enviar</button></small>
+                    </div>
+                  </form>
+                  {% else %}
+                  <div>
+                    <h2>
+                      El formulario ya se ha realizado
+                    </h2>
+                    <button>
+                      Respuestas
+                      <a href="{% url 'consult' %}"></a>
+                    </button>
+                  </div>
+                  <div>
+                    <button type="button" onclick="prevSection(2)" class="btn btn-outline-secondary mb-0">Anterior</button>
+                    <!--<button type="submit" class="btn btn-success">Enviar</button>-->
+                  </div>
+                  {% endif %}
+                </div>
               </div>
-            </form>
-              {% else %}
-              <div>
-                <label>
-                  El formulario ya se ha realizado
-                </label>
-                <button>
-                  Respuestas
-                  <a href="{% url 'consult' %}"></a>
-                </button>
-              </div>
-              <div>
-                <button type="button" onclick="prevSection(2)" class="btn btn-secondary">Anterior</button>
-                <!--<button type="submit" class="btn btn-success">Enviar</button>-->
-              </div>
-              {% endif %}
+            </div>
           </div>
         </div>
+        <script>
+          function nextSection(sectionNumber) {
+            document.getElementById('form-section-' + sectionNumber).style.display = 'block';
+            document.getElementById('form-section-' + (sectionNumber - 1)).style.display = 'none';
+          }
+
+          function prevSection(sectionNumber) {
+            document.getElementById('form-section-' + sectionNumber).style.display = 'block';
+            document.getElementById('form-section-' + (sectionNumber + 1)).style.display = 'none';
+          }
+          function redirectToForm() {
+            window.location.href = "{% url 'form' %}";
+          }
+        </script>
+      </section>
+
+      <div class="position-absolute w-100 z-index-1 bottom-0 mt-5">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+          </defs>
+          <g class="moving-waves">
+            <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40"></use>
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95"></use>
+          </g>
+        </svg>
       </div>
     </div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    function nextSection(sectionNumber) {
-      document.getElementById('form-section-' + sectionNumber).style.display = 'block';
-      document.getElementById('form-section-' + (sectionNumber - 1)).style.display = 'none';
-    }
-
-    function prevSection(sectionNumber) {
-      document.getElementById('form-section-' + sectionNumber).style.display = 'block';
-      document.getElementById('form-section-' + (sectionNumber + 1)).style.display = 'none';
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+      if ("{{ msg }}") {
+        Swal.fire({
+          icon: "{% if success %}success{% else %}error{% endif %}",
+          title: "{{ msg }}",
+          showConfirmButton: true,
+          timer: 2000
+        });
+      }
+    });
   </script>
-
 </body>
 
 </html>
