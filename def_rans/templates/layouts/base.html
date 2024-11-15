@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DPAR</title>
     <link rel="icon" href="{% static '/img/logo 4min.png' %}">
-
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 
 <!-- Nucleo Icons -->
@@ -20,16 +19,14 @@
 
 <!-- CSS Files -->
 <link id="pagestyle" href="{% static 'styles/soft-design-system.css' %}" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static '/styles/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     {% if user.is_authenticated %}
-        {% block header %}
             {% include 'layouts/navigation_bar_in.html' %}
-        {% endblock %}    
     {% else %}
-        {% block header2 %}
             {% include 'layouts/navigation_bar_out.html' %}
-        {% endblock %}
     {% endif %}
 
     {% block content %} {% endblock %}
@@ -37,6 +34,10 @@
     {% block footer %}
         {% include 'layouts/page_footer.html' %}
     {% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 </html>

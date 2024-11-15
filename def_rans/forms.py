@@ -67,19 +67,19 @@ class PasswordChangeForm(PasswordChangeForm):
     old_password = forms.CharField(
        max_length=50, 
        widget=forms.PasswordInput(attrs={
-            'class': 'form-control form-control-lg',             
+            'class': 'form-control fs-6',             
         }), 
         label="Contraseña Actual")
     new_password1 = forms.CharField(
        max_length=50, 
        widget=forms.PasswordInput(attrs={
-            'class': 'form-control form-control-lg', 
+            'class': 'form-control fs-6', 
         }), 
         label="Nueva Contraseña")
     new_password2 = forms.CharField(
         max_length=50, 
         widget=forms.PasswordInput(attrs={
-            'class': 'form-control form-control-lg', 
+            'class': 'form-control fs-6', 
         }), label="Confirmar Nueva Contraseña")
 
 class Formulario(forms.Form):
@@ -159,7 +159,7 @@ class EditUserForm(forms.ModelForm):
         fields = ['username', 'first_name', 'last_name', 'email']
         widgets = {
             'username': forms.TextInput(attrs={
-                'class': 'form-control form-control-lg',
+                'class': 'form-control form-control-lg w-25',
                 'placeholder': 'Nombre de usuario'
             }),
             'first_name': forms.TextInput(attrs={
@@ -192,7 +192,7 @@ class EditUserForm(forms.ModelForm):
         
         for field in self.fields:
             self.fields[field].widget.attrs.update({
-                'class': 'form-control form-control-lg', 
+                'class': 'form-control fs-6 w-100', 
                 'placeholder': f'Ingrese {self.fields[field].label}'
             })
     def set_labels(self):
