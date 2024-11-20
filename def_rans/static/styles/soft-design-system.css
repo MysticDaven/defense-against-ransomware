@@ -20695,10 +20695,10 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-dark:hover:not(.active) {
-  background-color: transparent;
+  background-color: #344767;
   opacity: .75;
   box-shadow: none;
-  color: #344767;
+  color: #fff;
 }
 
 .btn-white:hover,

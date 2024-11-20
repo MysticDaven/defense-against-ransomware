@@ -25,6 +25,7 @@
         <h1 class="text-white pt-1 mt-5">
           Realizar Cuestionario
         </h1>
+        <p class="text-white">Realiza los tres diferentes cuestionarios con la finalidad de obtner un reporte de la seguridad de tu empresa.</p>
       </div>
 
       <section class="d-flex justify-content-center w-100 pt-3 px-5 pb-3 h-100 gap-4">
@@ -38,24 +39,23 @@
                     {% csrf_token %}
 
                     {% for question in identify_form %}
-                    <h3>{{question.label_tag}}</h3>
-                    <p><label>{{question}}</label></p>
+                      <h4>{{question.label}}</h4>
+                      <p>{{question}}</p>
                     {% endfor %}
                     <div class="row">
                       <small><button type="submit"
-                          class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Enviar</button></small>
+                          class="btn bg-gradient-dark btn-lg w-100 mt-4 mb-0">Enviar</button></small>
                     </div>
                   </form>
                   {% else %}
-                  <div>
+                  <div class="inline-container">
                     <h2>
                       El formulario ya se ha realizado
                     </h2>
-                    <button>
+                    <button onclick="redirectToForm()" class="btn btn-outline-dark mb-0 w-auto me-1 mb-0">
                       Respuestas
-                      <a href="{% url 'consult' %}"></a>
                     </button>
-                  </div>
+                  </div>                  
                   <div>
                     <button type="button" onclick="nextSection(2)" class="btn btn-outline-success mb-0">Siguiente</button>
                   </div>
@@ -64,15 +64,16 @@
 
                 <div id="form-section-2" class="form-section" style="display: none;">
                   {% if hecho_conciencia == 'False' %}
+                  <p>Selecciona el nivel de importancia de cada uno de los siguientes aspectos</p>
                   <form id="form-2" action="{% url 'save_Conciencia' %}" method="POST">
                     {% csrf_token %}
                     {% for question in conciencia_form %}
-                    <p><label>{{question.label_tag}}</label></p>
-                    <p><label>{{question}}</label></p>
+                      <h4>{{question.label}}</h4>
+                      <p>{{question}}</p>
                     {% endfor %}
                     <div class="row">
                       <small>
-                        <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Enviar
+                        <button type="submit" class="btn bg-gradient-dark btn-lg w-100 mt-4 mb-0">Enviar
                         </button>
                       </small>
 
@@ -83,9 +84,8 @@
                     <h2>
                       El formulario ya se ha realizado
                     </h2>
-                    <button>
+                    <button onclick="redirectToForm()" class="btn btn-outline-dark mb-0 w-auto me-1 mb-0">
                       Respuestas
-                      <a href="{% url 'consult' %}"></a>
                     </button>
                   </div>
                   <div>
@@ -96,16 +96,16 @@
                 </div>
 
                 <div id="form-section-3" class="form-section" style="display: none;">
-                  {% if hecho_herramientas == 'False' %}
+                  {% if hecho_herramientas == 'False' %}                  
                   <form id=form-3 action="{% url 'save_Herramientas' %}" method="POST">
                     {% csrf_token %}
                     {% for question in herramientas_form %}
-                    <h3>{{question.label_tag}}</h3>
-                    <p><label>{{question}}</label></p>
+                      <h4>{{question.label}}</h4>
+                      <p>{{question}}</p>
                     {% endfor %}
                     <div class="row">
                       <small><button type="submit"
-                          class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Enviar</button></small>
+                        class="btn bg-gradient-dark btn-lg w-100 mt-4 mb-0">Enviar</button></small>
                     </div>
                   </form>
                   {% else %}
@@ -113,9 +113,8 @@
                     <h2>
                       El formulario ya se ha realizado
                     </h2>
-                    <button>
+                    <button onclick="redirectToForm()" class="btn btn-outline-dark mb-0 w-auto me-1 mb-0">
                       Respuestas
-                      <a href="{% url 'consult' %}"></a>
                     </button>
                   </div>
                   <div>
@@ -139,7 +138,7 @@
             document.getElementById('form-section-' + (sectionNumber + 1)).style.display = 'none';
           }
           function redirectToForm() {
-            window.location.href = "{% url 'form' %}";
+            window.location.href = "{% url 'consult' %}";
           }
         </script>
       </section>

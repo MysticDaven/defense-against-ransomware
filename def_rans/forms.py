@@ -100,16 +100,6 @@ class Formulario(forms.Form):
                 'class': 'form-control'
             })
 
-class ConcienciaForm(forms.ModelForm):
-    class Meta:
-       model = model_conciencia  
-       fields = '__all__'      
-
-class HerramientasForm(forms.ModelForm):
-   class Meta:
-      model = model_herramientas
-      fields = '__all__'
-
 class CheckDLP(forms.ModelForm):
    class Meta:
       model = ChecklistDLP
@@ -182,8 +172,56 @@ class EditUserForm(forms.ModelForm):
 class IdentifyForm(forms.ModelForm):
     class Meta:
         model = model_identificar
-        fields = '__all__'        
+        fields = '__all__'
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['tipo_empresa'].widget.attrs.update({
+            'class': 'form-control',
+            'placeholder': 'Selecciona el tipo de empresa',
+        })
+
+        self.fields['rol'].widget.attrs.update({
+            'class': 'form-control',
+            'placeholder': 'Selecciona tu rol',
+        })
+
+        self.fields['incidente'].widget.attrs.update({
+            'class': 'form-control',
+            'placeholder': 'Indica qué harías ante un incidente',
+        })
+
+class ConcienciaForm(forms.ModelForm):
+    class Meta:
+       model = model_conciencia  
+       fields = '__all__'    
+
+    def __init__(self, *args, **kwargs):
+       super().__init__(*args, **kwargs)
+
+       for field in self.fields:
+          self.fields[field].widget.attrs.update({
+            'class': 'form-control',
+            'placeholder': f'Ingrese {self.fields[field].label}'
+          })
+
+class HerramientasForm(forms.ModelForm):
+    class Meta:
+      model = model_herramientas
+      fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({
+                'class': 'form-control',
+                'placeholder': f'Ingrese {self.fields[field].label}'
+            })
+
+
+      
 class EditUserForm(forms.ModelForm):
     class Meta:
         model = User

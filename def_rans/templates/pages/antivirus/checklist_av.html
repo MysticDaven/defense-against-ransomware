@@ -22,14 +22,14 @@
       </div>
 
       <section class="d-flex justify-content-center w-100 pt-3 px-1 pb-3 h-100 gap-4">
-        <div class="container mb-5">
+        <div class="container mb-7">
           <div class="column">
             <form method="POST" action="{% url 'checklist_av' %}">
               {% csrf_token %}
 
               {% for field in form %}
               <div class="container py-3">
-                <div class="col-10 mx-auto">
+                <div class="col-10">
                   <div class="form-check form-switch ps-0">
                     <label class="form-check-label ms-2" for="{{ field.id_for_label }}">
                       <p class="text-white">{{ field.label }}</p>
@@ -48,8 +48,8 @@
               </div>
               {% endfor %}
 
-              <div class="text-center">
-                <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-50 mt-4 mb-0">Guardar</button>
+              <div class="text-center">                
+                <button type="submit" class="btn bg-gradient-dark btn-lg w-50 mt-4 mb-0">Guardar</button>
               </div>
             </form>
 
@@ -69,20 +69,6 @@
           </div>
           <div class="column"></div>
         </div>
-        <script>
-          function nextSection(sectionNumber) {
-            document.getElementById('form-section-' + sectionNumber).style.display = 'block';
-            document.getElementById('form-section-' + (sectionNumber - 1)).style.display = 'none';
-          }
-
-          function prevSection(sectionNumber) {
-            document.getElementById('form-section-' + sectionNumber).style.display = 'block';
-            document.getElementById('form-section-' + (sectionNumber + 1)).style.display = 'none';
-          }
-          function redirectToForm() {
-            window.location.href = "{% url 'form' %}";
-          }
-        </script>
       </section>
 
       <div class="position-absolute w-100 z-index-1 bottom-0 mt-5">
