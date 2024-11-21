@@ -20696,7 +20696,7 @@ fieldset:disabled .btn {
 
 .btn-outline-dark:hover:not(.active) {
   background-color: #344767;
-  opacity: .75;
+  /* opacity: 0; */
   box-shadow: none;
   color: #fff;
 }

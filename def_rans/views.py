@@ -221,10 +221,10 @@ def save_Identify(request):
                         respuesta=form.fields['incidente'].choices[incidente + 1][1],
                         pregunta=form.fields['incidente'].label
                     )
-                    context.update({'msg': '¡Guardado exitosamente!','conciencia_form':ConcienciaForm()})
+                    context.update({'msg': '¡Guardado exitosamente!', 'success': True, 'conciencia_form':ConcienciaForm()})
                     context.update(realizado(request, context))
                 except Exception as e:
-                    context.update({'msg': 'Error al guardar los datos. Por favor, inténtalo de nuevo.'})
+                    context.update({'msg': 'Error al guardar los datos. Por favor, inténtalo de nuevo.', 'success': False})
                     print(e)  
         else:
             print("Ya hay una respuesta guardada")
@@ -341,12 +341,12 @@ def save_Conciencia(request):
                         respuesta = form.fields['div_db'].choices[div_db + 1 ][1],
                         pregunta = form.fields['div_db'].label
                     )                                             
-                    context.update({'msg': '¡Guardado exitosamente!','herramientas_form':HerramientasForm()})
+                    context.update({'msg': '¡Guardado exitosamente!', 'success': True, 'herramientas_form':HerramientasForm()})
                     context.update(realizado(request, context))
                     print('Hecho herramientas ', context.get('hecho_herramientas'))
                     print('HECHO HERRAMIENTAS')
                 except Exception as e:
-                    context.update({'msg': 'Error al guardar los datos. Por favor, inténtalo de nuevo.'})
+                    context.update({'msg': 'Error al guardar los datos. Por favor, inténtalo de nuevo.', 'success': False})
                     print(e)
         else:
             print("Ya hay una respuesta guardada")
@@ -475,9 +475,9 @@ def save_Herramientas(request):
                         respuesta = form.fields['preparada'].choices[preparada + 1][1],
                         pregunta = form.fields['preparada'].label 
                     )
-                    context.update({'msg_H': '¡Guaradado exitosamente!'})
+                    context.update({'msg_H': '¡Guaradado exitosamente!', 'success': True})
                 except Exception as e:
-                    context.update({'msg_H': 'Error al guardar los datos. Por favor, inténtalo de nuevo.'})
+                    context.update({'msg_H': 'Error al guardar los datos. Por favor, inténtalo de nuevo.', 'success': False})
                     print(e)
                 print('Error', context.get('msg_H'))
         else:
