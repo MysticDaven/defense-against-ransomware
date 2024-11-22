@@ -9,14 +9,257 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Botón con URL</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../imagenes/logo 4min.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/Popup.css">
+    <link rel="stylesheet" href="../css/pagina 1.css">
 </head>
-<body>
-    <h1>ANTIVIRUS</h1>
-    <a href="{% url 'checklist_av' %}">
-        <br>
-        <button>Checklist de Antivirus</button>
-    </a>
-</body>
+<body>      
+    <div class="container  py-4">
+      <h1 class="title text-center">Antivirus</h1>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="about-title"> </p>
+          <p class="texto">Los antivirus son muy importantes para en la medida de lo posible identificar y bloquear las
+            primeras intrusiones de un ciber ataque previo a que se llegue al punto de ejecución de un ataque de
+            Ransomware. Existe gran variedad de herramientas de antivirus en la actualidad haciendo evidente la
+            importancia de este tipo de soluciones para las organizaciones, habiendo soluciones “sencillas” de tipo
+            “gratuitas” y algunas llegando a niveles complejos de protección como lo son algunos tipos de “EDR”</p>
+          <p class="texto">¿Existen soluciones de ciberseguridad realmente gratuitas?</p>
+          <p class="texto">Esta es una pregunta que nos tenemos que hacer al momento de analizar el tipo de solución de
+            antivirus que necesita mi organización, ya que en todos los casos se terminara pagando de una u otra forma.
+            Tenemos incidentes como el de Avast que filtraba la información de sus usuarios del antivirus gratuito lo cual
+            al final se podría interpretar como un ataque de robo de información. Existen otros antivirus como ClamAV con
+            la ideología de open source de la comunidad de Linux en la cual se enfocan en el software libre (gratuito) más
+            sin embargo si este se aplica en una organización mediana o grande se le tendría que otorgar un recurso
+            considerable lo cual implicaría un gasto en mano de obra u operatividad.</p>
+        </div>
+      </div>
+      <div>
+        <p>Realiza el siguiente checklist para consultar las buneas prácticas que se llevan a cabo en tu empresa. Esto con el propósito de conocer cada una de las buenas prácticas y su vez prestar atención en aquellas que hacen falta.</p>
+        <a href="{% url 'checklist_av' %}">
+            <br>
+            <button class="btn bg-gradient-info w-auto me-1 mb-0 btn-lg">Checklist de Antivirus</button>
+        </a>
+      </div>
+    </div>
+  
+    <br>
+  
+    <section class="py-6" id="about-us" style="background: #393938; background: linear-gradient(to right, #0e490f, #0b0c49);">
+      <div class="container">
+        <h1 class="title text-center"></h1>
+        <div class="row">
+          <div class="col-md-6 about-us">
+            <h1 class="about-title text-white"> Gratis (Pequeñas y medianas empresas):</h1>
+            <p class="texto text-white">ClamAV es un antivirus gratuito de código Open Source, la ventaja que se tiene con
+              ClamAV es que es multi plataforma haciéndolo capaz de ser utilizado sobre Sistemas Operativos Windows, Linux
+              y MacOS, de manera 100% gratuita además cuenta con una amplia base de datos de Malware alimentada por los
+              usuarios que la utilizan haciéndola una buena opción de tipo gratuita para la detección y o contención de
+              Ransomware.</p>
+  
+            <!-- Button trigger modal -->
+            <button type="button1" class="btn bg-gradient-info w-auto me-1 mb-0 btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              ClamAVNet
+            </button>
+  
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel" style="color: black;">Instalar software
+                      Antivirus gratuito, factores a
+                      tomar en cuenta:</h1>
+                  </div>
+                  <img src="{% static '/img/antivirus/ClamAV.png' %}" alt="">
+                  <div class="modal-body">
+                    <p class="texto" style="color: black;">Instalar software Antivirus
+                      gratuito, factores a tomar en cuenta:</p>
+                    <p class="texto" style="color: black;">• Addware, la mayoría de los softwares gratuitos
+                      utilizan el addware como un medio de ingreso de recursos monetarios, pero algunas ocasiones los
+                      cibercriminales utilizan este medio para propagar
+                      malware a través de lo que aparentemente era una instalación común de software, por lo que si el
+                      personal no está capacitado podría instalar más software innecesario poniendo en riesgo el equipo.
+                    </p>
+                    <p class="texto" style="color: black;">• Identificar las funciones del Antivirus gratuito ya
+                      que algunos ejecutan
+                      procesos en automático y otros son manuales.</p>
+                    <p class="texto" style="color: black;">• Se recomienda el uso de ClamAV, ya que es un antivirus
+                      opensource
+                      especializado para la detección de malware como lo es el Ransomware, los Gusanos, los Virus y los
+                      Troyanos.</p>
+                    <p class="texto" style="color: black;">o Recomendaciones para ClamAV: Hacer uso de un “active
+                      directory” para
+                      agilizar
+                      el proceso de instalación y para su gestión. Generar políticas para el uso de la aplicación de
+                      ClamAV
+                      para programar los procesos de actualización de base de datos y búsqueda de Ransomware se sugiere la
+                      aplicación de estos procesos varias veces al día ya que ClamAV es de uso manual.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary w-auto me-1 mb-0" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img src="{% static '/img/antivirus/creative-monitor-tech-digitally-generated-desk.jpg' %}" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <br>
+  
+    <div class="container my-6">
+      <h1 class="title text-center">De paga (pequeñas y medianas):</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="{% static '/img/antivirus/business-man-1572059_640.jpg' %}" class="img-fluid">
+        </div>
+        <div class="col-md-6 about-us">
+          <p class="about-title">Instalar software Antivirus gratuito, factores a tomar en cuenta:</p>
+          <p class="texto">Se recomienda el uso de software Antivirus de paga para una gestión de amenazas más
+            puntual y especifica como lo son las soluciones de tipo EDR (Endpoin Detection and Response) (Endpoin
+            Detection and Response), se recomienda el uso de Kaspersky Endpoint Security Cloud Plus para empresas de todos
+            los tamaños, porque permite tener una gestión de dispositivos unificada de manera remota y con la visibilidad
+            que brinda una herramienta EDR.</p>
+  
+          <!-- Button trigger modal -->
+          <button type="button2" class="btn bg-gradient-info w-auto me-1 mb-0 btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+            EDR
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel2" style="color: black;">Ventajas de la
+                    implementación de un EDR:</h1>
+                </div>
+                <img src="{% static '/img/antivirus/EDR-1.webp' %}" alt="">
+                <div class="modal-body">
+                  <p class="text-justifi" style="color: black; text-align: center;">Ventajas de la implementación de un
+                    EDR:</p>
+                  <p class="text-justifi" style="color: black;">• Gestión unificada para la detección de amenazas en
+                    Smartphones, Endpoints y Servidores.</p>
+                  <p class="text-justifi" style="color: black;">• Trazabilidad de los hechos, para procesos de auditoría
+                    interna e identificar amenazas en el personal, ya sean intencionales o por falta de capacitación.</p>
+                  <p class="text-justifi" style="color: black;">• Gestión de contenido web filtrado por usuario para
+                    prevenir contenido de riesgo dependiendo sea el casó.</p>
+                  <p class="text-justifi" style="color: black;">• Gestión puntual de dispositivos para detectar
+                    vulnerabilidades y dispositivos con mayor riesgo o índice de ataques.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary w-auto me-1 mb-0" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+    <br>
+  
+    <section class="py-6" id="about-us" style="background: #393938; background: linear-gradient(to right, #0e490f, #0b0c49);">
+      <div class="container">
+        <h1 class="title text-center text-white">Antivirus de Paga (Medianas y Grandes empresas):</h1>
+        <div class="row">
+          <div class="col-md-6 about-us">
+            <p class="about-title text-white"> Gratis (Pequeñas y medianas empresas):</p>
+            <p class="texto text-white">Los antivirus/EDR convencionales hoy en día ya no son suficientemente eficaces contra
+              las amenazas que nos enfrentamos día con día y la modernización de los ataques que vienen impulsado por la
+              Inteligencia Artificial, por lo que es necesario pensar en un cambio del paradigma de la ciberseguridad en
+              la cual el futuro para la contención de las ciber amenazas en los Endpoints será una Whitelist administrada
+              como lo es la solución de Blueshift Protect la cual cuenta con la capacitación de una Red Neuronal
+              internacional, con el conocimiento de más de 22 billones de ciber-amenazas (Ransomware y Scripts), aparte de
+              que implementa un enfoque de la metodología de Zero Trust lo cual lo vuelve una solución bastante segura
+              para la protección del Endpoint.</p>
+  
+  
+            <!-- Button trigger modal -->
+            <button type="button2" class="btn bg-gradient-info w-auto me-1 mb-0 btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+              Blueshift
+            </button>
+  
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel3" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel3" style="color: black;">Recomendaciones para
+                      Blueshift Protect:</h1>
+  
+                  </div>
+                  <img src="{% static '/img/antivirus/Blueshif.jpg' %}" alt="">
+                  <div class="modal-body">
+                    <p class="text" style="color: black; text-align: center;">Ventajas de la implementación de un EDR:</p>
+                    <p class="texto" style="color: black;">• Segmentar las instalaciones implementando grupos para tener
+                      una buena gestión de amenazas por sector de la organización.</p>
+                    <p class="texto" style="color: black;">• Otorgar permisos según lo necesario a los roles de los
+                      usuarios teniendo muy en cuenta de que el factor clave de la solución es no confiar tanto en los
+                      usuarios.</p>
+                    <p class="texto" style="color: black;">• Desactivar las alertas para los usuarios finales, para que
+                      solo los Administradores sepan que incidentes se suscitan y no se dé ninguna alerta que ponga sobre
+                      aviso a un hacker interno para poder dar con los infiltrados.</p>
+                    <p class="texto" style="color: black;">• Analizar a detalle los incidentes en especial los de tipo
+                      scripting ya que ataques de ransomware pueden ser desplegados por este medio aun sin tener un
+                      archivo.</p>
+                    <p class="texto" style="color: black;">• Habilitar las opciones de monitoreo de actualizaciones, para
+                      cerrar las brechas de seguridad relacionadas con el software.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary w-auto me-1 mb-0" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img src="{% static '/img/antivirus/meeting-room-828547_640.jpg' %}" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <br>
+  
+    <div class="container py-6">
+      <h1 class="title text-center">Buenas prácticas de antivirus en general para empresas de cualquier tamaño:</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="{% static '/img/antivirus/office-2360063_640.jpg' %}" class="img-fluid">
+        </div>
+        <div class="col-md-6 about-us">
+          <p class="texto">• Ejecutar un análisis en busca de Ransomware al recibir un correo de algún correo no
+            registrado o desconocido y sobre todo cuando incluyen archivos adjuntos prestando especial atención a los
+            archivos comprimidos.</p>
+          <p class="texto"> • No excluir ninguna carpeta o archivo del análisis para la búsqueda de Ransomware ya que al
+            omitir directorios/archivos se dejan puntos donde el Ransomware puede alojarse y explotar.</p>
+          <p class="texto"> • Hacer uso de “Sandbox” para analizar dispositivos USB en busca de Ransomware, para prevenir
+            el “RaaS (Ransomware as a Service)” (Ransomware as a Service) o ataques por omisión (accidente).</p>
+          <p class="texto"> • Revisar periódicamente los resultados de las búsquedas de Ransomware para identificar
+            situaciones de riesgos y corregirlos mediante el proceso de una auditoría interna.</p>
+          <p class="texto"> • Desactivar los permisos de auto gestión de usuarios comunes para evitar brechas de seguridad
+            (aplicación de Zero Trust).</p>
+          <p class="texto"> • Usar software gestor de contraseñas.</p>
+          <p class="texto"> • Activar el análisis automático al insertar una USB en la computadora. </p>
+          <p class="texto"> • Entrenamiento regular al personal sobre la amenaza que representa el Ransomware y como
+            identificar un Ransomware para así poder levantar el ticket correspondiente.</p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  
+    <br>
+  </body>
 </html>
 
 {% endblock %}
