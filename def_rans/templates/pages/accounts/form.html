@@ -96,7 +96,8 @@
                 </div>
 
                 <div id="form-section-3" class="form-section" style="display: none;">
-                  {% if hecho_herramientas == 'False' %}                  
+                  {% if hecho_herramientas == 'False' %}  
+                  <p>Selecciona el nivel de importancia de cada uno de los siguientes aspectos</p>                
                   <form id=form-3 action="{% url 'save_Herramientas' %}" method="POST">
                     {% csrf_token %}
                     {% for question in herramientas_form %}
